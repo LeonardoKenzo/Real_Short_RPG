@@ -4,7 +4,7 @@ public class TurnManager
 {
     private int _turnCount;
 
-    // Construtor do Manager -------------
+    // Constructor ----------------------
     public TurnManager()
     {
         _turnCount = 1;
