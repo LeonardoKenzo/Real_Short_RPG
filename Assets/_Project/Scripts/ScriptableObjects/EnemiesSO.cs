@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "HeroesSO", menuName = "Scriptable Objects/HeroesSO")]
-public class HeroesSO : ScriptableObject
+[CreateAssetMenu(fileName = "EnemiesSO", menuName = "Scriptable Objects/EnemiesSO")]
+public class EnemiesSO : ScriptableObject
 {
     [SerializeField] private string _name;
     [SerializeField] private float _hpMax;
@@ -9,7 +9,7 @@ public class HeroesSO : ScriptableObject
     [SerializeField] private float _speed;
 
     // Getters ----------------
-    public string HeroName{
+    public string EnemyName{
         get { return _name; }
     }
     public float HpMax {
