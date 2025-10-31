@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26ef5339e218d7b4f9158e99ac5e1ad9, type: 3}
-  m_Name: Wizard
-  m_EditorClassIdentifier: Assembly-CSharp::HeroesSO
-  _name: Mago Real
-  _hpMax: 8
-  _actionsMax: 3
-  _speed: 2
+  m_Name: Hero_Knight
+  m_EditorClassIdentifier: Assembly-CSharp::SO_Heroes
+  _name: Cavaleiro do Rei
+  _hpMax: 20
+  _actionsMax: 1
+  _speed: 5

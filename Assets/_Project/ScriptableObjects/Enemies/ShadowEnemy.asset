@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2da6b7a5fce95fc4881bffcbafc13ea1, type: 3}
+  m_Script: {fileID: 11500000, guid: 26ef5339e218d7b4f9158e99ac5e1ad9, type: 3}
   m_Name: ShadowEnemy
-  m_EditorClassIdentifier: Assembly-CSharp::EnemiesSO
-  _name: 'Sombra '
-  _hpMax: 5
-  _actionsMax: 1
+  m_EditorClassIdentifier: Assembly-CSharp::UnitsSO
+  _name: Sombra
+  _hpMax: 10
   _speed: 3
