@@ -10,9 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26ef5339e218d7b4f9158e99ac5e1ad9, type: 3}
-  m_Name: Assassin
-  m_EditorClassIdentifier: Assembly-CSharp::HeroesSO
-  _name: Assassino sigiloso
-  _hpMax: 10
-  _actionsMax: 5
-  _speed: 10
+  m_Name: Hero_Knight
+  m_EditorClassIdentifier: Assembly-CSharp::SO_Heroes
+  _name: Cavaleiro do Rei
+  _hpMax: 25
