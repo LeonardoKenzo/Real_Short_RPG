@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6686565184878896888}
+  - component: {fileID: 3614318472911595430}
   m_Layer: 0
   m_Name: ShadowEnemy
   m_TagString: Enemy
@@ -25,13 +26,34 @@ Transform:
   m_GameObject: {fileID: 3511138046021875952}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.09, y: -0.72, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 40235289579041562}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3614318472911595430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3511138046021875952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94edf4ec9050beb43b01547f010f7e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterRuntimeData
+  _name: 
+  _hpMax: 0
+  _hpCurrent: 0
+  _actionsMax: 0
+  _actionsCurrent: 0
+  _speed: 0
+  stats: {fileID: 11400000, guid: 5a960f11c3c349a44b80a256b20f82ec, type: 2}
+  skills:
+  - {fileID: 11400000, guid: 93f14b6e0949a114aa587f8cc08d21af, type: 2}
 --- !u!1 &8609653022706840403
 GameObject:
   m_ObjectHideFlags: 0
