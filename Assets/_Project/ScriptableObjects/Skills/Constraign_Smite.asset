@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Constraign_Smite
   m_EditorClassIdentifier: Assembly-CSharp::SkillsSO
   _skillName: Golpe Constritor
-  _skillDescription: Golpe de espada mortal
-  _skillType: Fisico
+  _skillDescription: "Golpe com uma bra\xE7adeira ardente"
   _actionCost: 3
   _power: 8
   _cooldown: 2
+  _skillImage: {fileID: -100366484525144096, guid: 1c39c35bba655734dbb2f3e8516383e9, type: 3}
+  _skillEffect: 0

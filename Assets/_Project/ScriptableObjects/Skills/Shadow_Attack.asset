@@ -15,6 +15,7 @@ MonoBehaviour:
   _skillName: Ataque das sombras
   _skillDescription: Usa sombras para ferir o oponente
   _actionCost: 1
-  _power: 2
+  _power: 8
   _cooldown: 1
+  _skillImage: {fileID: 0}
   _skillEffect: 0

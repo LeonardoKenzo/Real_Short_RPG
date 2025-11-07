@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c47f25c3f165bdc46ab2ee5aba5e4c26, type: 3}
   m_Name: Slash
   m_EditorClassIdentifier: Assembly-CSharp::SkillsSO
-  _skillName: Ataque cortante
-  _skillDescription: Um ataque de espada normal
-  _skillType: Fisico
-  _actionCost: 1
-  _power: 2
+  _skillName: Ataque Cortante
+  _skillDescription: Um ataque de espada bem efetivo
+  _actionCost: 2
+  _power: 4
+  _cooldown: 1
+  _skillImage: {fileID: -7314994237843194611, guid: 4320bf4e04f9932458337e00cead04be, type: 3}
+  _skillEffect: 0

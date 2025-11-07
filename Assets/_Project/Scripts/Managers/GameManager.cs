@@ -36,6 +36,6 @@ public class GameManager : MonoBehaviour
             _enemiesData = enemies,
             _nextScene = sceneName
         };
-        UnityEngine.SceneManagement.SceneManager.LoadScene("BattleScene");
+        //UnityEngine.SceneManagement.SceneManager.LoadScene("BattleScene"); // Descomentar depois 
     }
 }
