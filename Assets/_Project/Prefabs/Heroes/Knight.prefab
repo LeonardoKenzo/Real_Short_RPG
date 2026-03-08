@@ -205,8 +205,8 @@ MonoBehaviour:
   _speed: 0
   stats: {fileID: 11400000, guid: 421eb02860d2df24ab271ba166cb01e6, type: 2}
   skills:
-  - {fileID: 11400000, guid: b8aead1d4bc82974caae5026d4355b78, type: 2}
-  - {fileID: 11400000, guid: 4fd9b3469378075479a3bc06bf511c73, type: 2}
+  - {fileID: 11400000, guid: 497ad4b6c1a4afd4680750884c4bbc52, type: 2}
+  - {fileID: 11400000, guid: 52b4a9d764126774a9bbe995d375b30d, type: 2}
   - {fileID: 11400000, guid: 82220a62efd719c4194ae630ce52bdf2, type: 2}
 --- !u!1 &5820991986761575690
 GameObject:

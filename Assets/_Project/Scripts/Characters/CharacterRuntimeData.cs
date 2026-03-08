@@ -57,7 +57,7 @@ public class CharacterRuntimeData : MonoBehaviour
         {
             target.TakeDamage(skills[index].Power);
         } 
-        else if (skills[index].Effect == SkillsSO.SkillEffects.HEAL)
+        if (skills[index].Effect == SkillsSO.SkillEffects.HEAL)
         {
             target.Heal(skills[index].Power);
         }

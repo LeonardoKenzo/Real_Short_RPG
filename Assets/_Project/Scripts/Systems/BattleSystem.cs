@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class BattleSystem : MonoBehaviour
 {
-    // Estados da batalha
     private enum BattleState { START, PLAYER_TURN, ENEMY_TURN, WIN, LOSE }
     private enum PlayerActionState { CHOOSE_SKILL, CHOOSE_TARGET, EXECUTE_ACTION }
  
@@ -47,6 +46,7 @@ public class BattleSystem : MonoBehaviour
             case PlayerActionState.CHOOSE_SKILL:
                 InputSwitchHero();
                 ChooseSkillSelection();
+                InputFinishTurn();
                 break;
             case PlayerActionState.CHOOSE_TARGET:
                 ChooseTargetSelection();
@@ -68,9 +68,9 @@ public class BattleSystem : MonoBehaviour
         foreach (var hero in battleData._partyData)
         {
             GameObject heroObject = Instantiate(_heroPrefab, _heroSpawn[heroIndex]);
-            CharacterRuntimeData runtime = heroObject.GetComponent<CharacterRuntimeData>();
-            runtime.InitializeStats(hero);
-            _party.Add(runtime);
+            CharacterRuntimeData runtimeHero = heroObject.GetComponent<CharacterRuntimeData>();
+            runtimeHero.InitializeStats(hero);
+            _party.Add(runtimeHero);
             heroIndex++;
         }
 
@@ -79,9 +79,9 @@ public class BattleSystem : MonoBehaviour
         foreach (var enemy in battleData._enemiesData)
         {
             GameObject enemyObject = Instantiate(_enemyPrefab, _enemySpawn[enemyIndex]);
-            CharacterRuntimeData runtime = enemyObject.GetComponent<CharacterRuntimeData>();
-            runtime.InitializeStats(enemy);
-            _enemies.Add(runtime);
+            CharacterRuntimeData runtimeEnemy = enemyObject.GetComponent<CharacterRuntimeData>();
+            runtimeEnemy.InitializeStats(enemy);
+            _enemies.Add(runtimeEnemy);
             enemyIndex++;
         }
 
@@ -250,7 +250,6 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    // Seleciona um inimigo para ser alvo da habilidade
     private void SelectEnemy()
     {
         for (int i = 0; i < _enemies.Count; i++)
@@ -271,7 +270,6 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    // Seleciona um heroi da party para ser alvo da habilidade
     private void SelectHero()
     {
         for (int i = 0; i < _party.Count; i++)
@@ -292,7 +290,6 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    // Verificar fim de batalha -------------------------------------------------
     private bool CheckBattleEnd()
     {
         // Remove mortos
@@ -314,7 +311,6 @@ public class BattleSystem : MonoBehaviour
         return false;
     }
 
-    // Troca de heroi ------------------------------------------------------
     private void InputSwitchHero()
     {
         // Seleciona o proximo heroi por tab
@@ -326,7 +322,18 @@ public class BattleSystem : MonoBehaviour
 
             _activeHero = _party[nextIndex];
             _activeHero.IsSelected(true);
+            _battleUI.UpdateCursorPosition(_activeHero.ActionsCurrent);
             Debug.Log($"Herói ativo trocado para: {_activeHero.Name}");
+        }
+    }
+
+    private void InputFinishTurn()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _state = BattleState.ENEMY_TURN;
+            Debug.Log("O jogador encerrou o turno");
+            StartCoroutine(EnemyTurn());
         }
     }
 
