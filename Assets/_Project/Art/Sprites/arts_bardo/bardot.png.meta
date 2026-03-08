@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 04570d7eded56fc40965659865860aba
+guid: c8abee5b739771843a8bf9946c84174a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4602833679764797845
-    second: figura_de_escuridao_0
+      213: -1022906590531315180
+    second: bardot_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: figura_de_escuridao_0
+      name: bardot_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 9
         y: 0
-        width: 720
-        height: 840
+        width: 292
+        height: 320
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b664a65b7237f10c0800000000000000
-      internalID: -4602833679764797845
+      spriteID: 41a99f020e7edc1f0800000000000000
+      internalID: -1022906590531315180
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: bcd4fe6c2012c4f41a73d9d214a562c1
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -133,11 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":1.0},"gridSpriteSize":{"x":160.0,"y":160.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      figura_de_escuridao_0: -4602833679764797845
+      bardot_0: -1022906590531315180
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

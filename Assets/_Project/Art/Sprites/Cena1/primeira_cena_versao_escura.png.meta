@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,8 +105,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 160
-        height: 120
+        width: 1600
+        height: 1200
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,10 +125,10 @@ TextureImporter:
       name: primeira_cena_versao_escura_1
       rect:
         serializedVersion: 2
-        x: 160
+        x: 1600
         y: 0
-        width: 160
-        height: 120
+        width: 1600
+        height: 1200
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea3d5abaf145c07458f1d222627c0d97
-      internalID: 1246971222
+      spriteID: 691f180a918aecd4c8d7c20bfcce2098
+      internalID: -1267907420
       vertices: []
       indices: 
       edges: []
@@ -147,10 +147,10 @@ TextureImporter:
       name: primeira_cena_versao_escura_2
       rect:
         serializedVersion: 2
-        x: 320
+        x: 3200
         y: 0
-        width: 160
-        height: 120
+        width: 1600
+        height: 1200
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,8 +159,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7b324e12aaaec14b889633623030508
-      internalID: 1466815532
+      spriteID: ee756391547ca2b40b72b57ad6ad64d0
+      internalID: -896698186
       vertices: []
       indices: 
       edges: []
@@ -169,10 +169,10 @@ TextureImporter:
       name: primeira_cena_versao_escura_3
       rect:
         serializedVersion: 2
-        x: 480
+        x: 4800
         y: 0
-        width: 160
-        height: 120
+        width: 1600
+        height: 1200
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,8 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0574eacda4214574d8a473f718f1cc76
-      internalID: -936844910
+      spriteID: 15f65880f71fbe44faa04fbb00fa8393
+      internalID: -1720211375
       vertices: []
       indices: 
       edges: []
@@ -201,12 +201,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":160.0,"y":120.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":1.0},"gridSpriteSize":{"x":1600.0,"y":1200.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       primeira_cena_versao_escura_0: 5575908551745617498
-      primeira_cena_versao_escura_1: 1246971222
-      primeira_cena_versao_escura_2: 1466815532
-      primeira_cena_versao_escura_3: -936844910
+      primeira_cena_versao_escura_1: -1267907420
+      primeira_cena_versao_escura_2: -896698186
+      primeira_cena_versao_escura_3: -1720211375
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
