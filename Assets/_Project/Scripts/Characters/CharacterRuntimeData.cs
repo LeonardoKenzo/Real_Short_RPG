@@ -72,6 +72,11 @@ public class CharacterRuntimeData : MonoBehaviour
         _actionsCurrent = _actionsMax;
     }
 
+    public UnitsSO GetStatsSO()
+    {
+        return stats;
+    }
+
     private void Heal(int cure)
     {
         _hpCurrent = Mathf.Min(_hpCurrent + cure, _hpMax);

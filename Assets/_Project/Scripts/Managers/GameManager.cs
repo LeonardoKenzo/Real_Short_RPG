@@ -7,8 +7,6 @@ public class GameManager : MonoBehaviour
     public BattleDataManager _battleDataManager { get; private set; }
     public PartyManager _partyManager { get; private set; }
 
-    [SerializeField] private List<UnitsSO> _enemies;
-
     // Singleton Pattern -------------------------------------------
     private void Awake()
     {
@@ -18,24 +16,20 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-    }
-
-    // Inicializacao dos managers ---------------------------------
-    void Start()
-    {
+        
+        // Inicializacao dos managers ---------------------------------
         _partyManager = gameObject.GetComponentInChildren<PartyManager>();
-        StartBattle(_enemies, "BattleScene"); // Teste
+        StartBattle("BattleScene");
     }
 
     // Functions ---------------------------------------------------
-    public void StartBattle(List<UnitsSO> enemies, string sceneName)
+    public void StartBattle(string sceneName)
     {
         _battleDataManager = new BattleDataManager
         {
-            _partyData = _partyManager.GetPartyData(),
-            _enemiesData = enemies,
+            _partyData = _partyManager.HeroPartyData,
+            _enemiesData = _partyManager.EnemiesPartyData,
             _nextScene = sceneName
         };
-        //UnityEngine.SceneManagement.SceneManager.LoadScene("BattleScene"); // Descomentar depois 
     }
 }

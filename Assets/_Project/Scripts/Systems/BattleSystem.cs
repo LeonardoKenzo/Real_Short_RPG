@@ -56,7 +56,6 @@ public class BattleSystem : MonoBehaviour
 
     // Fluxo de Batalha ----------------------------------------------------------------------
 
-    // SO TEM 1 HEROI E 1 INIMIGO MUDAR ISSO DEPOIS PARA SER VARIOS TIPOS DIFERENTES
     private void InitializeBattle()
     {
         _state = BattleState.START;
