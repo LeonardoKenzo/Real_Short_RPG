@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: ShadowEnemy
   m_EditorClassIdentifier: Assembly-CSharp::UnitsSO
   _name: Sombra
-  _hpMax: 12
+  _hpMax: 25
+  _speed: 0

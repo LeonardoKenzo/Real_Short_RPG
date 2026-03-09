@@ -15,7 +15,7 @@ MonoBehaviour:
   _skillName: Golpe Constritor
   _skillDescription: Aplica um Buff a um heroi
   _actionCost: 2
-  _power: 2
+  _power: 10
   _cooldown: 0
   _skillImage: {fileID: -100366484525144096, guid: 1c39c35bba655734dbb2f3e8516383e9, type: 3}
-  _skillEffect: 2
+  _skillEffect: 02000000

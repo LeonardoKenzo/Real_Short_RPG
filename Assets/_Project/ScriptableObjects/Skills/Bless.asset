@@ -15,7 +15,7 @@ MonoBehaviour:
   _skillName: Coroa Divina
   _skillDescription: Cura e conjura um escudo a um aliado
   _actionCost: 3
-  _power: 10
+  _power: 5
   _cooldown: 0
   _skillImage: {fileID: -4242283198230383139, guid: aabbff9ab6ff21b4db09524422fba638, type: 3}
-  _skillEffect: 1
+  _skillEffect: 0100000002000000

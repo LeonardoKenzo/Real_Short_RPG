@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Hero_Knight
   m_EditorClassIdentifier: Assembly-CSharp::SO_Heroes
   _name: Cavaleiro do Rei
-  _hpMax: 26
+  _hpMax: 25
   _speed: 0

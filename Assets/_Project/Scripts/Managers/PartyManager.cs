@@ -3,6 +3,12 @@ using UnityEngine;
 
 public class PartyManager : MonoBehaviour
 {
+    /*
+        Gerenciador os grupos que irao para a luta, tanto herois quanto inimigos:
+            Use AddHero e RemoveHero para alterar o grupo dos herois
+            Use AddEnemy e RemoveEnemy para alterar o grupo dos inimigos
+    */
+
     [Header("Hero Party")]
     [SerializeField] private List<CharacterRuntimeData> _heroParty;
     [SerializeField] private List<UnitsSO> _heroPartyData;
@@ -21,14 +27,24 @@ public class PartyManager : MonoBehaviour
     public List<CharacterRuntimeData> EnemiesParty => _enemiesParty;
     public List<UnitsSO> EnemiesPartyData => _enemiesPartyData;
 
+    // Initialize the stats of the 
     private void Awake()
     {
-        for (int i = 0; i < ENEMIESPARTYMAXSIZE; i++)
+        for (int i = 0; i < _heroParty.Count; i++)
         {
             if (_heroParty[i] != null)
-                _heroPartyData[i] = _heroParty[i].GetStatsSO();
+            {
+                _heroPartyData.Add(_heroParty[i].Stats);
+                _heroPartySize++;
+            }
+        }
+        for(int i = 0; i < _enemiesParty.Count; i++)
+        {
             if (_enemiesParty[i] != null)
-                _enemiesPartyData[i] = _enemiesParty[i].GetStatsSO();
+            {
+                _enemiesPartyData.Add(_enemiesParty[i].Stats);
+                _enemiesPartySize++;
+            }
         }
     }
 

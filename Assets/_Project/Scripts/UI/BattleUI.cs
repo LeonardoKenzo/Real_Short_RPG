@@ -65,7 +65,7 @@ public class BattleUI : MonoBehaviour
         }
 
         // Se ainda há ações, ativa o cursor correspondente (indexado de 0)
-        if (currentActions > 0 && currentActions <= _cursorPosition.Count)
+        if (currentActions >= 0 && currentActions <= _cursorPosition.Count)
         {
             _cursorPosition[currentActions].enabled = true;
         }

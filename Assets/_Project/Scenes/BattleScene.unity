@@ -335,19 +335,14 @@ MonoBehaviour:
   _heroParty:
   - {fileID: 5691860145603631386, guid: 5e3aab5401baf1c4eace5dc3deae1762, type: 3}
   - {fileID: 5691860145603631386, guid: 5e3aab5401baf1c4eace5dc3deae1762, type: 3}
-  _heroPartyData:
-  - {fileID: 11400000, guid: 421eb02860d2df24ab271ba166cb01e6, type: 2}
-  - {fileID: 11400000, guid: 421eb02860d2df24ab271ba166cb01e6, type: 2}
-  _heroPartySize: 2
+  _heroPartyData: []
+  _heroPartySize: 0
   _enemiesParty:
   - {fileID: 3614318472911595430, guid: a8cb854a4a237e54ab9c1319098580b0, type: 3}
   - {fileID: 3614318472911595430, guid: a8cb854a4a237e54ab9c1319098580b0, type: 3}
   - {fileID: 3614318472911595430, guid: a8cb854a4a237e54ab9c1319098580b0, type: 3}
-  _enemiesPartyData:
-  - {fileID: 11400000, guid: 5a960f11c3c349a44b80a256b20f82ec, type: 2}
-  - {fileID: 11400000, guid: 5a960f11c3c349a44b80a256b20f82ec, type: 2}
-  - {fileID: 11400000, guid: 5a960f11c3c349a44b80a256b20f82ec, type: 2}
-  _enemiesPartySize: 3
+  _enemiesPartyData: []
+  _enemiesPartySize: 0
 --- !u!1 &75750484
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +409,7 @@ MonoBehaviour:
   - {fileID: 1058679121}
   - {fileID: 21765921}
   _indexSkillSelected: 0
-  _isPlayerSelectionFinished: 0
+  _isPlayerTurnEnded: 0
   _targetSelected: {fileID: 0}
   _activeHero: {fileID: 0}
 --- !u!1 &93056288

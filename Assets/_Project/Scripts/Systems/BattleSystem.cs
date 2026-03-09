@@ -26,7 +26,7 @@ public class BattleSystem : MonoBehaviour
 
     [Header("Controle de ações")]
     [SerializeField] private int _indexSkillSelected;
-    [SerializeField] private bool _isPlayerSelectionFinished = false;
+    [SerializeField] private bool _isPlayerTurnEnded = false;
     [SerializeField] private CharacterRuntimeData _targetSelected;
     [SerializeField] private CharacterRuntimeData _activeHero;
 
@@ -100,10 +100,13 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerTurn()
     {
-        _isPlayerSelectionFinished = false;
+        _isPlayerTurnEnded = false;
         _playerActionState = PlayerActionState.CHOOSE_SKILL;
+        for (int i = 0; i < _party.Count; i++)
+        {
+            _party[i].RecoverActions();
+        }
         _activeHero = _party[0];
-        _activeHero.RecoverActions();
 
         // Atualiza a UI
         _activeHero.IsSelected(true);
@@ -113,7 +116,7 @@ public class BattleSystem : MonoBehaviour
         Debug.Log("Seu turno! Escolha uma habilidade (1, 2 ou 3).");
 
         // Espera até que o jogador conclua a ação
-        yield return new WaitUntil(() => _isPlayerSelectionFinished);
+        yield return new WaitUntil(() => _isPlayerTurnEnded);
 
         // Verifica se ganhou
         if (CheckBattleEnd())
@@ -142,7 +145,7 @@ public class BattleSystem : MonoBehaviour
             target.IsSelected(true);
 
             Debug.Log($"{enemy.Name} usa a habilidade \"{enemy.Skills[0].name}\" em {target.Name}! Causou {target.Skills[0].Power} de dano!");
-            enemy.UseSkill(0, target);
+            enemy.UseSkill(0, target); // Fazer mecânica de diferentes skills do inimigo
             enemy.RecoverActions();
 
             yield return new WaitForSeconds(1.5f);
@@ -159,10 +162,10 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(PlayerTurn());
     }
 
-    IEnumerator EndBattle(bool isPlayerWon)
+    IEnumerator EndBattle(bool playerWon)
     {
-        _state = isPlayerWon ? BattleState.WIN : BattleState.LOSE;
-        Debug.Log(isPlayerWon ? "Vitória!" : "Derrota...");
+        _state = playerWon ? BattleState.WIN : BattleState.LOSE;
+        Debug.Log(playerWon ? "Vitória!" : "Derrota...");
 
         yield return new WaitForSeconds(2f);
 
@@ -177,10 +180,11 @@ public class BattleSystem : MonoBehaviour
     // Selecao de Habilidades e ataque do player -----------------------------------------------
     private void ChooseSkillSelection()
     {
-        if(_activeHero.ActionsCurrent <= 0)
+        var _actionsRemaining = _party.FindAll(hero => (hero.ActionsCurrent > 0));
+        if(_actionsRemaining.Count == 0)
         {
             Debug.Log("Não há mais ações restantes!");
-            _isPlayerSelectionFinished = true;
+            _isPlayerTurnEnded = true;
             return;
         }
   
@@ -209,25 +213,22 @@ public class BattleSystem : MonoBehaviour
 
     private void ChooseTargetSelection()
     {
-        switch (_activeHero.Skills[_indexSkillSelected].Effect)
-        {
-            case SkillsSO.SkillEffects.ATTACK:
-            case SkillsSO.SkillEffects.DEBUFF:
-            case SkillsSO.SkillEffects.STUN:
-                SelectEnemy();
-                break;
-            case SkillsSO.SkillEffects.HEAL:
-            case SkillsSO.SkillEffects.BUFF:
-                SelectHero();
-                break;
-        }
+        var effects = _activeHero.Skills[_indexSkillSelected].Effect;
+        if (effects.Contains(SkillsSO.SkillEffects.ATTACK) ||
+            effects.Contains(SkillsSO.SkillEffects.DEBUFF) ||
+            effects.Contains(SkillsSO.SkillEffects.STUN))
+            SelectEnemy();
+        else if (effects.Contains(SkillsSO.SkillEffects.BUFF) ||
+            effects.Contains(SkillsSO.SkillEffects.HEAL) ||
+            effects.Contains(SkillsSO.SkillEffects.SHIELD))
+            SelectHero();
     }
 
     private IEnumerator ExecuteAction()
     {
         _playerActionState = PlayerActionState.EXECUTE_ACTION;
  
-        Debug.Log($"{_activeHero.Name} usa habilidade \"{_activeHero.Skills[_indexSkillSelected].name}\" em {_targetSelected.Name}! Causou {_activeHero.Skills[_indexSkillSelected].Power} de dano!");
+        Debug.Log($"{_activeHero.Name} usa habilidade \"{_activeHero.Skills[_indexSkillSelected].name}\" em {_targetSelected.Name}!");
 
         // Usa a habilidade
         _activeHero.UseSkill(_indexSkillSelected, _targetSelected);
@@ -236,7 +237,12 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         _battleUI.MoveDownSmooth(_indexSkillSelected, 112f, 0.5f);
+
+        yield return new WaitForSeconds(1f);
+
         // Marca o turno do jogador como finalizado
+        _targetSelected.IsSelected(false);
+        CheckBattleEnd();
         if (_activeHero.ActionsCurrent > 0)
         {
             _playerActionState = PlayerActionState.CHOOSE_SKILL;
@@ -245,7 +251,7 @@ public class BattleSystem : MonoBehaviour
         else
         {
             ChangeHero();
-            _playerActionState= PlayerActionState.CHOOSE_SKILL;
+            _playerActionState = PlayerActionState.CHOOSE_SKILL;
         }
     }
 
@@ -253,13 +259,7 @@ public class BattleSystem : MonoBehaviour
     {
         for (int i = 0; i < _enemies.Count; i++)
         {
-            if (_enemies[i] == null)
-            {
-                CheckBattleEnd();
-                return;
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+            if (Input.GetKeyDown(KeyCode.Alpha1 + i) && _enemies[i] != null)
             {
                 _targetSelected = _enemies[i];
                 Debug.Log($"Alvo {_targetSelected.Name} selecionado!");
@@ -273,12 +273,6 @@ public class BattleSystem : MonoBehaviour
     {
         for (int i = 0; i < _party.Count; i++)
         {
-            if (_party[i] == null)
-            {
-                CheckBattleEnd();
-                return;
-            }
-
             if (Input.GetKeyDown(KeyCode.Alpha1 + i))
             {
                 _targetSelected = _party[i];
@@ -293,10 +287,11 @@ public class BattleSystem : MonoBehaviour
     {
         // Remove mortos
         _party.RemoveAll(hero => (hero == null || hero.HpCurrent <= 0));
-        _enemies.RemoveAll((enemy => enemy == null || enemy.HpCurrent <= 0));
+        var enemiesDead = _enemies.FindAll(enemy => (enemy == null || enemy.HpCurrent <= 0));
 
-        if (_enemies.Count == 0)
+        if (enemiesDead.Count == _enemies.Count)
         {
+            _enemies.RemoveAll(enemy => (enemy == null || enemy.HpCurrent <= 0));
             StartCoroutine(EndBattle(true));
             return true;
         }
