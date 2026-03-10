@@ -1,11 +1,7 @@
-using NUnit.Framework;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CharacterRuntimeData : MonoBehaviour
 {
@@ -62,7 +58,7 @@ public class CharacterRuntimeData : MonoBehaviour
 
         if (skills[index].Effect.Contains(SkillsSO.SkillEffects.ATTACK))
         {
-            if (_damageBuff != 0)
+            if (_damageBuff >= 0)
             {
                 target.TakeDamage(skills[index].Power + _damageBuff);
                 _damageBuff = 0;
@@ -101,16 +97,13 @@ public class CharacterRuntimeData : MonoBehaviour
 
     private void TakeDamage(int damage)
     {
-        if(_shield != 0)
-        {
-            int overDamage = (_shield - damage) * -1;
-            _shield = Mathf.Max(0, _shield - damage);
-            if (overDamage > 0)
-            {
-                _hpCurrent -= overDamage;
-            }
-        }
-        _hpCurrent -= damage;
+        int overdamage = (_shield - damage) * -1;
+        _shield -= damage;
+        if (overdamage <= 0)
+            return;
+
+        _shield = 0;
+        _hpCurrent -= overdamage;
         OnHealthChanged?.Invoke(_hpCurrent, _hpMax);
         if (_hpCurrent <= 0)
             StartCoroutine(Die());

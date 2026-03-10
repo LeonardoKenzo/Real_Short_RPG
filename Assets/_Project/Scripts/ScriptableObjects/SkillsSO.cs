@@ -11,6 +11,7 @@ public class SkillsSO : ScriptableObject
     [SerializeField] private int _actionCost;
     [SerializeField] private int _power;
     [SerializeField] private int _cooldown;
+    [SerializeField] private bool _isAOE;
     [SerializeField] private Sprite _skillImage;
     [SerializeField] private List<SkillEffects> _skillEffect;
 
@@ -19,6 +20,7 @@ public class SkillsSO : ScriptableObject
     public string Description => _skillDescription;
     public int ActionCost => _actionCost;
     public int Power => _power;
+    public bool IsAOE => _isAOE;
     public int Cooldown => _cooldown;
     public Sprite SkillImage => _skillImage;
     public List<SkillEffects> Effect => _skillEffect;

@@ -18,4 +18,4 @@ MonoBehaviour:
   _power: 5
   _cooldown: 0
   _skillImage: {fileID: -4242283198230383139, guid: aabbff9ab6ff21b4db09524422fba638, type: 3}
-  _skillEffect: 0100000002000000
+  _skillEffect: 0100000005000000
