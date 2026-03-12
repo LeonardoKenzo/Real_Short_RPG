@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * Script que controla todos os stats dos personagens, usa eventos para atualizar a UI dos personagens.
+ * Script que controla todos os stats dos personagens, 
+ * usa eventos para atualizar a UI dos personagens.
  * 
- * ----------------------------------------------------------------------------------------------------
+ * --------------------------------------------------------------
  * Como usar:
  * 1) Anexar esse Script ao prefab dos personagens
  * 2) Definir os SOs pela Unity para as variaveis stats e skills

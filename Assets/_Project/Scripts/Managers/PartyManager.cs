@@ -7,7 +7,8 @@ using UnityEngine;
  * ---------------------------------------------------------------------------
  * Como usar:
  * 1) Se este script não estiver anexado ao filho do GameManager, anexe-o
- * 2) Adicione manualmente (vamos mudar isso posteriormente) os CharacterRuntimeData.cs de todos os personagens da party
+ * 2) Adicione manualmente (vamos mudar isso posteriormente) os 
+ *    CharacterRuntimeData.cs de todos os personagens da party
  * 
  * ----------------------------------------------------------------------------
  * Dependencias:
