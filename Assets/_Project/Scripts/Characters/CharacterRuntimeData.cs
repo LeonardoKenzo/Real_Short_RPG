@@ -3,9 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Script que controla todos os stats dos personagens, usa eventos para atualizar a UI dos personagens.
+ * 
+ * ----------------------------------------------------------------------------------------------------
+ * Como usar:
+ * 1) Anexar esse Script ao prefab dos personagens
+ * 2) Definir os SOs pela Unity para as variaveis stats e skills
+ * 
+ * --------------------------------------------------------------
+ * Dependencias:
+ * - UnitSO
+ * - SkillsSO
+*/
+
 public class CharacterRuntimeData : MonoBehaviour
 {
-    [SerializeField] private string _name; 
+    [SerializeField] private string _name;
     [SerializeField] private int _hpMax;
     [SerializeField] private int _hpCurrent;
     [SerializeField] private int _shield;
@@ -22,7 +36,7 @@ public class CharacterRuntimeData : MonoBehaviour
     public event Action<bool> OnSelected; // (isSelected)
     public event Action<int> OnCastSkill; // (actionCost)
     public event Action OnDeath;
- 
+
     // Getters ----------------------------------
     public string Name => _name;
     public int HpCurrent => _hpCurrent;
@@ -33,10 +47,10 @@ public class CharacterRuntimeData : MonoBehaviour
     public UnitsSO Stats => stats;
     public SkillsSO[] Skills => skills;
 
-    // Initialize Stats ---------------------------
+    // Functions ---------------------------------------------
     public void InitializeStats(UnitsSO stats)
     {
-        this.stats = stats; 
+        this.stats = stats;
         _name = stats.name;
         _hpMax = stats.HpMax;
         _hpCurrent = _hpMax;
@@ -50,7 +64,6 @@ public class CharacterRuntimeData : MonoBehaviour
         OnCastSkill?.Invoke(_actionsCurrent);
     }
 
-    // Functions ---------------------------------------------
     public bool UseSkill(int index, CharacterRuntimeData target)
     {
         if (_actionsCurrent - skills[index].ActionCost < 0)
@@ -65,7 +78,7 @@ public class CharacterRuntimeData : MonoBehaviour
             }
             else
                 target.TakeDamage(skills[index].Power);
-        } 
+        }
         if (skills[index].Effect.Contains(SkillsSO.SkillEffects.HEAL))
         {
             target.Heal(skills[index].Power);
@@ -88,6 +101,22 @@ public class CharacterRuntimeData : MonoBehaviour
     {
         _actionsCurrent = _actionsMax;
     }
+
+    public void IsSelected(bool isSelected)
+    {
+        OnSelected?.Invoke(isSelected);
+    }
+
+    public List<Sprite> GetSkillsImages()
+    {
+        List<Sprite> skillImages = new List<Sprite>();
+        foreach (SkillsSO skillsSO in skills)
+            skillImages.Add(skillsSO.SkillImage);
+
+        return skillImages;
+    }
+
+    // Private Functions ----------------------------------------
 
     private void Heal(int cure)
     {
@@ -114,19 +143,5 @@ public class CharacterRuntimeData : MonoBehaviour
         yield return new WaitForSeconds(2f);
         OnDeath?.Invoke();
         Destroy(gameObject);
-    }
-
-    public void IsSelected(bool isSelected)
-    {
-        OnSelected?.Invoke(isSelected);
-    }
-
-    public List<Sprite> GetSkillsImages()
-    {
-        List<Sprite> skillImages = new List<Sprite>();
-        foreach (SkillsSO skillsSO in skills)
-            skillImages.Add(skillsSO.SkillImage);
-
-        return skillImages;
     }
 }

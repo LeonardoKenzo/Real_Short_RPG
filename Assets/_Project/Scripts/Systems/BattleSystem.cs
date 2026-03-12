@@ -4,6 +4,41 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
+/*
+ * Gerencia todas as batalhas do jogo utilizando uma máquina
+ * de estados para controlar o fluxo de turnos e ações.
+ *
+ * Fluxo da batalha:
+ * 1) Start
+ *    - Inicia a batalha
+ *    - Instancia cenário, heróis e inimigos
+ *    - Exibe mensagem inicial
+ * 2) PlayerTurn
+ *    - Jogador escolhe ações (ataque, habilidade, etc)
+ * 3) EnemyTurn
+ *    - Inimigos executam suas ações automaticamente
+ * 4) Loop de batalha
+ *    - Alterna entre PlayerTurn e EnemyTurn
+ *    - Verifica condição de vitória ou derrota
+ * 5) Win / Lose
+ *    - Finaliza a batalha
+ *    - Troca para tela de resultado
+ *
+ * -------------------------------------------------------
+ * Como usar:
+ * 1) Criar um GameObject chamado "BattleSystem"
+ * 2) Adicionar filhos com Transform para posições de
+ *    heróis e inimigos
+ * 3) Anexar este script ao GameObject BattleSystem
+ * 4) Definir o BattleUI na variável _battleUI
+ * 5) Definir os prefabs de personagens nas variáveis
+ *
+ * -------------------------------------------------------
+ * Dependências:
+ * - BattleUI
+ * - CharacterRuntimeData
+ * - Transforms para instanciar heróis e inimigos
+ */
 
 public class BattleSystem : MonoBehaviour
 {
@@ -40,7 +75,6 @@ public class BattleSystem : MonoBehaviour
         if (_state != BattleState.PLAYER_TURN)
             return;
 
-
         switch (_playerActionState)
         {
             case PlayerActionState.CHOOSE_SKILL:
@@ -55,7 +89,6 @@ public class BattleSystem : MonoBehaviour
     }
 
     // Fluxo de Batalha ----------------------------------------------------------------------
-
     private void InitializeBattle()
     {
         _state = BattleState.START;
@@ -87,6 +120,7 @@ public class BattleSystem : MonoBehaviour
         // Comeca a batalha
         StartCoroutine(StartBattle());
     }
+
     IEnumerator StartBattle()
     {
         // Texto de dialogo, efeitos, etc antes da batalha
@@ -100,8 +134,10 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerTurn()
     {
-        _isPlayerTurnEnded = false;
+        _isPlayerTurnEnded = false; // Controla se o turno do player foi encerrado
         _playerActionState = PlayerActionState.CHOOSE_SKILL;
+
+        // Recupera todas as acoes dos herois no comeco do turno
         for (int i = 0; i < _party.Count; i++)
         {
             _party[i].RecoverActions();
@@ -145,7 +181,7 @@ public class BattleSystem : MonoBehaviour
             target.IsSelected(true);
 
             Debug.Log($"{enemy.Name} usa a habilidade \"{enemy.Skills[0].name}\" em {target.Name}! Causou {target.Skills[0].Power} de dano!");
-            enemy.UseSkill(0, target); // Fazer mecânica de diferentes skills do inimigo
+            enemy.UseSkill(0, target); // Criar diferentes skills do inimigo
             enemy.RecoverActions();
 
             yield return new WaitForSeconds(1.5f);
@@ -176,8 +212,6 @@ public class BattleSystem : MonoBehaviour
     }
 
     // Funcoes Auxilares para as Batalhas -------------------------------------------------------
-
-    // Selecao de Habilidades e ataque do player -----------------------------------------------
     private void ChooseSkillSelection()
     {
         var _actionsRemaining = _party.FindAll(hero => (hero.ActionsCurrent > 0));
@@ -307,8 +341,7 @@ public class BattleSystem : MonoBehaviour
 
     private void InputSwitchHero()
     {
-        // Seleciona o proximo heroi por tab
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab)) // Seleciona o proximo heroi por tab
         {
             int currentIndex = _party.IndexOf(_activeHero);
             int nextIndex = (currentIndex + 1) % _party.Count;
@@ -323,7 +356,7 @@ public class BattleSystem : MonoBehaviour
 
     private void InputFinishTurn()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)) // Espaco no teclado finaliza o turno
         {
             _state = BattleState.ENEMY_TURN;
             Debug.Log("O jogador encerrou o turno");
@@ -331,7 +364,6 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    // Troca para o proximo heroi
     private void ChangeHero()
     {
         int currentIndex = _party.IndexOf(_activeHero);

@@ -7,7 +7,7 @@ public class UnitsSO : ScriptableObject
     [SerializeField] private int _hpMax;
     [SerializeField] private int _speed;
 
-    // Getters ----------------
+    // Getters --------------------
     public string UnitName => _name;
     public int HpMax => _hpMax;
     public int Speed => _speed;

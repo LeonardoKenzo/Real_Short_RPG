@@ -15,7 +15,7 @@ public class SkillsSO : ScriptableObject
     [SerializeField] private Sprite _skillImage;
     [SerializeField] private List<SkillEffects> _skillEffect;
 
-    // Getters ----------------
+    // Getters ------------------------------------
     public string SkillName => _skillName;
     public string Description => _skillDescription;
     public int ActionCost => _actionCost;

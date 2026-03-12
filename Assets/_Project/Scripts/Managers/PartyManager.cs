@@ -1,24 +1,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Gerenciador os grupos que irao para a luta, tanto herois quanto inimigos
+ * 
+ * ---------------------------------------------------------------------------
+ * Como usar:
+ * 1) Se este script não estiver anexado ao filho do GameManager, anexe-o
+ * 2) Adicione manualmente (vamos mudar isso posteriormente) os CharacterRuntimeData.cs de todos os personagens da party
+ * 
+ * ----------------------------------------------------------------------------
+ * Dependencias:
+ * - CharacterRuntimeData (dos inimigos e herois)
+*/
 public class PartyManager : MonoBehaviour
 {
-    /*
-        Gerenciador os grupos que irao para a luta, tanto herois quanto inimigos:
-            Use AddHero e RemoveHero para alterar o grupo dos herois
-            Use AddEnemy e RemoveEnemy para alterar o grupo dos inimigos
-    */
 
     [Header("Hero Party")]
     [SerializeField] private List<CharacterRuntimeData> _heroParty;
-    [SerializeField] private List<UnitsSO> _heroPartyData;
-    [SerializeField] private int _heroPartySize = 0;
+    private List<UnitsSO> _heroPartyData; 
+    private int _heroPartySize = 0;
     private const int HEROPARTYMAXSIZE = 3;
 
     [Header("Enemies Party")]
     [SerializeField] private List<CharacterRuntimeData> _enemiesParty;
-    [SerializeField] private List<UnitsSO> _enemiesPartyData;
-    [SerializeField] private int _enemiesPartySize = 0;
+    private List<UnitsSO> _enemiesPartyData;
+    private int _enemiesPartySize = 0;
     private const int ENEMIESPARTYMAXSIZE = 5;
 
     // Getters -------------------------------------
