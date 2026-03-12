@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public BattleDataManager _battleDataManager { get; private set; }
-    private PartyManager _partyManager;
+    public PartyManager _partyManager { get; private set; }
 
     // Singleton Pattern -------------------------------------------
     private void Awake()

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c47f25c3f165bdc46ab2ee5aba5e4c26, type: 3}
-  m_Name: Bless
+  m_Name: Flute
   m_EditorClassIdentifier: Assembly-CSharp::SkillsSO
-  _skillName: Coroa Divina
-  _skillDescription: Cura e conjura um escudo a um aliado
-  _actionCost: 3
-  _power: 5
+  _skillName: Flauta
+  _skillDescription: Ao tocar tem a chance de atordoar o oponente
+  _actionCost: 2
+  _power: 2
   _cooldown: 0
-  _isAOE: 1
-  _skillImage: {fileID: -4242283198230383139, guid: aabbff9ab6ff21b4db09524422fba638, type: 3}
-  _skillEffect: 0100000005000000
+  _isAOE: 0
+  _skillImage: {fileID: 610015561781798372, guid: a4adcf0d4b0fac346af274a298a814cf, type: 3}
+  _skillEffect: 04000000

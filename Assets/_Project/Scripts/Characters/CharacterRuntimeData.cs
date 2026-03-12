@@ -72,7 +72,7 @@ public class CharacterRuntimeData : MonoBehaviour
 
         if (skills[index].Effect.Contains(SkillsSO.SkillEffects.ATTACK))
         {
-            if (_damageBuff >= 0)
+            if (_damageBuff > 0)
             {
                 target.TakeDamage(skills[index].Power + _damageBuff);
                 _damageBuff = 0;

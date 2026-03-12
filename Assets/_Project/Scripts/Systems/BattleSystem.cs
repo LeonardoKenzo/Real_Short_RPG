@@ -83,7 +83,7 @@ public class BattleSystem : MonoBehaviour
                 InputFinishTurn();
                 break;
             case PlayerActionState.CHOOSE_TARGET:
-                ChooseTargetSelection();
+                ChooseTarget();
                 break;
         }
     }
@@ -212,6 +212,7 @@ public class BattleSystem : MonoBehaviour
     }
 
     // Funcoes Auxilares para as Batalhas -------------------------------------------------------
+    
     private void ChooseSkillSelection()
     {
         var _actionsRemaining = _party.FindAll(hero => (hero.ActionsCurrent > 0));
@@ -223,48 +224,98 @@ public class BattleSystem : MonoBehaviour
         }
   
         if (Input.GetKeyDown(KeyCode.Alpha1))
-            ChooseSkill(0);
+            SkillChoosed(0);
         if (Input.GetKeyDown(KeyCode.Alpha2))
-            ChooseSkill(1);
+            SkillChoosed(1);
         if (Input.GetKeyDown(KeyCode.Alpha3))
-            ChooseSkill(2);
+            SkillChoosed(2);
     }
-
-    private void ChooseSkill(int index)
+    private void SkillChoosed(int index)
     {
-        if (_activeHero.Skills[index].ActionCost > _activeHero.ActionsCurrent)
+        var skill = _activeHero.Skills[index];
+
+        if (skill.ActionCost > _activeHero.ActionsCurrent)
         {
             Debug.Log("Ações insuficientes para usar a habilidade.");
             return;
         }
         _battleUI.MoveDownSmooth(_indexSkillSelected, 112, 0.5f);
 
-        _indexSkillSelected = index;
         _battleUI.MoveUpSmooth(index, 112f, 0.5f);
         Debug.Log($"Habilidade {index + 1}: escolhida! Agora selecione o alvo (1, 2, 3).");
+        _indexSkillSelected = index;
+
+        if (skill.IsAOE)
+        {
+            if (IsBuff(skill.Effect))
+                StartCoroutine(AffectAllCharacters(_party));
+            else
+                StartCoroutine(AffectAllCharacters(_enemies));
+            return;
+        }
         _playerActionState = PlayerActionState.CHOOSE_TARGET;
     }
 
-    private void ChooseTargetSelection()
+    private void ChooseTarget()
     {
         var effects = _activeHero.Skills[_indexSkillSelected].Effect;
-        if (effects.Contains(SkillsSO.SkillEffects.ATTACK) ||
-            effects.Contains(SkillsSO.SkillEffects.DEBUFF) ||
-            effects.Contains(SkillsSO.SkillEffects.STUN))
-            SelectEnemy();
-        else if (effects.Contains(SkillsSO.SkillEffects.BUFF) ||
-            effects.Contains(SkillsSO.SkillEffects.HEAL) ||
-            effects.Contains(SkillsSO.SkillEffects.SHIELD))
-            SelectHero();
+        if (IsBuff(effects))
+            SelectTarget(_party);
+        else
+            SelectTarget(_enemies);
     }
 
+    private void SelectTarget(List<CharacterRuntimeData> party)
+    {
+        for (int i = 0; i < party.Count; i++)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1 + i) && party[i] != null)
+            {
+                _targetSelected = party[i];
+                Debug.Log($"Alvo {_targetSelected.Name} selecionado!");
+                _targetSelected.IsSelected(true);
+                StartCoroutine(ExecuteAction());
+            }
+        }
+    }
+
+    private IEnumerator AffectAllCharacters(List<CharacterRuntimeData> list)
+    {
+        _playerActionState = PlayerActionState.EXECUTE_ACTION;
+        for (int i = 0; i < list.Count; i++) 
+        {
+            _targetSelected = list[i];
+            _targetSelected.UseSkill(_indexSkillSelected, _targetSelected);
+            _battleUI.UpdateCursorPosition(_targetSelected.ActionsCurrent);
+            _targetSelected.IsSelected(true);
+        }
+        Debug.Log($"{_targetSelected.Name} usou a habilidade \"{_targetSelected.Skills[_indexSkillSelected].name}\" nos alvos!");
+
+        yield return new WaitForSeconds(2f);
+
+        _battleUI.MoveDownSmooth(_indexSkillSelected, 112f, 0.5f);
+
+        yield return new WaitForSeconds(1f);
+
+        _targetSelected.IsSelected(false);
+        CheckBattleEnd();
+        if (_targetSelected.ActionsCurrent > 0)
+        {
+            _playerActionState = PlayerActionState.CHOOSE_SKILL;
+            Debug.Log($"Ações restantes: {_targetSelected.ActionsCurrent}. Escolha nova habilidade ou troque de herói (tab).");
+        }
+        else
+        {
+            ChangeHero();
+            _playerActionState = PlayerActionState.CHOOSE_SKILL;
+        }
+    }
     private IEnumerator ExecuteAction()
     {
         _playerActionState = PlayerActionState.EXECUTE_ACTION;
  
-        Debug.Log($"{_activeHero.Name} usa habilidade \"{_activeHero.Skills[_indexSkillSelected].name}\" em {_targetSelected.Name}!");
+        Debug.Log($"{_activeHero.Name} usou a habilidade \"{_activeHero.Skills[_indexSkillSelected].name}\" em {_targetSelected.Name}!");
 
-        // Usa a habilidade
         _activeHero.UseSkill(_indexSkillSelected, _targetSelected);
         _battleUI.UpdateCursorPosition(_activeHero.ActionsCurrent);
 
@@ -289,32 +340,13 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    private void SelectEnemy()
+    private bool IsBuff(List<SkillsSO.SkillEffects> effects)
     {
-        for (int i = 0; i < _enemies.Count; i++)
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha1 + i) && _enemies[i] != null)
-            {
-                _targetSelected = _enemies[i];
-                Debug.Log($"Alvo {_targetSelected.Name} selecionado!");
-                _targetSelected.IsSelected(true);
-                StartCoroutine(ExecuteAction());
-            }
-        }
-    }
-
-    private void SelectHero()
-    {
-        for (int i = 0; i < _party.Count; i++)
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha1 + i))
-            {
-                _targetSelected = _party[i];
-                Debug.Log($"Alvo {_targetSelected.Name} selecionado!");
-                _targetSelected.IsSelected(true);
-                StartCoroutine(ExecuteAction());
-            }
-        }
+        if (effects.Contains(SkillsSO.SkillEffects.ATTACK) ||
+           effects.Contains(SkillsSO.SkillEffects.DEBUFF) ||
+           effects.Contains(SkillsSO.SkillEffects.STUN))
+            return false;
+        return true;
     }
 
     private bool CheckBattleEnd()

@@ -197,10 +197,12 @@ MonoBehaviour:
   _heroParty:
   - {fileID: 5691860145603631386, guid: 5e3aab5401baf1c4eace5dc3deae1762, type: 3}
   - {fileID: 5691860145603631386, guid: 5e3aab5401baf1c4eace5dc3deae1762, type: 3}
+  _heroPartyData: []
   _enemiesParty:
   - {fileID: 3614318472911595430, guid: a8cb854a4a237e54ab9c1319098580b0, type: 3}
   - {fileID: 3614318472911595430, guid: a8cb854a4a237e54ab9c1319098580b0, type: 3}
   - {fileID: 3614318472911595430, guid: a8cb854a4a237e54ab9c1319098580b0, type: 3}
+  _enemiesPartyData: []
 --- !u!1 &75750484
 GameObject:
   m_ObjectHideFlags: 0

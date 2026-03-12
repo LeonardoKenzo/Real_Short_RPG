@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Hero_Bard
   m_EditorClassIdentifier: Assembly-CSharp::HeroesSO
   _name: Bardo
-  _hpMax: 16
-  _speed: 2
+  _hpMax: 15
+  _speed: 0

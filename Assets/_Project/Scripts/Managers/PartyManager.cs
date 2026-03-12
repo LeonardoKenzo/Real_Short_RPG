@@ -19,13 +19,13 @@ public class PartyManager : MonoBehaviour
 
     [Header("Hero Party")]
     [SerializeField] private List<CharacterRuntimeData> _heroParty;
-    private List<UnitsSO> _heroPartyData; 
+    [SerializeField] private List<UnitsSO> _heroPartyData; 
     private int _heroPartySize = 0;
     private const int HEROPARTYMAXSIZE = 3;
 
     [Header("Enemies Party")]
     [SerializeField] private List<CharacterRuntimeData> _enemiesParty;
-    private List<UnitsSO> _enemiesPartyData;
+    [SerializeField] private List<UnitsSO> _enemiesPartyData;
     private int _enemiesPartySize = 0;
     private const int ENEMIESPARTYMAXSIZE = 5;
 
@@ -35,7 +35,7 @@ public class PartyManager : MonoBehaviour
     public List<CharacterRuntimeData> EnemiesParty => _enemiesParty;
     public List<UnitsSO> EnemiesPartyData => _enemiesPartyData;
 
-    // Initialize the stats of the 
+    // Initialize the stats of the characters
     private void Awake()
     {
         for (int i = 0; i < _heroParty.Count; i++)
