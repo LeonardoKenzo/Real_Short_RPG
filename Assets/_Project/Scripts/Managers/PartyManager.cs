@@ -35,7 +35,7 @@ public class PartyManager : MonoBehaviour
     public List<CharacterRuntimeData> EnemiesParty => _enemiesParty;
     public List<UnitsSO> EnemiesPartyData => _enemiesPartyData;
 
-    // Initialize the stats of the characters
+    // Initialize the _stats of the characters
     private void Awake()
     {
         for (int i = 0; i < _heroParty.Count; i++)

@@ -15,7 +15,7 @@ MonoBehaviour:
   _skillName: Violino
   _skillDescription: Toca um Violino para acalmar os aliados
   _actionCost: 1
-  _power: 2
+  _power: 10
   _cooldown: 0
   _isAOE: 0
   _skillImage: {fileID: 199979282412007142, guid: a2775bfed91a2294c8dc0f855a0f060e, type: 3}

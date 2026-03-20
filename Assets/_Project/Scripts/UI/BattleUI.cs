@@ -16,6 +16,7 @@ using UnityEngine.UI;
  * - GameObject (fim de jogo)
  * - Images (Contador de acoes)
  * - RectTransforms (posicao das cartas)
+ * - BattleSystem
  */
 
 public class BattleUI : MonoBehaviour
@@ -26,11 +27,18 @@ public class BattleUI : MonoBehaviour
 
     [Header("Action Counter")]
     [SerializeField] private List<Image> _cursorPosition;
+    private BattleSystem _battleSystem;
 
     [Header("Skills Cards")]
     [SerializeField] private List<Image> _skillsSprites;
     [SerializeField] private List<RectTransform> _skillsTransforms;
     private RectTransform _skillCard;
+
+    public void Initialize(BattleSystem battleSystem)
+    {
+        _battleSystem = battleSystem;
+        _battleSystem.OnChangeActions += UpdateCursorPosition;
+    }
 
     // Funcoes da Selecao de Skills (cartas) --------------------------------
 
@@ -90,9 +98,11 @@ public class BattleUI : MonoBehaviour
     public void WinScreen()
     {
         _winScreen.SetActive(true);
+        _battleSystem.OnChangeActions -= UpdateCursorPosition;
     }
     public void LoseScreen()
     {
         _loseScreen.SetActive(true);
+        _battleSystem.OnChangeActions -= UpdateCursorPosition;
     }
 }

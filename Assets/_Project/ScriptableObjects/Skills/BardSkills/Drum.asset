@@ -15,7 +15,7 @@ MonoBehaviour:
   _skillName: Tambor
   _skillDescription: "Toca o tambor e causa um dano em \xE1rea"
   _actionCost: 3
-  _power: 2
+  _power: 10
   _cooldown: 0
   _isAOE: 1
   _skillImage: {fileID: 4589780200335697043, guid: 551619f795afed741ae2ddf0ba091201, type: 3}

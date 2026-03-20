@@ -200,14 +200,13 @@ MonoBehaviour:
   _name: 
   _hpMax: 0
   _hpCurrent: 0
+  _shield: 0
+  _damageBuff: 0
   _actionsMax: 0
   _actionsCurrent: 0
-  _speed: 0
-  stats: {fileID: 11400000, guid: 421eb02860d2df24ab271ba166cb01e6, type: 2}
-  skills:
-  - {fileID: 11400000, guid: b8aead1d4bc82974caae5026d4355b78, type: 2}
-  - {fileID: 11400000, guid: 52b4a9d764126774a9bbe995d375b30d, type: 2}
-  - {fileID: 11400000, guid: 82220a62efd719c4194ae630ce52bdf2, type: 2}
+  _stunTime: 0
+  _isStunned: 0
+  _stats: {fileID: 11400000, guid: 421eb02860d2df24ab271ba166cb01e6, type: 2}
 --- !u!1 &5820991986761575690
 GameObject:
   m_ObjectHideFlags: 0
