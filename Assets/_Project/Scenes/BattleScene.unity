@@ -258,8 +258,6 @@ MonoBehaviour:
   _battleUI: {fileID: 1525993424}
   _party: []
   _enemies: []
-  _heroPrefab: {fileID: 4873675712244950582, guid: 5e3aab5401baf1c4eace5dc3deae1762, type: 3}
-  _enemyPrefab: {fileID: 3511138046021875952, guid: a8cb854a4a237e54ab9c1319098580b0, type: 3}
   _heroSpawn:
   - {fileID: 96243506}
   - {fileID: 1795320745}

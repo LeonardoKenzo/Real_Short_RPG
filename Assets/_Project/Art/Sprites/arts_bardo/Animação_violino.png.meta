@@ -81,7 +81,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -133,12 +133,12 @@ TextureImporter:
       name: "Anima\xE7\xE3o_violino_0"
       rect:
         serializedVersion: 2
-        x: 24
-        y: 10
-        width: 16
-        height: 34
+        x: 0
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -155,12 +155,12 @@ TextureImporter:
       name: "Anima\xE7\xE3o_violino_1"
       rect:
         serializedVersion: 2
-        x: 86
-        y: 36
-        width: 7
-        height: 7
+        x: 640
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -177,12 +177,12 @@ TextureImporter:
       name: "Anima\xE7\xE3o_violino_2"
       rect:
         serializedVersion: 2
-        x: 87
-        y: 9
-        width: 18
-        height: 36
+        x: 1280
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -199,12 +199,12 @@ TextureImporter:
       name: "Anima\xE7\xE3o_violino_3"
       rect:
         serializedVersion: 2
-        x: 102
-        y: 37
-        width: 6
-        height: 9
+        x: 1920
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -221,12 +221,12 @@ TextureImporter:
       name: "Anima\xE7\xE3o_violino_4"
       rect:
         serializedVersion: 2
-        x: 147
-        y: 8
-        width: 23
-        height: 38
+        x: 2560
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -239,143 +239,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: "Anima\xE7\xE3o_violino_5"
-      rect:
-        serializedVersion: 2
-        x: 149
-        y: 37
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 755c969944d4f23b0800000000000000
-      internalID: -5535120459988089513
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Anima\xE7\xE3o_violino_6"
-      rect:
-        serializedVersion: 2
-        x: 167
-        y: 38
-        width: 6
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 14c3e7bbf88914b40800000000000000
-      internalID: 5422783169424145473
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Anima\xE7\xE3o_violino_7"
-      rect:
-        serializedVersion: 2
-        x: 210
-        y: 5
-        width: 30
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d9ac9c996a11b2180800000000000000
-      internalID: -9139191611575907683
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Anima\xE7\xE3o_violino_8"
-      rect:
-        serializedVersion: 2
-        x: 232
-        y: 39
-        width: 6
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 20895de3aebb01770800000000000000
-      internalID: 8579563904891721730
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Anima\xE7\xE3o_violino_9"
-      rect:
-        serializedVersion: 2
-        x: 270
-        y: 4
-        width: 36
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 935aad0b605523060800000000000000
-      internalID: 6931696263701898553
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Anima\xE7\xE3o_violino_10"
-      rect:
-        serializedVersion: 2
-        x: 272
-        y: 41
-        width: 9
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d9caecf3d8dafa2f0800000000000000
-      internalID: -959357373434123107
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6e42d44f52eff2e46bf0b83f1e17923f
     internalID: 0
     vertices: []
     indices: 
@@ -383,19 +251,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       "Anima\xE7\xE3o_violino_0": -6482994756075254971
       "Anima\xE7\xE3o_violino_1": 4270525755383849270
-      "Anima\xE7\xE3o_violino_10": -959357373434123107
       "Anima\xE7\xE3o_violino_2": -6023097225685521120
       "Anima\xE7\xE3o_violino_3": 5995951038117770332
       "Anima\xE7\xE3o_violino_4": 5937863672992967129
-      "Anima\xE7\xE3o_violino_5": -5535120459988089513
-      "Anima\xE7\xE3o_violino_6": 5422783169424145473
-      "Anima\xE7\xE3o_violino_7": -9139191611575907683
-      "Anima\xE7\xE3o_violino_8": 8579563904891721730
-      "Anima\xE7\xE3o_violino_9": 6931696263701898553
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

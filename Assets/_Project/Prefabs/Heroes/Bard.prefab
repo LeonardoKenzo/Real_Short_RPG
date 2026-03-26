@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 5858467899932892673}
   - component: {fileID: 8718525399592623809}
   - component: {fileID: 5020350099487843379}
+  - component: {fileID: 1912010501018705948}
   m_Layer: 5
   m_Name: Cursor
   m_TagString: Untagged
@@ -165,6 +166,28 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &1912010501018705948
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865267065161196610}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2385c5a0158ac3c4a9e1b0bd8f73b4cf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2035504710366768418
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,8 +314,6 @@ MonoBehaviour:
   _hpCurrent: 0
   _shield: 0
   _damageBuff: 0
-  _actionsMax: 0
-  _actionsCurrent: 0
   _stunTime: 0
   _isStunned: 0
   _stats: {fileID: 11400000, guid: d3c109438bdb399438a8e03a4300ada6, type: 2}

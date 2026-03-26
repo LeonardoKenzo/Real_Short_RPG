@@ -66,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -118,12 +118,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_flauta-export_0"
       rect:
         serializedVersion: 2
-        x: 179
-        y: 139
-        width: 282
-        height: 342
+        x: 0
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -140,12 +140,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_flauta-export_1"
       rect:
         serializedVersion: 2
-        x: 819
-        y: 129
-        width: 292
-        height: 352
+        x: 640
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -162,12 +162,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_flauta-export_2"
       rect:
         serializedVersion: 2
-        x: 1449
-        y: 419
-        width: 22
-        height: 52
+        x: 1280
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -184,12 +184,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_flauta-export_3"
       rect:
         serializedVersion: 2
-        x: 1459
-        y: 119
-        width: 302
-        height: 362
+        x: 1920
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -202,55 +202,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_flauta-export_4"
-      rect:
-        serializedVersion: 2
-        x: 2099
-        y: 139
-        width: 272
-        height: 342
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d634ffa10e0f21b40800000000000000
-      internalID: 5409650947741664109
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_flauta-export_5"
-      rect:
-        serializedVersion: 2
-        x: 2339
-        y: 159
-        width: 52
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d656f7ff3ec4f5f50800000000000000
-      internalID: 6872296098518492525
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d2bb29a499c123d44a0e202e97eb8249
     internalID: 0
     vertices: []
     indices: 
@@ -258,14 +214,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       "anima\xE7\xE3o_flauta-export_0": -3537189537577146849
       "anima\xE7\xE3o_flauta-export_1": 4665725802761479374
       "anima\xE7\xE3o_flauta-export_2": -2806876840659098026
       "anima\xE7\xE3o_flauta-export_3": -6731445442668819073
-      "anima\xE7\xE3o_flauta-export_4": 5409650947741664109
-      "anima\xE7\xE3o_flauta-export_5": 6872296098518492525
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
