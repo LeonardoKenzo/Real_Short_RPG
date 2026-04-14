@@ -246,12 +246,11 @@ MonoBehaviour:
   _name: 
   _hpMax: 0
   _hpCurrent: 0
-  _actionsMax: 0
-  _actionsCurrent: 0
-  _speed: 0
-  stats: {fileID: 11400000, guid: 5a960f11c3c349a44b80a256b20f82ec, type: 2}
-  skills:
-  - {fileID: 11400000, guid: 93f14b6e0949a114aa587f8cc08d21af, type: 2}
+  _shield: 0
+  _damageBuff: 0
+  _stunTime: 0
+  _isStunned: 0
+  _stats: {fileID: 11400000, guid: 5a960f11c3c349a44b80a256b20f82ec, type: 2}
 --- !u!1 &5189120529664550415
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,6 +337,7 @@ GameObject:
   - component: {fileID: 2757905346732167198}
   - component: {fileID: 4028833665683254267}
   - component: {fileID: 1737608903379539690}
+  - component: {fileID: 8316863563025744611}
   m_Layer: 5
   m_Name: Cursor
   m_TagString: Untagged
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3916411432162448262, guid: b509e10505f77224f887933e089fb035, type: 3}
+  m_Sprite: {fileID: -3234521605328819385, guid: af9af58af2c9c6b44a1eb4256eae67ff, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -402,6 +402,28 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &8316863563025744611
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5548425248036044817}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 04a15521d52406b47b7a35d9c0bc26bd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8609653022706840403
 GameObject:
   m_ObjectHideFlags: 0

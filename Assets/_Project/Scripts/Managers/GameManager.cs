@@ -1,13 +1,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * O Script eh uma instancia global que nao eh destruido entre as scenes, ele armazena
+ * as informacoes da party de herois e inimigos alem de ser responsavel por gerenciar todas
+ * as batalhas durante o jogo
+ * 
+ * -------------------------------------------------------------------------------------
+ * Como usar:
+ * 1) Use "GameManager.Instance" para referenciar o GameManager em qualquer codigo
+ * 
+ * Aviso!!
+ * NAO CRIE 2 GAME MANAGERS!! JA EXISTE UM NA CENA INICIAL, PARA TESTAR CRIE O OBJETO E APAGUE DEPOIS!!!
+ */
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public BattleDataManager _battleDataManager { get; private set; }
     public PartyManager _partyManager { get; private set; }
-
-    [SerializeField] private List<UnitsSO> _enemies;
 
     // Singleton Pattern -------------------------------------------
     private void Awake()
@@ -18,24 +29,20 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-    }
-
-    // Inicializacao dos managers ---------------------------------
-    void Start()
-    {
+        
+        // Inicializacao dos managers ---------------------------------
         _partyManager = gameObject.GetComponentInChildren<PartyManager>();
-        StartBattle(_enemies, "BattleScene"); // Teste
+        StartBattle("BattleScene");
     }
 
     // Functions ---------------------------------------------------
-    public void StartBattle(List<UnitsSO> enemies, string sceneName)
+    public void StartBattle(string sceneName)
     {
         _battleDataManager = new BattleDataManager
         {
-            _partyData = _partyManager.GetPartyData(),
-            _enemiesData = enemies,
+            _partyData = _partyManager.HeroPartyData,
+            _enemiesData = _partyManager.EnemiesPartyData,
             _nextScene = sceneName
         };
-        //UnityEngine.SceneManagement.SceneManager.LoadScene("BattleScene"); // Descomentar depois 
     }
 }

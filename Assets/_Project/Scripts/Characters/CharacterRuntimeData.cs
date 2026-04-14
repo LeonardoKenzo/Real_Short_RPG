@@ -1,97 +1,97 @@
-using NUnit.Framework;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Rendering;
+
+/*
+ * Script que controla todos os _stats dos personagens, 
+ * usa eventos para atualizar a UI dos personagens.
+ * 
+ * --------------------------------------------------------------
+ * Como usar:
+ * 1) Anexar esse Script ao prefab dos personagens
+ * 2) Definir os SOs pela Unity para as variaveis _stats e _skills
+ * 
+ * --------------------------------------------------------------
+ * Dependencias:
+ * - UnitSO
+ * - SkillsSO
+*/
 
 public class CharacterRuntimeData : MonoBehaviour
 {
-    [SerializeField] private string _name; 
+    [SerializeField] private string _name;
     [SerializeField] private int _hpMax;
     [SerializeField] private int _hpCurrent;
-    [SerializeField] private int _actionsMax;
-    [SerializeField] private int _actionsCurrent;
-    [SerializeField] private int _speed;
-    [SerializeField] private UnitsSO stats;
-    [SerializeField] private SkillsSO[] skills;
+    [SerializeField] private int _shield;
+    [SerializeField] private int _damageBuff;
+    [SerializeField] private int _stunTime;
+    [SerializeField] private bool _isStunned;
+    [SerializeField] private UnitsSO _stats;
+    private SkillsSO[] _skills;
+    private BattleSystem _battleSystem;
 
     // Events -----------------------------------
 
     public event Action<int, int> OnHealthChanged; // (current, max)
     public event Action<bool> OnSelected; // (isSelected)
-    public event Action<int> OnCastSkill; // (actionCost)
     public event Action OnDeath;
- 
+
     // Getters ----------------------------------
     public string Name => _name;
     public int HpCurrent => _hpCurrent;
-    public int ActionsCurrent => _actionsCurrent;
-    public int Speed => _speed;
-    public UnitsSO Stats => stats;
-    public SkillsSO[] Skills => skills;
+    public int Shield => _shield;
+    public int DamageBuff => _damageBuff;
+    public int StunTime => _stunTime;
+    public bool IsStunned => _isStunned;
+    public UnitsSO Stats => _stats;
+    public SkillsSO[] Skills => _skills;
 
-    // Initialize Stats ---------------------------
-    public void InitializeStats(UnitsSO stats)
+    // Functions ---------------------------------------------
+    public void InitializeStats(UnitsSO stats, BattleSystem battleSystem)
     {
-        this.stats = stats; 
+        this._stats = stats;
         _name = stats.name;
         _hpMax = stats.HpMax;
         _hpCurrent = _hpMax;
-        _actionsMax = 5;
-        _actionsCurrent = _actionsMax;
-        _speed = stats.Speed;
+        _shield = 0;
+        _damageBuff = 0;
+        _stunTime = 0;
+        _isStunned = false;
+        _skills = stats.Skills;
+        _battleSystem = battleSystem;
 
         OnHealthChanged?.Invoke(_hpCurrent, _hpMax);
-        OnCastSkill?.Invoke(_actionsCurrent);
+        _battleSystem.OnPassTurn += StunDecrease;
+        _battleSystem.OnPassTurn += UseBuff;
     }
 
-    // Functions ---------------------------------------------
-    public bool UseSkill(int index, CharacterRuntimeData target)
+    public bool UseSkill(SkillsSO skill, CharacterRuntimeData target)
     {
-        if (_actionsCurrent - skills[index].ActionCost < 0)
-            return false;
-
-        if (skills[index].Effect == SkillsSO.SkillEffects.ATTACK)
+        if (skill.Effect.Contains(SkillsSO.SkillEffects.ATTACK) && _isStunned == false)
         {
-            target.TakeDamage(skills[index].Power);
-        } 
-        if (skills[index].Effect == SkillsSO.SkillEffects.HEAL)
+            target.TakeDamage(skill.Power + _damageBuff);
+        }
+        if (skill.Effect.Contains(SkillsSO.SkillEffects.HEAL))
         {
-            target.Heal(skills[index].Power);
+            target.Heal(skill.Power);
+        }
+        if (skill.Effect.Contains(SkillsSO.SkillEffects.BUFF))
+        {
+            target._damageBuff += skill.Power;
+        }
+        if (skill.Effect.Contains(SkillsSO.SkillEffects.SHIELD))
+        {
+            target._shield += skill.Power;
+        }
+        if (skill.Effect.Contains(SkillsSO.SkillEffects.STUN))
+        {
+            target._isStunned = true;
+            target._stunTime += skill.Power;
         }
 
-        _actionsCurrent -= skills[index].ActionCost;
-        OnCastSkill?.Invoke(_actionsCurrent);
         return true;
-    }
-
-    public void RecoverActions()
-    {
-        _actionsCurrent = _actionsMax;
-    }
-
-    private void Heal(int cure)
-    {
-        _hpCurrent = Mathf.Min(_hpCurrent + cure, _hpMax);
-        OnHealthChanged?.Invoke(_hpCurrent, _hpMax);
-    }
-
-    private void TakeDamage(int damage)
-    {
-        _hpCurrent -= damage;
-        OnHealthChanged?.Invoke(_hpCurrent, _hpMax);
-
-        if (_hpCurrent <= 0)
-            StartCoroutine(Die());
-    }
-
-    private IEnumerator Die()
-    {
-        yield return new WaitForSeconds(2f);
-        OnDeath?.Invoke();
-        Destroy(gameObject);
     }
 
     public void IsSelected(bool isSelected)
@@ -102,9 +102,55 @@ public class CharacterRuntimeData : MonoBehaviour
     public List<Sprite> GetSkillsImages()
     {
         List<Sprite> skillImages = new List<Sprite>();
-        foreach (SkillsSO skillsSO in skills)
+        foreach (SkillsSO skillsSO in _skills)
             skillImages.Add(skillsSO.SkillImage);
 
         return skillImages;
+    }
+
+    // Private Functions ----------------------------------------
+    private void StunDecrease()
+    {
+        _stunTime = Mathf.Max(_stunTime - 1, 0);
+        if (_stunTime <= 0)
+        {
+            _stunTime = 0;
+            _isStunned = false;
+        }
+    }
+    private void UseBuff()
+    {
+        _damageBuff = 0;
+    }
+
+    private void Heal(int cure)
+    {
+        _hpCurrent = Mathf.Min(_hpCurrent + cure, _hpMax);
+        OnHealthChanged?.Invoke(_hpCurrent, _hpMax);
+    }
+
+    private void TakeDamage(int damage)
+    {
+        int overdamage = (_shield - damage) * -1;
+        _shield -= damage;
+        if (overdamage <= 0)
+            return;
+
+        _shield = 0;
+        _hpCurrent -= overdamage;
+        OnHealthChanged?.Invoke(_hpCurrent, _hpMax);
+        if (_hpCurrent <= 0)
+            StartCoroutine(Die());
+    }
+
+
+    private IEnumerator Die()
+    {
+        _battleSystem.OnPassTurn -= StunDecrease;
+        _battleSystem.OnPassTurn -= UseBuff;
+
+        yield return new WaitForSeconds(2f);
+        OnDeath?.Invoke();
+        Destroy(gameObject);
     }
 }

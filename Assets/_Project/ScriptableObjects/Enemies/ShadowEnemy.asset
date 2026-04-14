@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: ShadowEnemy
   m_EditorClassIdentifier: Assembly-CSharp::UnitsSO
   _name: Sombra
-  _hpMax: 12
+  _hpMax: 25
+  _speed: 0
+  _Prefab: {fileID: 3511138046021875952, guid: a8cb854a4a237e54ab9c1319098580b0, type: 3}
+  _skills:
+  - {fileID: 11400000, guid: 93f14b6e0949a114aa587f8cc08d21af, type: 2}

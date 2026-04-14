@@ -2,6 +2,19 @@ using UnityEngine;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
+/*
+ * Gerencia toda a UI dos personagens
+ * 
+ * ------------------------------------
+ * Como usar:
+ * 1) Anexe o script ao filho responavel pela UI do prefab do personagem
+ * 2) Coloque as imagens da barra de vida e do selecionador do personagem
+ * 
+ * -----------------------------------------------------------------------
+ * Dependencias:
+ * - CharacterRuntimeData do pai
+ * - Images
+ */
 public class CharacterUI : MonoBehaviour
 {
     [SerializeField] private CharacterRuntimeData _unit;
@@ -34,6 +47,20 @@ public class CharacterUI : MonoBehaviour
 
     // Funcoes da Barra de Vida ----------------------------------------
 
+
+    private void UpdateHealth(int current, int max)
+    {
+        _targetFill = Mathf.Clamp01((float)current / max);
+    }
+
+    // Funcoes do cursor de selecao de personagem ---------------------
+    
+    private void SelectHero(bool isEnabled)
+    {
+        _selectedUnit.enabled = isEnabled;
+    }
+
+    // Liga as funcoes aos events ------------------------------------
     private void OnEnable()
     {
         if (_unit != null)
@@ -50,18 +77,6 @@ public class CharacterUI : MonoBehaviour
             _unit.OnHealthChanged -= UpdateHealth;
             _unit.OnSelected -= SelectHero;
         }
-    }
-
-    private void UpdateHealth(int current, int max)
-    {
-        _targetFill = Mathf.Clamp01((float)current / max);
-    }
-
-    // Funcoes do cursor de selecao de personagem ---------------------
-    
-    private void SelectHero(bool isEnabled)
-    {
-        _selectedUnit.enabled = isEnabled;
     }
 
 }

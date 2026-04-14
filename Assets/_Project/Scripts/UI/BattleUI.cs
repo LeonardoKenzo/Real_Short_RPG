@@ -3,6 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+ * Gerencia toda a UI do cenario de batalha
+ * 
+ * ------------------------------------------
+ * Como usar:
+ * 1) Coloque o prefab da BattleUI na cena (o script esta dentro do prefab)
+ * 2) Se quiser, mude os GameObject das cenas de fim de jogo ou contador de acoes
+ * 
+ * -------------------------------------------------------------------------------
+ * Dependencias:
+ * - GameObject (fim de jogo)
+ * - Images (Contador de acoes)
+ * - RectTransforms (posicao das cartas)
+ * - BattleSystem
+ */
+
 public class BattleUI : MonoBehaviour
 {
     [Header("End Screen")]
@@ -11,14 +27,22 @@ public class BattleUI : MonoBehaviour
 
     [Header("Action Counter")]
     [SerializeField] private List<Image> _cursorPosition;
+    private BattleSystem _battleSystem;
 
     [Header("Skills Cards")]
     [SerializeField] private List<Image> _skillsSprites;
     [SerializeField] private List<RectTransform> _skillsTransforms;
-
     private RectTransform _skillCard;
 
+    public void Initialize(BattleSystem battleSystem)
+    {
+        _battleSystem = battleSystem;
+        _battleSystem.OnChangeActions += UpdateCursorPosition;
+    }
+
     // Funcoes da Selecao de Skills (cartas) --------------------------------
+
+    // Animacao de selecao das cartas
     public void MoveUpSmooth(int index, float distance, float duration)
     {
         _skillCard = _skillsTransforms[index];
@@ -58,25 +82,27 @@ public class BattleUI : MonoBehaviour
     // Funcoes do contador de acoes -----------------------------------------------
     public void UpdateCursorPosition(int currentActions)
     {
-        // Desativa todos os cursores
         for (int i = 0; i < _cursorPosition.Count; i++)
         {
             _cursorPosition[i].enabled = false;
         }
 
         // Se ainda há ações, ativa o cursor correspondente (indexado de 0)
-        if (currentActions > 0 && currentActions <= _cursorPosition.Count)
+        if (currentActions >= 0 && currentActions <= _cursorPosition.Count)
         {
             _cursorPosition[currentActions].enabled = true;
         }
     }
 
+    // Funcoes do fim da batalha ---------------------------------------------------
     public void WinScreen()
     {
         _winScreen.SetActive(true);
+        _battleSystem.OnChangeActions -= UpdateCursorPosition;
     }
     public void LoseScreen()
     {
         _loseScreen.SetActive(true);
+        _battleSystem.OnChangeActions -= UpdateCursorPosition;
     }
 }

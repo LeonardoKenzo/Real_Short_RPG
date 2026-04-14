@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47f25c3f165bdc46ab2ee5aba5e4c26, type: 3}
+  m_Name: Flute
+  m_EditorClassIdentifier: Assembly-CSharp::SkillsSO
+  _skillName: Flauta
+  _skillDescription: Ao tocar tem a chance de atordoar o oponente
+  _actionCost: 2
+  _power: 2
+  _cooldown: 0
+  _isAOE: 0
+  _skillImage: {fileID: 610015561781798372, guid: a4adcf0d4b0fac346af274a298a814cf, type: 3}
+  _skillEffect: 04000000

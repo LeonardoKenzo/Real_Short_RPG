@@ -84,7 +84,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -136,12 +136,12 @@ TextureImporter:
       name: "anima\xE7ao_ataque_do_inimigo_0"
       rect:
         serializedVersion: 2
-        x: 23
-        y: 39
-        width: 8
-        height: 8
+        x: 0
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -158,12 +158,12 @@ TextureImporter:
       name: "anima\xE7ao_ataque_do_inimigo_1"
       rect:
         serializedVersion: 2
-        x: 27
-        y: 36
-        width: 9
-        height: 9
+        x: 640
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -180,12 +180,12 @@ TextureImporter:
       name: "anima\xE7ao_ataque_do_inimigo_2"
       rect:
         serializedVersion: 2
-        x: 33
-        y: 35
-        width: 8
-        height: 8
+        x: 1280
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -202,12 +202,12 @@ TextureImporter:
       name: "anima\xE7ao_ataque_do_inimigo_3"
       rect:
         serializedVersion: 2
-        x: 81
-        y: 29
-        width: 14
-        height: 18
+        x: 1920
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -220,187 +220,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: "anima\xE7ao_ataque_do_inimigo_4"
-      rect:
-        serializedVersion: 2
-        x: 88
-        y: 27
-        width: 12
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ca9eafffd1d7e97a0800000000000000
-      internalID: -6368515255253145172
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7ao_ataque_do_inimigo_5"
-      rect:
-        serializedVersion: 2
-        x: 94
-        y: 27
-        width: 11
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1b30d27bd91a72da0800000000000000
-      internalID: -5969625082301185103
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7ao_ataque_do_inimigo_6"
-      rect:
-        serializedVersion: 2
-        x: 145
-        y: 24
-        width: 13
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 01a57e1f013ce5ba0800000000000000
-      internalID: -6098222367867708912
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7ao_ataque_do_inimigo_7"
-      rect:
-        serializedVersion: 2
-        x: 153
-        y: 24
-        width: 10
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fc3c948d9603d9910800000000000000
-      internalID: 1845684653450183631
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7ao_ataque_do_inimigo_8"
-      rect:
-        serializedVersion: 2
-        x: 159
-        y: 24
-        width: 9
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 099a5498858f3e040800000000000000
-      internalID: 4675853897284561296
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7ao_ataque_do_inimigo_9"
-      rect:
-        serializedVersion: 2
-        x: 209
-        y: 17
-        width: 13
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a89ed94e36380e2c0800000000000000
-      internalID: -4404375970507789942
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7ao_ataque_do_inimigo_10"
-      rect:
-        serializedVersion: 2
-        x: 217
-        y: 15
-        width: 10
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a948130e82890e700800000000000000
-      internalID: 567620854376137882
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7ao_ataque_do_inimigo_11"
-      rect:
-        serializedVersion: 2
-        x: 223
-        y: 15
-        width: 9
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c669ef57029ad8540800000000000000
-      internalID: 5011847917216896620
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 09dfdeef30454d24687c6fcfb403b721
     internalID: 0
     vertices: []
     indices: 
@@ -408,20 +232,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       "anima\xE7ao_ataque_do_inimigo_0": 7943425897660600545
       "anima\xE7ao_ataque_do_inimigo_1": -148365659945358716
-      "anima\xE7ao_ataque_do_inimigo_10": 567620854376137882
-      "anima\xE7ao_ataque_do_inimigo_11": 5011847917216896620
       "anima\xE7ao_ataque_do_inimigo_2": -7273708414716148565
       "anima\xE7ao_ataque_do_inimigo_3": -2821810474143338717
-      "anima\xE7ao_ataque_do_inimigo_4": -6368515255253145172
-      "anima\xE7ao_ataque_do_inimigo_5": -5969625082301185103
-      "anima\xE7ao_ataque_do_inimigo_6": -6098222367867708912
-      "anima\xE7ao_ataque_do_inimigo_7": 1845684653450183631
-      "anima\xE7ao_ataque_do_inimigo_8": 4675853897284561296
-      "anima\xE7ao_ataque_do_inimigo_9": -4404375970507789942
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

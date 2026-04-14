@@ -13,5 +13,10 @@ MonoBehaviour:
   m_Name: Hero_Bard
   m_EditorClassIdentifier: Assembly-CSharp::HeroesSO
   _name: Bardo
-  _hpMax: 16
-  _speed: 2
+  _hpMax: 15
+  _speed: 0
+  _Prefab: {fileID: 2320214256988138405, guid: a593733284688fb4eaca86a04bf63392, type: 3}
+  _skills:
+  - {fileID: 11400000, guid: 3adfc3ff462aa6c42af4ddfa6667ea2c, type: 2}
+  - {fileID: 11400000, guid: 42ace48cc0e89b3448935f501dd39acf, type: 2}
+  - {fileID: 11400000, guid: 33d18d3695c8d8846a1b2ea174d8837c, type: 2}

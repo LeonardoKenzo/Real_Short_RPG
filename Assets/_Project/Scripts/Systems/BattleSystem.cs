@@ -1,9 +1,42 @@
-using NUnit.Framework;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
+/*
+ * Gerencia todas as batalhas do jogo utilizando uma máquina
+ * de estados para controlar o fluxo de turnos e ações.
+ *
+ * Fluxo da batalha:
+ * 1) Start
+ *    - Inicia a batalha
+ *    - Instancia cenário, heróis e inimigos
+ *    - Exibe mensagem inicial
+ * 2) PlayerTurn
+ *    - Jogador escolhe ações (ataque, habilidade, etc)
+ * 3) EnemyTurn
+ *    - Inimigos executam suas ações automaticamente
+ * 4) Loop de batalha
+ *    - Alterna entre PlayerTurn e EnemyTurn
+ *    - Verifica condição de vitória ou derrota
+ * 5) Win / Lose
+ *    - Finaliza a batalha
+ *    - Troca para tela de resultado
+ *
+ * -------------------------------------------------------
+ * Como usar:
+ * 1) Criar um GameObject chamado "BattleSystem"
+ * 2) Adicionar filhos com Transform para posições de
+ *    heróis e inimigos
+ * 3) Anexar este script ao GameObject BattleSystem
+ * 4) Definir o BattleUI na variável _battleUI
+ *
+ * -------------------------------------------------------
+ * Dependências:
+ * - BattleUI
+ * - CharacterRuntimeData
+ * - Transforms para instanciar heróis e inimigos
+ */
 
 public class BattleSystem : MonoBehaviour
 {
@@ -12,23 +45,27 @@ public class BattleSystem : MonoBehaviour
  
     [SerializeField] private BattleState _state;
     [SerializeField] private PlayerActionState _playerActionState;
-    
+
     [SerializeField] private BattleUI _battleUI;
 
+    [Header("Party List")]
     [SerializeField] private List<CharacterRuntimeData> _party;
     [SerializeField] private List<CharacterRuntimeData> _enemies;
 
     [Header("Prefabs enemy Spawns")]
-    [SerializeField] private GameObject _heroPrefab;
-    [SerializeField] private GameObject _enemyPrefab;
     [SerializeField] private List<Transform> _heroSpawn;
     [SerializeField] private List<Transform> _enemySpawn;
 
     [Header("Controle de ações")]
+    [SerializeField] private const int ACTIONS_MAX = 5;
     [SerializeField] private int _indexSkillSelected;
-    [SerializeField] private bool _isPlayerSelectionFinished = false;
+    [SerializeField] private bool _isPlayerTurnEnded = false;
     [SerializeField] private CharacterRuntimeData _targetSelected;
     [SerializeField] private CharacterRuntimeData _activeHero;
+    public int _actionsCurrent { get; private set; }
+
+    public event Action OnPassTurn;
+    public event Action<int> OnChangeActions;
 
     void Start()
     {
@@ -40,7 +77,6 @@ public class BattleSystem : MonoBehaviour
         if (_state != BattleState.PLAYER_TURN)
             return;
 
-
         switch (_playerActionState)
         {
             case PlayerActionState.CHOOSE_SKILL:
@@ -49,27 +85,27 @@ public class BattleSystem : MonoBehaviour
                 InputFinishTurn();
                 break;
             case PlayerActionState.CHOOSE_TARGET:
-                ChooseTargetSelection();
+                ChooseTarget();
                 break;
         }
     }
 
     // Fluxo de Batalha ----------------------------------------------------------------------
-
-    // SO TEM 1 HEROI E 1 INIMIGO MUDAR ISSO DEPOIS PARA SER VARIOS TIPOS DIFERENTES
     private void InitializeBattle()
     {
         _state = BattleState.START;
-        
+        _battleUI.Initialize(this);
+        _actionsCurrent = ACTIONS_MAX;
+
         var battleData = GameManager.Instance._battleDataManager;
 
         // Instancia todos os herois da cena
         int heroIndex = 0;
         foreach (var hero in battleData._partyData)
         {
-            GameObject heroObject = Instantiate(_heroPrefab, _heroSpawn[heroIndex]);
+            GameObject heroObject = Instantiate(hero.Prefab, _heroSpawn[heroIndex]);
             CharacterRuntimeData runtimeHero = heroObject.GetComponent<CharacterRuntimeData>();
-            runtimeHero.InitializeStats(hero);
+            runtimeHero.InitializeStats(hero, this);
             _party.Add(runtimeHero);
             heroIndex++;
         }
@@ -78,9 +114,9 @@ public class BattleSystem : MonoBehaviour
         int enemyIndex = 0;
         foreach (var enemy in battleData._enemiesData)
         {
-            GameObject enemyObject = Instantiate(_enemyPrefab, _enemySpawn[enemyIndex]);
+            GameObject enemyObject = Instantiate(enemy.Prefab, _enemySpawn[enemyIndex]);
             CharacterRuntimeData runtimeEnemy = enemyObject.GetComponent<CharacterRuntimeData>();
-            runtimeEnemy.InitializeStats(enemy);
+            runtimeEnemy.InitializeStats(enemy, this);
             _enemies.Add(runtimeEnemy);
             enemyIndex++;
         }
@@ -88,6 +124,7 @@ public class BattleSystem : MonoBehaviour
         // Comeca a batalha
         StartCoroutine(StartBattle());
     }
+
     IEnumerator StartBattle()
     {
         // Texto de dialogo, efeitos, etc antes da batalha
@@ -101,24 +138,28 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerTurn()
     {
-        _isPlayerSelectionFinished = false;
+        _isPlayerTurnEnded = false; // Controla se o turno do player foi encerrado
         _playerActionState = PlayerActionState.CHOOSE_SKILL;
+
+        // Recupera todas as acoes dos herois no comeco do turno
+        _actionsCurrent = ACTIONS_MAX;
         _activeHero = _party[0];
-        _activeHero.RecoverActions();
 
         // Atualiza a UI
         _activeHero.IsSelected(true);
-        _battleUI.UpdateCursorPosition(_activeHero.ActionsCurrent);
+        _battleUI.UpdateCursorPosition(_actionsCurrent);
         _battleUI.UpdateSkillCards(_activeHero.GetSkillsImages());
 
         Debug.Log("Seu turno! Escolha uma habilidade (1, 2 ou 3).");
 
         // Espera até que o jogador conclua a ação
-        yield return new WaitUntil(() => _isPlayerSelectionFinished);
+        yield return new WaitUntil(() => _isPlayerTurnEnded);
 
         // Verifica se ganhou
         if (CheckBattleEnd())
             yield break;
+
+        Debug.Log("Jogador encerrou o turno");
 
         _state = BattleState.ENEMY_TURN;
         StartCoroutine(EnemyTurn());
@@ -139,12 +180,11 @@ public class BattleSystem : MonoBehaviour
             if (livingHeroes.Count == 0)
                 break;
 
-            var target = livingHeroes[Random.Range(0, livingHeroes.Count)];
+            var target = livingHeroes[UnityEngine.Random.Range(0, livingHeroes.Count)];
             target.IsSelected(true);
 
             Debug.Log($"{enemy.Name} usa a habilidade \"{enemy.Skills[0].name}\" em {target.Name}! Causou {target.Skills[0].Power} de dano!");
-            enemy.UseSkill(0, target);
-            enemy.RecoverActions();
+            enemy.UseSkill(enemy.Skills[0], target); // Criar diferentes _skills do inimigo
 
             yield return new WaitForSeconds(1.5f);
 
@@ -157,13 +197,14 @@ public class BattleSystem : MonoBehaviour
             yield break;
 
         _state = BattleState.PLAYER_TURN;
+        OnPassTurn?.Invoke();
         StartCoroutine(PlayerTurn());
     }
 
-    IEnumerator EndBattle(bool isPlayerWon)
+    IEnumerator EndBattle(bool playerWon)
     {
-        _state = isPlayerWon ? BattleState.WIN : BattleState.LOSE;
-        Debug.Log(isPlayerWon ? "Vitória!" : "Derrota...");
+        _state = playerWon ? BattleState.WIN : BattleState.LOSE;
+        Debug.Log(playerWon ? "Vitória!" : "Derrota...");
 
         yield return new WaitForSeconds(2f);
 
@@ -174,130 +215,161 @@ public class BattleSystem : MonoBehaviour
     }
 
     // Funcoes Auxilares para as Batalhas -------------------------------------------------------
-
-    // Selecao de Habilidades e ataque do player -----------------------------------------------
+    
     private void ChooseSkillSelection()
     {
-        if(_activeHero.ActionsCurrent <= 0)
+        if(_actionsCurrent == 0)
         {
             Debug.Log("Não há mais ações restantes!");
-            _isPlayerSelectionFinished = true;
+            _isPlayerTurnEnded = true;
             return;
         }
   
         if (Input.GetKeyDown(KeyCode.Alpha1))
-            ChooseSkill(0);
+            SkillChoosed(0);
         if (Input.GetKeyDown(KeyCode.Alpha2))
-            ChooseSkill(1);
+            SkillChoosed(1);
         if (Input.GetKeyDown(KeyCode.Alpha3))
-            ChooseSkill(2);
+            SkillChoosed(2);
     }
-
-    private void ChooseSkill(int index)
+    private void SkillChoosed(int index)
     {
-        if (_activeHero.Skills[index].ActionCost > _activeHero.ActionsCurrent)
+        var skill = _activeHero.Skills[index];
+
+        if (skill.ActionCost > _actionsCurrent)
         {
             Debug.Log("Ações insuficientes para usar a habilidade.");
             return;
         }
-        _battleUI.MoveDownSmooth(_indexSkillSelected, 112, 0.5f);
 
-        _indexSkillSelected = index;
         _battleUI.MoveUpSmooth(index, 112f, 0.5f);
         Debug.Log($"Habilidade {index + 1}: escolhida! Agora selecione o alvo (1, 2, 3).");
-        _playerActionState = PlayerActionState.CHOOSE_TARGET;
+        _indexSkillSelected = index;
+
+        if (skill.IsAOE)
+        {
+            if (IsBuff(skill.Effect))
+                StartCoroutine(ExecuteActionAOE(_party));
+            else
+                StartCoroutine(ExecuteActionAOE(_enemies));
+        }
+        else
+            _playerActionState = PlayerActionState.CHOOSE_TARGET;
     }
 
-    private void ChooseTargetSelection()
+    private void ChooseTarget()
     {
-        switch (_activeHero.Skills[_indexSkillSelected].Effect)
+        var effects = _activeHero.Skills[_indexSkillSelected].Effect;
+        if (IsBuff(effects))
+            SelectTarget(_party);
+        else
+            SelectTarget(_enemies);
+    }
+
+    private void SelectTarget(List<CharacterRuntimeData> party)
+    {
+        for (int i = 0; i < party.Count; i++)
         {
-            case SkillsSO.SkillEffects.ATTACK:
-            case SkillsSO.SkillEffects.DEBUFF:
-            case SkillsSO.SkillEffects.STUN:
-                SelectEnemy();
-                break;
-            case SkillsSO.SkillEffects.HEAL:
-            case SkillsSO.SkillEffects.BUFF:
-                SelectHero();
-                break;
+            if (Input.GetKeyDown(KeyCode.Alpha1 + i) && party[i] != null)
+            {
+                _targetSelected = party[i];
+                Debug.Log($"Alvo {_targetSelected.Name} selecionado!");
+                StartCoroutine(ExecuteAction());
+            }
         }
     }
 
-    private IEnumerator ExecuteAction()
+    private IEnumerator ExecuteActionAOE(List<CharacterRuntimeData> list)
     {
         _playerActionState = PlayerActionState.EXECUTE_ACTION;
- 
-        Debug.Log($"{_activeHero.Name} usa habilidade \"{_activeHero.Skills[_indexSkillSelected].name}\" em {_targetSelected.Name}! Causou {_activeHero.Skills[_indexSkillSelected].Power} de dano!");
+        
+        // Cast Skill
+        foreach (var target in list) 
+        {
+            if (target == null)
+                continue;
+            _activeHero.UseSkill(_activeHero.Skills[_indexSkillSelected], target);
+            target.IsSelected(true);
+        }
+        _actionsCurrent -= _activeHero.Skills[_indexSkillSelected].ActionCost;
+        OnChangeActions?.Invoke(_actionsCurrent);
 
-        // Usa a habilidade
-        _activeHero.UseSkill(_indexSkillSelected, _targetSelected);
-        _battleUI.UpdateCursorPosition(_activeHero.ActionsCurrent);
+        Debug.Log($"{_activeHero.Name} usou a habilidade \"{_activeHero.Skills[_indexSkillSelected].name}\" nos alvos!");
 
         yield return new WaitForSeconds(2f);
 
         _battleUI.MoveDownSmooth(_indexSkillSelected, 112f, 0.5f);
-        // Marca o turno do jogador como finalizado
-        if (_activeHero.ActionsCurrent > 0)
+
+        yield return new WaitForSeconds(1f);
+
+        foreach (var target in list)
+        {
+            if (target == null || target == _activeHero)
+                continue;
+            target.IsSelected(false);
+        }
+        
+        CheckBattleEnd();
+        if (_actionsCurrent > 0)
         {
             _playerActionState = PlayerActionState.CHOOSE_SKILL;
-            Debug.Log($"Ações restantes: {_activeHero.ActionsCurrent}. Escolha nova habilidade ou troque de herói (tab).");
+            Debug.Log($"Ações restantes: {_actionsCurrent}. Escolha nova habilidade ou troque de herói (tab).");
         }
         else
         {
-            ChangeHero();
-            _playerActionState= PlayerActionState.CHOOSE_SKILL;
+            _isPlayerTurnEnded = true;
+        }
+    }
+    private IEnumerator ExecuteAction()
+    {
+        _playerActionState = PlayerActionState.EXECUTE_ACTION;
+ 
+        Debug.Log($"{_activeHero.Name} usou a habilidade \"{_activeHero.Skills[_indexSkillSelected].name}\" em {_targetSelected.Name}!");
+
+        // Cast Skill
+        _targetSelected.IsSelected(true);
+        _activeHero.UseSkill(_activeHero.Skills[_indexSkillSelected], _targetSelected);
+        _actionsCurrent -= _activeHero.Skills[_indexSkillSelected].ActionCost;
+        OnChangeActions?.Invoke(_actionsCurrent);
+
+        yield return new WaitForSeconds(2f);
+
+        _battleUI.MoveDownSmooth(_indexSkillSelected, 112f, 0.5f);
+
+        yield return new WaitForSeconds(1f);
+
+        // Marca o turno do jogador como finalizado
+        _targetSelected.IsSelected(false);
+        CheckBattleEnd();
+        if (_actionsCurrent > 0)
+        {
+            _playerActionState = PlayerActionState.CHOOSE_SKILL;
+            Debug.Log($"Ações restantes: {_actionsCurrent}. Escolha nova habilidade ou troque de herói (tab).");
+        }
+        else
+        {
+            _isPlayerTurnEnded= true;
         }
     }
 
-    private void SelectEnemy()
+    private bool IsBuff(List<SkillsSO.SkillEffects> effects)
     {
-        for (int i = 0; i < _enemies.Count; i++)
-        {
-            if (_enemies[i] == null)
-            {
-                CheckBattleEnd();
-                return;
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha1 + i))
-            {
-                _targetSelected = _enemies[i];
-                Debug.Log($"Alvo {_targetSelected.Name} selecionado!");
-                _targetSelected.IsSelected(true);
-                StartCoroutine(ExecuteAction());
-            }
-        }
-    }
-
-    private void SelectHero()
-    {
-        for (int i = 0; i < _party.Count; i++)
-        {
-            if (_party[i] == null)
-            {
-                CheckBattleEnd();
-                return;
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha1 + i))
-            {
-                _targetSelected = _party[i];
-                Debug.Log($"Alvo {_targetSelected.Name} selecionado!");
-                _targetSelected.IsSelected(true);
-                StartCoroutine(ExecuteAction());
-            }
-        }
+        if (effects.Contains(SkillsSO.SkillEffects.ATTACK) ||
+           effects.Contains(SkillsSO.SkillEffects.DEBUFF) ||
+           effects.Contains(SkillsSO.SkillEffects.STUN))
+            return false;
+        return true;
     }
 
     private bool CheckBattleEnd()
     {
         // Remove mortos
         _party.RemoveAll(hero => (hero == null || hero.HpCurrent <= 0));
-        _enemies.RemoveAll((enemy => enemy == null || enemy.HpCurrent <= 0));
+        var enemiesDead = _enemies.FindAll(enemy => (enemy == null || enemy.HpCurrent <= 0));
 
-        if (_enemies.Count == 0)
+        if (enemiesDead.Count == _enemies.Count)
         {
+            _enemies.RemoveAll(enemy => (enemy == null || enemy.HpCurrent <= 0));
             StartCoroutine(EndBattle(true));
             return true;
         }
@@ -313,8 +385,7 @@ public class BattleSystem : MonoBehaviour
 
     private void InputSwitchHero()
     {
-        // Seleciona o proximo heroi por tab
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab)) // Seleciona o proximo heroi por tab
         {
             int currentIndex = _party.IndexOf(_activeHero);
             int nextIndex = (currentIndex + 1) % _party.Count;
@@ -322,35 +393,17 @@ public class BattleSystem : MonoBehaviour
 
             _activeHero = _party[nextIndex];
             _activeHero.IsSelected(true);
-            _battleUI.UpdateCursorPosition(_activeHero.ActionsCurrent);
+            _battleUI.UpdateSkillCards(_activeHero.GetSkillsImages());
+            _battleUI.UpdateCursorPosition(_actionsCurrent);
             Debug.Log($"Herói ativo trocado para: {_activeHero.Name}");
         }
     }
 
     private void InputFinishTurn()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)) // Espaco no teclado finaliza o turno
         {
-            _state = BattleState.ENEMY_TURN;
-            Debug.Log("O jogador encerrou o turno");
-            StartCoroutine(EnemyTurn());
+            _isPlayerTurnEnded = true;
         }
-    }
-
-    // Troca para o proximo heroi
-    private void ChangeHero()
-    {
-        int currentIndex = _party.IndexOf(_activeHero);
-        int nextIndex = (currentIndex + 1) % _party.Count;
-        _activeHero.IsSelected(false);
-
-        // Realiza a troca
-        _activeHero = _party[nextIndex];
-        _activeHero.IsSelected(true);
-
-        // Atualiza toda a UI
-        _battleUI.UpdateCursorPosition(_activeHero.ActionsCurrent);
-        _battleUI.UpdateSkillCards(_activeHero.GetSkillsImages());
-        Debug.Log($"Herói ativo trocado para: {_activeHero.Name}");
     }
 }
