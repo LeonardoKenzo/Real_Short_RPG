@@ -36,6 +36,8 @@ public class CharacterRuntimeData : MonoBehaviour
 
     public event Action<int, int> OnHealthChanged; // (current, max)
     public event Action<bool> OnSelected; // (isSelected)
+    public event Action<SkillsSO.SkillEffects> OnEffectsApplied;
+    public event Action<SkillsSO.SkillEffects> OnEffectsRemove;
     public event Action OnDeath;
 
     // Getters ----------------------------------
@@ -64,31 +66,40 @@ public class CharacterRuntimeData : MonoBehaviour
 
         OnHealthChanged?.Invoke(_hpCurrent, _hpMax);
         _battleSystem.OnPassTurn += StunDecrease;
-        _battleSystem.OnPassTurn += UseBuff;
     }
 
     public bool UseSkill(SkillsSO skill, CharacterRuntimeData target)
     {
-        if (skill.Effect.Contains(SkillsSO.SkillEffects.ATTACK) && _isStunned == false)
+        foreach (var effect in skill.Effect)
         {
-            target.TakeDamage(skill.Power + _damageBuff);
-        }
-        if (skill.Effect.Contains(SkillsSO.SkillEffects.HEAL))
-        {
-            target.Heal(skill.Power);
-        }
-        if (skill.Effect.Contains(SkillsSO.SkillEffects.BUFF))
-        {
-            target._damageBuff += skill.Power;
-        }
-        if (skill.Effect.Contains(SkillsSO.SkillEffects.SHIELD))
-        {
-            target._shield += skill.Power;
-        }
-        if (skill.Effect.Contains(SkillsSO.SkillEffects.STUN))
-        {
-            target._isStunned = true;
-            target._stunTime += skill.Power;
+            switch (effect)
+            {
+                case SkillsSO.SkillEffects.ATTACK:
+                    if (!_isStunned)
+                    {
+                        target.TakeDamage(skill.Power + _damageBuff);
+                        UseBuff();
+                    }
+                    break;
+
+                case SkillsSO.SkillEffects.HEAL:
+                    target.Heal(skill.Power);
+                    break;
+
+                case SkillsSO.SkillEffects.BUFF:
+                    target._damageBuff += skill.Power;
+                    break;
+
+                case SkillsSO.SkillEffects.SHIELD:
+                    target._shield += skill.Power;
+                    break;
+
+                case SkillsSO.SkillEffects.STUN:
+                    target._isStunned = true;
+                    target._stunTime += skill.Power;
+                    break;
+            }
+            target.OnEffectsApplied?.Invoke(effect);
         }
 
         return true;
@@ -111,16 +122,18 @@ public class CharacterRuntimeData : MonoBehaviour
     // Private Functions ----------------------------------------
     private void StunDecrease()
     {
-        _stunTime = Mathf.Max(_stunTime - 1, 0);
+        _stunTime--;
         if (_stunTime <= 0)
         {
             _stunTime = 0;
             _isStunned = false;
+            OnEffectsRemove?.Invoke(SkillsSO.SkillEffects.STUN);
         }
     }
     private void UseBuff()
     {
         _damageBuff = 0;
+        OnEffectsRemove?.Invoke(SkillsSO.SkillEffects.BUFF);
     }
 
     private void Heal(int cure)
@@ -132,12 +145,12 @@ public class CharacterRuntimeData : MonoBehaviour
     private void TakeDamage(int damage)
     {
         int overdamage = (_shield - damage) * -1;
-        _shield -= damage;
+        _shield = Math.Max(_shield - damage, 0);
         if (overdamage <= 0)
             return;
-
-        _shield = 0;
+        
         _hpCurrent -= overdamage;
+        OnEffectsRemove?.Invoke(SkillsSO.SkillEffects.SHIELD);
         OnHealthChanged?.Invoke(_hpCurrent, _hpMax);
         if (_hpCurrent <= 0)
             StartCoroutine(Die());
@@ -147,7 +160,6 @@ public class CharacterRuntimeData : MonoBehaviour
     private IEnumerator Die()
     {
         _battleSystem.OnPassTurn -= StunDecrease;
-        _battleSystem.OnPassTurn -= UseBuff;
 
         yield return new WaitForSeconds(2f);
         OnDeath?.Invoke();

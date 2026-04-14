@@ -29,6 +29,11 @@ public class CharacterUI : MonoBehaviour
     private float _targetFill;
     private float _currentFill;
 
+    [Header("Effects")]
+    [SerializeField] private Image _stunImage;
+    [SerializeField] private Image _buffImage;
+    [SerializeField] private Image _shieldImage;
+
     private void Awake()
     {
         if (_unit == null)
@@ -47,7 +52,6 @@ public class CharacterUI : MonoBehaviour
 
     // Funcoes da Barra de Vida ----------------------------------------
 
-
     private void UpdateHealth(int current, int max)
     {
         _targetFill = Mathf.Clamp01((float)current / max);
@@ -60,6 +64,38 @@ public class CharacterUI : MonoBehaviour
         _selectedUnit.enabled = isEnabled;
     }
 
+    private void EffectUIApply(SkillsSO.SkillEffects effects)
+    {
+        switch (effects)
+        {
+            case SkillsSO.SkillEffects.BUFF:
+                _buffImage.enabled = true;
+                break;
+            case SkillsSO.SkillEffects.SHIELD:
+                _shieldImage.enabled = true;
+                break;
+            case SkillsSO.SkillEffects.STUN:
+                _stunImage.enabled = true;
+                break;
+        }
+    }
+
+    private void EffectUIRemove(SkillsSO.SkillEffects effects)
+    {
+        switch (effects)
+        {
+            case SkillsSO.SkillEffects.BUFF:
+                _buffImage.enabled = false;
+                break;
+            case SkillsSO.SkillEffects.SHIELD:
+                _shieldImage.enabled = false;
+                break;
+            case SkillsSO.SkillEffects.STUN:
+                _stunImage.enabled = false;
+                break;
+        }
+    }
+
     // Liga as funcoes aos events ------------------------------------
     private void OnEnable()
     {
@@ -67,6 +103,8 @@ public class CharacterUI : MonoBehaviour
         {
             _unit.OnHealthChanged += UpdateHealth;
             _unit.OnSelected += SelectHero;
+            _unit.OnEffectsApplied += EffectUIApply;
+            _unit.OnEffectsRemove += EffectUIRemove;
         }
     }
 
@@ -76,6 +114,8 @@ public class CharacterUI : MonoBehaviour
         {
             _unit.OnHealthChanged -= UpdateHealth;
             _unit.OnSelected -= SelectHero;
+            _unit.OnEffectsApplied -= EffectUIApply;
+            _unit.OnEffectsRemove -= EffectUIRemove;
         }
     }
 
