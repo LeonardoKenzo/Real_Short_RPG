@@ -1,9 +1,7 @@
 using UnityEngine;
 
-public class SceneManager : MonoBehaviour
+public class CinematicManager : MonoBehaviour
 {
-    
-   
     public AudioSource musicSource;
 
     public AudioClip backgroundMusic;
@@ -12,7 +10,6 @@ public class SceneManager : MonoBehaviour
     {
         musicSource.clip = backgroundMusic;
         musicSource.Play();
-
     }
 
     // Update is called once per frame
