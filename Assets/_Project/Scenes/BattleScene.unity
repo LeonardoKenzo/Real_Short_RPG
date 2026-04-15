@@ -197,6 +197,7 @@ MonoBehaviour:
   _heroParty:
   - {fileID: 7970971110312727435, guid: a593733284688fb4eaca86a04bf63392, type: 3}
   - {fileID: 5691860145603631386, guid: 5e3aab5401baf1c4eace5dc3deae1762, type: 3}
+  - {fileID: 5691860145603631386, guid: fab1e37dbee5c5d44af42db1caac63ef, type: 3}
   _heroPartyData: []
   _enemiesParty:
   - {fileID: 3614318472911595430, guid: a8cb854a4a237e54ab9c1319098580b0, type: 3}

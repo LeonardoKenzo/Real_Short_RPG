@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47f25c3f165bdc46ab2ee5aba5e4c26, type: 3}
+  m_Name: Rosery
+  m_EditorClassIdentifier: Assembly-CSharp::SkillsSO
+  _skillName: Rosario
+  _skillDescription: Ajuda aliados e corrompe inimigos
+  _actionCost: 2
+  _power: 5
+  _cooldown: 0
+  _isAOE: 0
+  _skillImage: {fileID: -6561607811792327549, guid: 420dae86e6c0b43458f4ddda8306d2ec, type: 3}
+  _skillEffect: 0200000003000000
