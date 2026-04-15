@@ -32,7 +32,8 @@ public class GameManager : MonoBehaviour
         
         // Inicializacao dos managers ---------------------------------
         _partyManager = gameObject.GetComponentInChildren<PartyManager>();
-        StartBattle("BattleScene");
+
+        StartBattle("BattleScene"); // Usar essa linha somente para testes dentro das cenas de batalha
     }
 
     // Functions ---------------------------------------------------

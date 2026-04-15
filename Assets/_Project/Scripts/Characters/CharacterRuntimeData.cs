@@ -146,7 +146,7 @@ public class CharacterRuntimeData : MonoBehaviour
     {
         int overdamage = (_shield - damage) * -1;
         _shield = Math.Max(_shield - damage, 0);
-        if (overdamage <= 0)
+        if (overdamage < 0)
             return;
         
         _hpCurrent -= overdamage;

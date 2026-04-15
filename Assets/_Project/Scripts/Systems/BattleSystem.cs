@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 /*
  * Gerencia todas as batalhas do jogo utilizando uma máquina
@@ -43,8 +45,8 @@ public class BattleSystem : MonoBehaviour
     private enum BattleState { START, PLAYER_TURN, ENEMY_TURN, WIN, LOSE }
     private enum PlayerActionState { CHOOSE_SKILL, CHOOSE_TARGET, EXECUTE_ACTION }
  
-    [SerializeField] private BattleState _state;
-    [SerializeField] private PlayerActionState _playerActionState;
+    private BattleState _state;
+    private PlayerActionState _playerActionState;
 
     [SerializeField] private BattleUI _battleUI;
 
@@ -62,38 +64,56 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] private bool _isPlayerTurnEnded = false;
     [SerializeField] private CharacterRuntimeData _targetSelected;
     [SerializeField] private CharacterRuntimeData _activeHero;
-    public int _actionsCurrent { get; private set; }
+    private int _actionsCurrent;
 
     public event Action OnPassTurn;
     public event Action<int> OnChangeActions;
 
+    // Começa o fluxo de batalha chamando essa coroutine
     void Start()
     {
-        InitializeBattle();
+        StartCoroutine(BattleFlow());
     }
 
+    // Update vai controlar apenas os inputs do player
     private void Update()
     {
         if (_state != BattleState.PLAYER_TURN)
             return;
 
-        switch (_playerActionState)
-        {
-            case PlayerActionState.CHOOSE_SKILL:
-                InputSwitchHero();
-                ChooseSkillSelection();
-                InputFinishTurn();
-                break;
-            case PlayerActionState.CHOOSE_TARGET:
-                ChooseTarget();
-                break;
-        }
+        HandlePlayerInput();
     }
 
     // Fluxo de Batalha ----------------------------------------------------------------------
-    private void InitializeBattle()
+    IEnumerator BattleFlow()
     {
         _state = BattleState.START;
+        InitializeBattle();
+
+        while (true)
+        {
+            switch (_state)
+            {
+                case BattleState.START:
+                    yield return StartCoroutine(StartBattle());
+                    break;
+                case BattleState.PLAYER_TURN:
+                    yield return StartCoroutine(PlayerTurn());
+                    break;
+                case BattleState.ENEMY_TURN:
+                    yield return StartCoroutine(EnemyTurn());
+                    break;
+                case BattleState.WIN:
+                case BattleState.LOSE:
+                    yield return StartCoroutine(EndBattle(_state == BattleState.WIN));
+                    yield break;
+            }
+        }
+    }
+
+    // Funcoes e Coroutines para o fluxo de batalha -------------------------------------
+    private void InitializeBattle()
+    {
         _battleUI.Initialize(this);
         _actionsCurrent = ACTIONS_MAX;
 
@@ -120,9 +140,6 @@ public class BattleSystem : MonoBehaviour
             _enemies.Add(runtimeEnemy);
             enemyIndex++;
         }
-
-        // Comeca a batalha
-        StartCoroutine(StartBattle());
     }
 
     IEnumerator StartBattle()
@@ -133,7 +150,6 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         _state = BattleState.PLAYER_TURN;
-        StartCoroutine(PlayerTurn());
     }
 
     IEnumerator PlayerTurn()
@@ -162,7 +178,6 @@ public class BattleSystem : MonoBehaviour
         Debug.Log("Jogador encerrou o turno");
 
         _state = BattleState.ENEMY_TURN;
-        StartCoroutine(EnemyTurn());
     }
 
     IEnumerator EnemyTurn()
@@ -196,35 +211,73 @@ public class BattleSystem : MonoBehaviour
         if (CheckBattleEnd())
             yield break;
 
-        _state = BattleState.PLAYER_TURN;
         OnPassTurn?.Invoke();
-        StartCoroutine(PlayerTurn());
+        _state = BattleState.PLAYER_TURN;
     }
 
     IEnumerator EndBattle(bool playerWon)
     {
-        _state = playerWon ? BattleState.WIN : BattleState.LOSE;
         Debug.Log(playerWon ? "Vitória!" : "Derrota...");
 
         yield return new WaitForSeconds(2f);
 
-        if (_state == BattleState.WIN)
+        if (playerWon)
             _battleUI.WinScreen();
         else
             _battleUI.LoseScreen();
     }
 
-    // Funcoes Auxilares para as Batalhas -------------------------------------------------------
-    
+    // Funcoes de Input do player -------------------------------------------------------
+
+    void HandlePlayerInput()
+    {
+        switch (_playerActionState)
+        {
+            case PlayerActionState.CHOOSE_SKILL:
+                InputSwitchHero();
+                InputFinishTurn();
+                ChooseSkillSelection();
+                break;
+
+            case PlayerActionState.CHOOSE_TARGET:
+                ChooseTarget();
+                break;
+        }
+    }
+
+    private void InputSwitchHero()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab)) // Seleciona o proximo heroi por tab
+        {
+            int currentIndex = _party.IndexOf(_activeHero);
+            int nextIndex = (currentIndex + 1) % _party.Count;
+            _activeHero.IsSelected(false);
+
+            _activeHero = _party[nextIndex];
+            _activeHero.IsSelected(true);
+            _battleUI.UpdateSkillCards(_activeHero.GetSkillsImages());
+            _battleUI.UpdateCursorPosition(_actionsCurrent);
+            Debug.Log($"Herói ativo trocado para: {_activeHero.Name}");
+        }
+    }
+
+    private void InputFinishTurn()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) // Espaco no teclado finaliza o turno
+        {
+            _isPlayerTurnEnded = true;
+        }
+    }
+
     private void ChooseSkillSelection()
     {
-        if(_actionsCurrent == 0)
+        if (_actionsCurrent == 0)
         {
             Debug.Log("Não há mais ações restantes!");
             _isPlayerTurnEnded = true;
             return;
         }
-  
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
             SkillChoosed(0);
         if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -232,6 +285,7 @@ public class BattleSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3))
             SkillChoosed(2);
     }
+
     private void SkillChoosed(int index)
     {
         var skill = _activeHero.Skills[index];
@@ -257,6 +311,7 @@ public class BattleSystem : MonoBehaviour
             _playerActionState = PlayerActionState.CHOOSE_TARGET;
     }
 
+
     private void ChooseTarget()
     {
         var effects = _activeHero.Skills[_indexSkillSelected].Effect;
@@ -278,6 +333,8 @@ public class BattleSystem : MonoBehaviour
             }
         }
     }
+
+    // Coroutines para executar as skills ------------------------------------------------
 
     private IEnumerator ExecuteActionAOE(List<CharacterRuntimeData> list)
     {
@@ -309,7 +366,6 @@ public class BattleSystem : MonoBehaviour
             target.IsSelected(false);
         }
         
-        CheckBattleEnd();
         if (_actionsCurrent > 0)
         {
             _playerActionState = PlayerActionState.CHOOSE_SKILL;
@@ -340,17 +396,17 @@ public class BattleSystem : MonoBehaviour
 
         // Marca o turno do jogador como finalizado
         _targetSelected.IsSelected(false);
-        CheckBattleEnd();
+
         if (_actionsCurrent > 0)
         {
             _playerActionState = PlayerActionState.CHOOSE_SKILL;
-            Debug.Log($"Ações restantes: {_actionsCurrent}. Escolha nova habilidade ou troque de herói (tab).");
+            Debug.Log($"Ações restantes: {_actionsCurrent}. Escolha nova habilidade");
         }
         else
-        {
             _isPlayerTurnEnded= true;
-        }
     }
+
+    // Funcoes auxiliares --------------------------------------------------------------
 
     private bool IsBuff(List<SkillsSO.SkillEffects> effects)
     {
@@ -370,40 +426,16 @@ public class BattleSystem : MonoBehaviour
         if (enemiesDead.Count == _enemies.Count)
         {
             _enemies.RemoveAll(enemy => (enemy == null || enemy.HpCurrent <= 0));
-            StartCoroutine(EndBattle(true));
+            _state = BattleState.WIN;
             return true;
         }
 
         if (_party.Count == 0)
         {
-            StartCoroutine(EndBattle(false));
+            _state = BattleState.LOSE;
             return true;
         }
 
         return false;
-    }
-
-    private void InputSwitchHero()
-    {
-        if (Input.GetKeyDown(KeyCode.Tab)) // Seleciona o proximo heroi por tab
-        {
-            int currentIndex = _party.IndexOf(_activeHero);
-            int nextIndex = (currentIndex + 1) % _party.Count;
-            _activeHero.IsSelected(false);
-
-            _activeHero = _party[nextIndex];
-            _activeHero.IsSelected(true);
-            _battleUI.UpdateSkillCards(_activeHero.GetSkillsImages());
-            _battleUI.UpdateCursorPosition(_actionsCurrent);
-            Debug.Log($"Herói ativo trocado para: {_activeHero.Name}");
-        }
-    }
-
-    private void InputFinishTurn()
-    {
-        if (Input.GetKeyDown(KeyCode.Space)) // Espaco no teclado finaliza o turno
-        {
-            _isPlayerTurnEnded = true;
-        }
     }
 }
