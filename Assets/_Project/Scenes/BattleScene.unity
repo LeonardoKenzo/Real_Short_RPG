@@ -254,8 +254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c345ce622029dd44cae54333a98f6523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleSystem
-  _state: 0
-  _playerActionState: 0
   _battleUI: {fileID: 1525993424}
   _party: []
   _enemies: []
@@ -963,6 +961,14 @@ PrefabInstance:
     - target: {fileID: 3140008861717374746, guid: 7bf45155a1bdd344582d5fe4ca4a3be9, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5230085809917750983, guid: 7bf45155a1bdd344582d5fe4ca4a3be9, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 5230085809917750983, guid: 7bf45155a1bdd344582d5fe4ca4a3be9, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6061546244729965061, guid: 7bf45155a1bdd344582d5fe4ca4a3be9, type: 3}
       propertyPath: m_AnchorMax.y

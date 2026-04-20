@@ -19,7 +19,7 @@ using UnityEngine.UI;
  * - BattleSystem
  */
 
-public class BattleUI : MonoBehaviour
+public class BatalhaUI : MonoBehaviour
 {
     [Header("End Screen")]
     [SerializeField] private GameObject _winScreen;
@@ -27,14 +27,20 @@ public class BattleUI : MonoBehaviour
 
     [Header("Action Counter")]
     [SerializeField] private List<Image> _cursorPosition;
-    private BattleSystem _battleSystem;
+    private SistemaBatalha _battleSystem;
 
     [Header("Skills Cards")]
     [SerializeField] private List<Image> _skillsSprites;
     [SerializeField] private List<RectTransform> _skillsTransforms;
-    private RectTransform _skillCard;
+    [SerializeField] private float _distanciaSubida = 112f, _duracaoMovimento = 0.5f;
+    private float _alturaInicialCartas;
 
-    public void Initialize(BattleSystem battleSystem)
+    void Start()
+    {
+        _alturaInicialCartas = _skillsTransforms[0].anchoredPosition.y;
+    }
+
+    public void Initialize(SistemaBatalha battleSystem)
     {
         _battleSystem = battleSystem;
         _battleSystem.OnChangeActions += UpdateCursorPosition;
@@ -43,22 +49,22 @@ public class BattleUI : MonoBehaviour
     // Funcoes da Selecao de Skills (cartas) --------------------------------
 
     // Animacao de selecao das cartas
-    public void MoveUpSmooth(int index, float distance, float duration)
+    public void MoveUpSmooth(int index)
     {
-        _skillCard = _skillsTransforms[index];
-        StartCoroutine(MoveRoutine(distance, duration));
+        RectTransform skillCard = _skillsTransforms[index];
+        StartCoroutine(MoveRoutine(skillCard, _distanciaSubida, _duracaoMovimento));
     }
 
-    public void MoveDownSmooth(int index, float distance, float duration)
+    public void MoveDownSmooth(int index)
     {
-        _skillCard = _skillsTransforms[index];
-        StartCoroutine(MoveRoutine(-distance, duration));
+        RectTransform skillCard = _skillsTransforms[index];
+        StartCoroutine(MoveRoutine(skillCard, 0, _duracaoMovimento));
     }
 
-    private IEnumerator MoveRoutine(float distance, float duration)
+    private IEnumerator MoveRoutine(RectTransform skillCard, float distance, float duration)
     {
-        Vector2 startPos = _skillCard.anchoredPosition;
-        Vector2 endPos = startPos + new Vector2(0, distance);
+        Vector2 startPos = skillCard.anchoredPosition;
+        Vector2 endPos = new Vector2(startPos.x, _alturaInicialCartas) + new Vector2(0, distance);
 
         float elapsed = 0f;
 
@@ -66,7 +72,7 @@ public class BattleUI : MonoBehaviour
         {
             elapsed += Time.deltaTime;
             float t = Mathf.Clamp01(elapsed / duration);
-            _skillCard.anchoredPosition = Vector2.Lerp(startPos, endPos, t);
+            skillCard.anchoredPosition = Vector2.Lerp(startPos, endPos, t);
             yield return null;
         }
     }
