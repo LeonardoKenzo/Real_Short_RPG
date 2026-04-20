@@ -6,21 +6,21 @@ using UnityEngine;
 using UnityEngine.PlayerLoop;
 
 /*
- * Gerencia todas as batalhas do jogo utilizando uma máquina
- * de estados para controlar o fluxo de turnos e ações.
+ * Gerencia todas as batalhas do jogo utilizando uma mï¿½quina
+ * de estados para controlar o fluxo de turnos e aï¿½ï¿½es.
  *
  * Fluxo da batalha:
  * 1) Start
  *    - Inicia a batalha
- *    - Instancia cenário, heróis e inimigos
+ *    - Instancia cenï¿½rio, herï¿½is e inimigos
  *    - Exibe mensagem inicial
  * 2) PlayerTurn
- *    - Jogador escolhe ações (ataque, habilidade, etc)
+ *    - Jogador escolhe aï¿½ï¿½es (ataque, habilidade, etc)
  * 3) EnemyTurn
- *    - Inimigos executam suas ações automaticamente
+ *    - Inimigos executam suas aï¿½ï¿½es automaticamente
  * 4) Loop de batalha
  *    - Alterna entre PlayerTurn e EnemyTurn
- *    - Verifica condição de vitória ou derrota
+ *    - Verifica condiï¿½ï¿½o de vitï¿½ria ou derrota
  * 5) Win / Lose
  *    - Finaliza a batalha
  *    - Troca para tela de resultado
@@ -28,16 +28,16 @@ using UnityEngine.PlayerLoop;
  * -------------------------------------------------------
  * Como usar:
  * 1) Criar um GameObject chamado "BattleSystem"
- * 2) Adicionar filhos com Transform para posições de
- *    heróis e inimigos
+ * 2) Adicionar filhos com Transform para posiï¿½ï¿½es de
+ *    herï¿½is e inimigos
  * 3) Anexar este script ao GameObject BattleSystem
- * 4) Definir o BattleUI na variável _battleUI
+ * 4) Definir o BattleUI na variï¿½vel _battleUI
  *
  * -------------------------------------------------------
- * Dependências:
+ * Dependï¿½ncias:
  * - BattleUI
  * - CharacterRuntimeData
- * - Transforms para instanciar heróis e inimigos
+ * - Transforms para instanciar herï¿½is e inimigos
  */
 
 public class BattleSystem : MonoBehaviour
@@ -58,7 +58,7 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] private List<Transform> _heroSpawn;
     [SerializeField] private List<Transform> _enemySpawn;
 
-    [Header("Controle de ações")]
+    [Header("Controle de aï¿½ï¿½es")]
     [SerializeField] private const int ACTIONS_MAX = 5;
     [SerializeField] private int _indexSkillSelected;
     [SerializeField] private bool _isPlayerTurnEnded = false;
@@ -69,7 +69,7 @@ public class BattleSystem : MonoBehaviour
     public event Action OnPassTurn;
     public event Action<int> OnChangeActions;
 
-    // Começa o fluxo de batalha chamando essa coroutine
+    // Comeï¿½a o fluxo de batalha chamando essa coroutine
     void Start()
     {
         StartCoroutine(BattleFlow());
@@ -168,7 +168,7 @@ public class BattleSystem : MonoBehaviour
 
         Debug.Log("Seu turno! Escolha uma habilidade (1, 2 ou 3).");
 
-        // Espera até que o jogador conclua a ação
+        // Espera atï¿½ que o jogador conclua a aï¿½ï¿½o
         yield return new WaitUntil(() => _isPlayerTurnEnded);
 
         // Verifica se ganhou
@@ -190,7 +190,7 @@ public class BattleSystem : MonoBehaviour
                 continue;
             enemy.IsSelected(true);
 
-            // Escolhe herói vivo aleatoriamente
+            // Escolhe herï¿½i vivo aleatoriamente
             var livingHeroes = _party.FindAll(hero => (hero != null && hero.HpCurrent > 0));
             if (livingHeroes.Count == 0)
                 break;
@@ -217,7 +217,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EndBattle(bool playerWon)
     {
-        Debug.Log(playerWon ? "Vitória!" : "Derrota...");
+        Debug.Log(playerWon ? "Vitï¿½ria!" : "Derrota...");
 
         yield return new WaitForSeconds(2f);
 
@@ -257,7 +257,7 @@ public class BattleSystem : MonoBehaviour
             _activeHero.IsSelected(true);
             _battleUI.UpdateSkillCards(_activeHero.GetSkillsImages());
             _battleUI.UpdateCursorPosition(_actionsCurrent);
-            Debug.Log($"Herói ativo trocado para: {_activeHero.Name}");
+            Debug.Log($"Herï¿½i ativo trocado para: {_activeHero.Name}");
         }
     }
 
@@ -273,7 +273,7 @@ public class BattleSystem : MonoBehaviour
     {
         if (_actionsCurrent == 0)
         {
-            Debug.Log("Não há mais ações restantes!");
+            Debug.Log("Nï¿½o hï¿½ mais aï¿½ï¿½es restantes!");
             _isPlayerTurnEnded = true;
             return;
         }
@@ -292,7 +292,7 @@ public class BattleSystem : MonoBehaviour
 
         if (skill.ActionCost > _actionsCurrent)
         {
-            Debug.Log("Ações insuficientes para usar a habilidade.");
+            Debug.Log("Aï¿½ï¿½es insuficientes para usar a habilidade.");
             return;
         }
 
@@ -369,7 +369,7 @@ public class BattleSystem : MonoBehaviour
         if (_actionsCurrent > 0)
         {
             _playerActionState = PlayerActionState.CHOOSE_SKILL;
-            Debug.Log($"Ações restantes: {_actionsCurrent}. Escolha nova habilidade ou troque de herói (tab).");
+            Debug.Log($"Aï¿½ï¿½es restantes: {_actionsCurrent}. Escolha nova habilidade ou troque de herï¿½i (tab).");
         }
         else
         {
@@ -400,7 +400,7 @@ public class BattleSystem : MonoBehaviour
         if (_actionsCurrent > 0)
         {
             _playerActionState = PlayerActionState.CHOOSE_SKILL;
-            Debug.Log($"Ações restantes: {_actionsCurrent}. Escolha nova habilidade");
+            Debug.Log($"Aï¿½ï¿½es restantes: {_actionsCurrent}. Escolha nova habilidade");
         }
         else
             _isPlayerTurnEnded= true;

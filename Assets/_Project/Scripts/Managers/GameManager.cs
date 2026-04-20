@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     // Functions ---------------------------------------------------
     public void StartBattle(string sceneName)
     {
+        Debug.Log("AAAAAAAA");
         _battleDataManager = new BattleDataManager
         {
             _partyData = _partyManager.HeroPartyData,
