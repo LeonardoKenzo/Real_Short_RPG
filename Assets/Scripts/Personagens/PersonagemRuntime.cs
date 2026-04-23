@@ -11,6 +11,7 @@ public class PersonagemRuntime : MonoBehaviour
     private bool _isStunned;
     private UnitsSO _stats;
     private SkillsSO[] _skills;
+    private GameObject _prefab;
 
     //UI
     public event Action<int, int> OnHealthChanged; // (current, max)
@@ -26,10 +27,11 @@ public class PersonagemRuntime : MonoBehaviour
     public bool IsStunned => _isStunned;
     public UnitsSO Stats => _stats;
     public SkillsSO[] Skills => _skills;
+    public GameObject Prefab => _prefab;
 
     // Functions ---------------------------------------------
 
-    public void InitializeStats(UnitsSO stats, BattleSystem battleSystem)
+    public PersonagemRuntime(UnitsSO stats)
     {
         this._stats = stats;
         _name = stats.name;
@@ -40,6 +42,7 @@ public class PersonagemRuntime : MonoBehaviour
         _stunTime = 0;
         _isStunned = false;
         _skills = stats.Skills;
+        _prefab = stats.Prefab;
 
         OnHealthChanged?.Invoke(_hpCurrent, _hpMax);
     }
