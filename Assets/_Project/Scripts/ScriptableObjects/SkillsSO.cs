@@ -4,8 +4,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SkillsSO", menuName = "Scriptable Objects/SkillsSO")]
 public class SkillsSO : ScriptableObject
 {
-    public enum SkillEffects { ATTACK, HEAL, BUFF, DEBUFF, STUN, SHIELD };
-
     [SerializeField] private string _skillName;
     [SerializeField] private string _skillDescription;
     [SerializeField] private int _actionCost;

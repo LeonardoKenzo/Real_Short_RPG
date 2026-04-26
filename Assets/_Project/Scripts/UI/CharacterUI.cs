@@ -64,33 +64,33 @@ public class CharacterUI : MonoBehaviour
         _selectedUnit.enabled = isEnabled;
     }
 
-    private void EffectUIApply(SkillsSO.SkillEffects effects)
+    private void EffectUIApply(SkillEffects effects)
     {
         switch (effects)
         {
-            case SkillsSO.SkillEffects.BUFF:
+            case SkillEffects.BUFF:
                 _buffImage.enabled = true;
                 break;
-            case SkillsSO.SkillEffects.SHIELD:
+            case SkillEffects.SHIELD:
                 _shieldImage.enabled = true;
                 break;
-            case SkillsSO.SkillEffects.STUN:
+            case SkillEffects.STUN:
                 _stunImage.enabled = true;
                 break;
         }
     }
 
-    private void EffectUIRemove(SkillsSO.SkillEffects effects)
+    private void EffectUIRemove(SkillEffects effects)
     {
         switch (effects)
         {
-            case SkillsSO.SkillEffects.BUFF:
+            case SkillEffects.BUFF:
                 _buffImage.enabled = false;
                 break;
-            case SkillsSO.SkillEffects.SHIELD:
+            case SkillEffects.SHIELD:
                 _shieldImage.enabled = false;
                 break;
-            case SkillsSO.SkillEffects.STUN:
+            case SkillEffects.STUN:
                 _stunImage.enabled = false;
                 break;
         }

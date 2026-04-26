@@ -36,8 +36,8 @@ public class CharacterRuntimeData : MonoBehaviour
 
     public event Action<int, int> OnHealthChanged; // (current, max)
     public event Action<bool> OnSelected; // (isSelected)
-    public event Action<SkillsSO.SkillEffects> OnEffectsApplied;
-    public event Action<SkillsSO.SkillEffects> OnEffectsRemove;
+    public event Action<SkillEffects> OnEffectsApplied;
+    public event Action<SkillEffects> OnEffectsRemove;
     public event Action OnDeath;
 
     // Getters ----------------------------------
@@ -74,7 +74,7 @@ public class CharacterRuntimeData : MonoBehaviour
         {
             switch (effect)
             {
-                case SkillsSO.SkillEffects.ATTACK:
+                case SkillEffects.ATTACK:
                     if (!_isStunned)
                     {
                         target.TakeDamage(skill.Power + _damageBuff);
@@ -82,19 +82,19 @@ public class CharacterRuntimeData : MonoBehaviour
                     }
                     break;
 
-                case SkillsSO.SkillEffects.HEAL:
+                case SkillEffects.HEAL:
                     target.Heal(skill.Power);
                     break;
 
-                case SkillsSO.SkillEffects.BUFF:
+                case SkillEffects.BUFF:
                     target._damageBuff += skill.Power;
                     break;
 
-                case SkillsSO.SkillEffects.SHIELD:
+                case SkillEffects.SHIELD:
                     target._shield += skill.Power;
                     break;
 
-                case SkillsSO.SkillEffects.STUN:
+                case SkillEffects.STUN:
                     target._isStunned = true;
                     target._stunTime += skill.Power;
                     break;
@@ -127,13 +127,13 @@ public class CharacterRuntimeData : MonoBehaviour
         {
             _stunTime = 0;
             _isStunned = false;
-            OnEffectsRemove?.Invoke(SkillsSO.SkillEffects.STUN);
+            OnEffectsRemove?.Invoke(SkillEffects.STUN);
         }
     }
     private void UseBuff()
     {
         _damageBuff = 0;
-        OnEffectsRemove?.Invoke(SkillsSO.SkillEffects.BUFF);
+        OnEffectsRemove?.Invoke(SkillEffects.BUFF);
     }
 
     private void Heal(int cure)
@@ -150,7 +150,7 @@ public class CharacterRuntimeData : MonoBehaviour
             return;
         
         _hpCurrent -= overdamage;
-        OnEffectsRemove?.Invoke(SkillsSO.SkillEffects.SHIELD);
+        OnEffectsRemove?.Invoke(SkillEffects.SHIELD);
         OnHealthChanged?.Invoke(_hpCurrent, _hpMax);
         if (_hpCurrent <= 0)
             StartCoroutine(Die());

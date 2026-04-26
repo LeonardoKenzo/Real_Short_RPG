@@ -408,11 +408,11 @@ public class BattleSystem : MonoBehaviour
 
     // Funcoes auxiliares --------------------------------------------------------------
 
-    private bool IsBuff(List<SkillsSO.SkillEffects> effects)
+    private bool IsBuff(List<SkillEffects> effects)
     {
-        if (effects.Contains(SkillsSO.SkillEffects.ATTACK) ||
-           effects.Contains(SkillsSO.SkillEffects.DEBUFF) ||
-           effects.Contains(SkillsSO.SkillEffects.STUN))
+        if (effects.Contains(SkillEffects.ATTACK) ||
+           effects.Contains(SkillEffects.DEBUFF) ||
+           effects.Contains(SkillEffects.STUN))
             return false;
         return true;
     }

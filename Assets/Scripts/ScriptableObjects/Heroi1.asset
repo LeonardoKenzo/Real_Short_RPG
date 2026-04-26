@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a71fabd21c2349041909c0acc5b2d05d, type: 3}
+  m_Name: Heroi1
+  m_EditorClassIdentifier: Assembly-CSharp::PersonagemSO
+  _name: teste
+  _hpMax: 5
+  _speed: 20
+  _skills:
+  - {fileID: 11400000, guid: f2cf6e06f2303f64896c111ee5ece9a0, type: 2}
+  _Prefab: {fileID: 7305786205940731812, guid: 508d8f99b21ce2646b970150fd328906, type: 3}
