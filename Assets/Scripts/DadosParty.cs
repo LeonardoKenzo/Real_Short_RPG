@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DadosParty : MonoBehaviour
 {
-    public static DadosParty S_ReferenciaParty;
+    public static DadosParty s_ReferenciaParty;
 
     [SerializeField] private List<PersonagemSO> _herois;
 
@@ -12,14 +12,14 @@ public class DadosParty : MonoBehaviour
 
     void Awake()
     {
-        if (S_ReferenciaParty != null)
+        if (s_ReferenciaParty != null)
         {
             Debug.Log("Destruindo duplicata da party...");
             Destroy(this.gameObject);
             return;
         }
 
-        S_ReferenciaParty = this;
+        s_ReferenciaParty = this;
         DontDestroyOnLoad(this.gameObject);
     }
 

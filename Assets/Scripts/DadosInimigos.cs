@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DadosInimigos : MonoBehaviour
 {
-    public static DadosInimigos S_ReferenciaInimigos;
+    public static DadosInimigos s_ReferenciaInimigos;
 
     [SerializeField] private List<PersonagemSO> _inimigos;
 
@@ -11,12 +11,12 @@ public class DadosInimigos : MonoBehaviour
 
     void Awake()
     {
-        if (S_ReferenciaInimigos != null)
+        if (s_ReferenciaInimigos != null)
         {
             Debug.LogError("DUPLICADA DE DADOS_INIMIGOS!!!!");
             return;
         }
 
-        S_ReferenciaInimigos = this;
+        s_ReferenciaInimigos = this;
     }
 }

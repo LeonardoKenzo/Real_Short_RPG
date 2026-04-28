@@ -6,17 +6,17 @@ using UnityEngine;
 public class PersonagemController : MonoBehaviour
 {
     //Status
-    private string _name;
-    private int _hpMax, _hpAtual, _speed;
+    protected string _name;
+    protected int _hpMax, _hpAtual, _speed;
 
     //Efeitos
-    private int _roundsStunned, _shield;
-    private Dictionary<int, int> _buffs;
+    protected int _roundsStunned, _shield;
+    protected Dictionary<int, int> _buffs, _debuffs;
 
-    private HabilidadesSO[] _skills;
+    protected List<HabilidadesSO> _skills;
 
     public bool IsStunned => _roundsStunned > 0;
-    public HabilidadesSO[] Skills => _skills;
+    public List<HabilidadesSO> Skills => _skills;
 
     public Action<int, int> OnHealthChanged;
     public Action<SkillEffects> OnEffectsApplied, OnEffectsRemoved;
@@ -33,6 +33,7 @@ public class PersonagemController : MonoBehaviour
         _shield = 0;
 
         _buffs = new Dictionary<int, int>();
+        _debuffs = new Dictionary<int, int>();
 
         OnHealthChanged?.Invoke(_hpAtual, _hpMax);
 
@@ -51,7 +52,7 @@ public class PersonagemController : MonoBehaviour
         {
             var valor = _buffs[chave];
 
-            if (chave == 0)
+            if (chave == 1)
             {
                 _buffs.Remove(chave);
                 continue;
@@ -60,8 +61,23 @@ public class PersonagemController : MonoBehaviour
             _buffs[chave - 1] = valor;
             _buffs.Remove(chave);
         }
+        foreach (var chave in _debuffs.Keys.OrderBy(k => k).ToList())
+        {
+            var valor = _debuffs[chave];
+
+            if (chave == 1)
+            {
+                _debuffs.Remove(chave);
+                continue;
+            }
+
+            _debuffs[chave - 1] = valor;
+            _debuffs.Remove(chave);
+        }
         if (_buffs.Count == 0)
             OnEffectsRemoved?.Invoke(SkillEffects.BUFF);
+        if (_debuffs.Count == 0)
+            OnEffectsRemoved?.Invoke(SkillEffects.DEBUFF);
     }
 
     public void ReceberDano(int dano)
@@ -92,7 +108,7 @@ public class PersonagemController : MonoBehaviour
         OnHealthChanged?.Invoke(_hpAtual, _hpMax);
     }
 
-    public void UsarHabilidade(HabilidadesSO habilidade, List<PersonagemController> aliadosTarget, List<PersonagemController> inimigosTarget)
+    public virtual void UsarHabilidade(HabilidadesSO habilidade, List<PersonagemController> aliadosTarget, List<PersonagemController> inimigosTarget)
     {
         //Não deve cair nunca aqui, deve ser tratado externamente
         if (_roundsStunned > 0)
@@ -107,7 +123,9 @@ public class PersonagemController : MonoBehaviour
             {
                 case SkillEffects.ATTACK:
                     foreach (PersonagemController inimigo in inimigosTarget)
-                        inimigo.ReceberDano(habilidade.Dano + _buffs.Values.Sum());
+                    {
+                        inimigo.ReceberDano(habilidade.Dano + _buffs.Values.Sum() + _debuffs.Values.Sum());
+                    }
                     break;
 
                 case SkillEffects.HEAL:
@@ -115,23 +133,35 @@ public class PersonagemController : MonoBehaviour
                         aliado.Curar(habilidade.Cura);
                     break;
 
+                case SkillEffects.SHIELD:
+                    foreach (PersonagemController aliado in aliadosTarget)
+                    {
+                        aliado._shield += habilidade.Shield;
+                        aliado.OnEffectsApplied?.Invoke(SkillEffects.SHIELD);
+                    }
+                    break;
+
                 case SkillEffects.BUFF:
                     foreach (PersonagemController aliado in aliadosTarget)
                     {
-                        if (_buffs.ContainsKey(habilidade.BuffTime))
-                            _buffs[habilidade.BuffTime] += habilidade.Buff;
+                        if (aliado._buffs.ContainsKey(habilidade.BuffTime))
+                            aliado._buffs[habilidade.BuffTime] += habilidade.Buff;
                         else
-                            _buffs[habilidade.BuffTime] = habilidade.Buff;
+                            aliado._buffs[habilidade.BuffTime] = habilidade.Buff;
 
                         aliado.OnEffectsApplied?.Invoke(SkillEffects.BUFF);
                     }
                     break;
 
-                case SkillEffects.SHIELD:
-                    foreach (PersonagemController aliado in aliadosTarget)
+                case SkillEffects.DEBUFF:
+                    foreach (PersonagemController inimigo in inimigosTarget)
                     {
-                        aliado._shield += habilidade.Shield;
-                        aliado.OnEffectsApplied?.Invoke(SkillEffects.BUFF);
+                        if (inimigo._debuffs.ContainsKey(habilidade.DebuffTime))
+                            inimigo._debuffs[habilidade.DebuffTime] += -habilidade.Debuff;
+                        else
+                            inimigo._debuffs[habilidade.DebuffTime] = -habilidade.Debuff;
+
+                        inimigo.OnEffectsApplied?.Invoke(SkillEffects.DEBUFF);
                     }
                     break;
 

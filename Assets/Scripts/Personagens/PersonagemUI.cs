@@ -7,12 +7,11 @@ public class PersonagemUI : MonoBehaviour
     [Header("HP Bar")]
     [SerializeField] private Image _hpBar;
     [SerializeField] private float _lerpSpeed = 5f; // Animacao da barra de vida
-    [SerializeField] private float _targetLerpValue;
     private float _targetFill;
     private float _currentFill;
 
     [Header("Effects")]
-    [SerializeField] private Image _stunImage, _buffImage, _shieldImage;
+    [SerializeField] private Image _stunImage, _buffImage, _debuffImage, _shieldImage;
 
     private PersonagemController _unit;
 
@@ -45,6 +44,9 @@ public class PersonagemUI : MonoBehaviour
             case SkillEffects.BUFF:
                 _buffImage.enabled = true;
                 break;
+            case SkillEffects.DEBUFF:
+                _debuffImage.enabled = true;
+                break;
             case SkillEffects.SHIELD:
                 _shieldImage.enabled = true;
                 break;
@@ -60,6 +62,9 @@ public class PersonagemUI : MonoBehaviour
         {
             case SkillEffects.BUFF:
                 _buffImage.enabled = false;
+                break;
+            case SkillEffects.DEBUFF:
+                _debuffImage.enabled = false;
                 break;
             case SkillEffects.SHIELD:
                 _shieldImage.enabled = false;

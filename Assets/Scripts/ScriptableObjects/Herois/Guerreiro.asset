@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a71fabd21c2349041909c0acc5b2d05d, type: 3}
-  m_Name: Inimigo1
+  m_Name: Guerreiro
   m_EditorClassIdentifier: Assembly-CSharp::PersonagemSO
-  _name: teste
-  _hpMax: 10
-  _speed: 20
+  _name: Guerreiro
+  _hpMax: 5
+  _speed: 0
   _skills:
-  - {fileID: 11400000, guid: f2cf6e06f2303f64896c111ee5ece9a0, type: 2}
-  _Prefab: {fileID: 7305786205940731812, guid: 508d8f99b21ce2646b970150fd328906, type: 3}
+  - {fileID: 11400000, guid: af1ae1be4f4e5c94bbe8eaee0c895946, type: 2}
+  - {fileID: 11400000, guid: f667c9fe1958b4947a9d32952a5cc5ef, type: 2}
+  - {fileID: 11400000, guid: 694a769eebd92aa4f87353ca1f276388, type: 2}
+  _Prefab: {fileID: 7305786205940731812, guid: 08b28136513c9cf45bc9c6e9e81d892f, type: 3}

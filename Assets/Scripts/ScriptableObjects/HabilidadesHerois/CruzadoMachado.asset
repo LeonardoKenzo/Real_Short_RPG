@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e201a3e0356b874ea3707969960468c, type: 3}
+  m_Name: CruzadoMachado
+  m_EditorClassIdentifier: Assembly-CSharp::HabilidadesSO
+  _skillName: Machado
+  _skillDescription: 
+  _actionCost: 3
+  _cooldown: 0
+  _qtdAlvosAliados: 0
+  _qtdAlvosInimigos: 1
+  _dano: 5
+  _cura: 0
+  _shield: 0
+  _forcaBuff: 0
+  _roundsBuff: 0
+  _roundsStun: 0
+  _skillImage: {fileID: -2951968395899575411, guid: 8666fcae088b8ae4fa89cda5a20c4fb6, type: 3}
+  _skillEffect: 00000000
