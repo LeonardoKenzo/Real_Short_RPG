@@ -13,4 +13,6 @@ public class EventosGlobais : MonoBehaviour
 
     public static UnityEvent FimRodada = new UnityEvent();
     public static UnityEvent<GameObject> PersonagemMorreu = new UnityEvent<GameObject>();
+    //Invocador, invocado
+    public static UnityEvent<GameObject, PersonagemSO> PersonagemInvocando = new UnityEvent<GameObject, PersonagemSO>();
 }

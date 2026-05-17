@@ -114,6 +114,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -121,10 +134,10 @@ TextureImporter:
       name: cursor_azul_0
       rect:
         serializedVersion: 2
-        x: 99
-        y: 40
-        width: 122
-        height: 140
+        x: 100
+        y: 38
+        width: 120
+        height: 134
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,10 +156,10 @@ TextureImporter:
       name: cursor_azul_1
       rect:
         serializedVersion: 2
-        x: 419
-        y: 40
-        width: 122
-        height: 140
+        x: 420
+        y: 38
+        width: 120
+        height: 134
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,10 +178,10 @@ TextureImporter:
       name: cursor_azul_2
       rect:
         serializedVersion: 2
-        x: 739
-        y: 40
-        width: 122
-        height: 140
+        x: 740
+        y: 38
+        width: 120
+        height: 134
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,10 +200,10 @@ TextureImporter:
       name: cursor_azul_3
       rect:
         serializedVersion: 2
-        x: 1061
-        y: 40
-        width: 122
-        height: 140
+        x: 1060
+        y: 38
+        width: 120
+        height: 134
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,10 +222,10 @@ TextureImporter:
       name: cursor_azul_4
       rect:
         serializedVersion: 2
-        x: 1381
-        y: 40
-        width: 122
-        height: 140
+        x: 1380
+        y: 38
+        width: 120
+        height: 134
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +244,10 @@ TextureImporter:
       name: cursor_azul_5
       rect:
         serializedVersion: 2
-        x: 1699
-        y: 40
-        width: 122
-        height: 140
+        x: 1700
+        y: 38
+        width: 120
+        height: 134
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,10 +266,10 @@ TextureImporter:
       name: cursor_azul_6
       rect:
         serializedVersion: 2
-        x: 2019
-        y: 40
-        width: 122
-        height: 140
+        x: 2020
+        y: 38
+        width: 120
+        height: 134
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -283,7 +296,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":120.0,"y":134.0},"gridSpriteOffset":{"x":100.0,"y":14.0},"gridSpritePadding":{"x":200.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       cursor_azul_0: 5699864280327519822
       cursor_azul_1: -7912819669827051692

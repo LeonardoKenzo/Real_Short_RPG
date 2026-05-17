@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hero_Crusader
   m_EditorClassIdentifier: Assembly-CSharp::UnitsSO
   _name: Cruzado
-  _hpMax: 20
+  _hpMax: 6
   _speed: 0
   _Prefab: {fileID: 4873675712244950582, guid: fab1e37dbee5c5d44af42db1caac63ef, type: 3}
   _skills:

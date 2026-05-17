@@ -583,6 +583,7 @@ GameObject:
   - component: {fileID: 419635273}
   - component: {fileID: 419635272}
   - component: {fileID: 419635275}
+  - component: {fileID: 419635276}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -663,6 +664,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a87a44f8c5af4554e9c26fbafaf47cbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuPrincipal
+--- !u!114 &419635276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419635271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae78bbc82e40394bbd10eaba609a175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReiniciadorDoJogo
 --- !u!1 &507155920
 GameObject:
   m_ObjectHideFlags: 0

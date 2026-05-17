@@ -15,6 +15,8 @@ public class PersonagemController : MonoBehaviour
 
     protected List<HabilidadesSO> _skills;
 
+    public string UnitName => _name;
+
     public bool IsStunned => _roundsStunned > 0;
     public List<HabilidadesSO> Skills => _skills;
 
@@ -40,14 +42,8 @@ public class PersonagemController : MonoBehaviour
         EventosGlobais.FimRodada.AddListener(FimRodada);
     }
 
-    private void FimRodada()
+    protected void VerificarBuffsDebuffs()
     {
-        _roundsStunned--;
-        if(_roundsStunned < 0)
-            _roundsStunned = 0;
-        else if (_roundsStunned == 0)
-            OnEffectsRemoved?.Invoke(SkillEffects.STUN);
-
         foreach (var chave in _buffs.Keys.OrderBy(k => k).ToList())
         {
             var valor = _buffs[chave];
@@ -78,6 +74,15 @@ public class PersonagemController : MonoBehaviour
             OnEffectsRemoved?.Invoke(SkillEffects.BUFF);
         if (_debuffs.Count == 0)
             OnEffectsRemoved?.Invoke(SkillEffects.DEBUFF);
+    }
+
+    private void FimRodada()
+    {
+        _roundsStunned--;
+        if(_roundsStunned < 0)
+            _roundsStunned = 0;
+        else if (_roundsStunned == 0)
+            OnEffectsRemoved?.Invoke(SkillEffects.STUN);
     }
 
     public void ReceberDano(int dano)
@@ -126,6 +131,7 @@ public class PersonagemController : MonoBehaviour
                     {
                         inimigo.ReceberDano(habilidade.Dano + _buffs.Values.Sum() + _debuffs.Values.Sum());
                     }
+                    VerificarBuffsDebuffs();
                     break;
 
                 case SkillEffects.HEAL:
@@ -170,6 +176,14 @@ public class PersonagemController : MonoBehaviour
                     {
                         inimigo._roundsStunned += habilidade.StunTime;
                         inimigo.OnEffectsApplied?.Invoke(SkillEffects.STUN);
+                    }
+                    break;
+
+                case SkillEffects.SUMMON:
+                    for (int i = 0; i < habilidade.QtdSummons; i++)
+                    {
+                        EventosGlobais.PersonagemInvocando.Invoke(this.gameObject, 
+                                                    habilidade.Summons[UnityEngine.Random.Range(0, habilidade.Summons.Count)]);
                     }
                     break;
             }

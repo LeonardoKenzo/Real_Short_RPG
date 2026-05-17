@@ -28,6 +28,15 @@ public class HabilidadesController : MonoBehaviour
         _habilidades = new List<HabilidadesSO>();
     }
 
+    public void LimparTela()
+    {
+        foreach (Transform filho in this.gameObject.transform)
+        {
+            Destroy(filho.gameObject);
+        }
+        _cartas.Clear();
+    }
+
     public void DesenharCartas(List<HabilidadesSO> habilidades)
     {
         foreach (Transform filho in this.gameObject.transform)

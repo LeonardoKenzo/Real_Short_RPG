@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hero_Knight
   m_EditorClassIdentifier: Assembly-CSharp::SO_Heroes
   _name: Cavaleiro do Rei
-  _hpMax: 25
+  _hpMax: 5
   _speed: 0
   _Prefab: {fileID: 4873675712244950582, guid: 5e3aab5401baf1c4eace5dc3deae1762, type: 3}
   _skills:

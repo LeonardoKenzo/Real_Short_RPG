@@ -9,8 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: a575986ded885194a8c2f0817f8a4ecb
   - enabled: 1
-    path: Assets/Scenes/BattleScene.unity
+    path: Assets/Scenes/Batalha1.unity
     guid: ec271858cf9b80c41b85f80359e0fb4b
+  - enabled: 1
+    path: Assets/Scenes/Transicao12.unity
+    guid: bf12f0f9723ea064d9a9cea251f2857c
+  - enabled: 1
+    path: Assets/Scenes/Batalha2.unity
+    guid: 5288432dcc3c23443b0d3ad48f62cd44
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

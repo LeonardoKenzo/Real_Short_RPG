@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a71fabd21c2349041909c0acc5b2d05d, type: 3}
+  m_Name: Ceifeiro
+  m_EditorClassIdentifier: Assembly-CSharp::PersonagemSO
+  _name: Ceifeiro
+  _hpMax: 30
+  _speed: 0
+  _skills:
+  - {fileID: 11400000, guid: a5cfd489e740a9849bde74703deabfb4, type: 2}
+  - {fileID: 11400000, guid: 160e7de2a1cfe2245b82bd262cd636e6, type: 2}
+  _Prefab: {fileID: 7305786205940731812, guid: ca879e1091ee7e34783d72a49f5301ea, type: 3}

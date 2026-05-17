@@ -25,7 +25,15 @@ public class DadosParty : MonoBehaviour
 
     public void RemoverHeroi(PersonagemController heroi)
     {
-        int idxHeroi = _herois.FindIndex(item => item.name == heroi.name);
+        int idxHeroi = _herois.FindIndex(item => item.UnitName == heroi.UnitName);
         _herois.RemoveAt(idxHeroi);
+    }
+
+    public string RemoverHeroiAleatorio()
+    {
+        PersonagemSO removido = _herois[Random.Range(0, _herois.Count)];
+        _herois.Remove(removido);
+
+        return removido.UnitName;
     }
 }
