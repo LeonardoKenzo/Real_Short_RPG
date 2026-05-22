@@ -1,14 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SkillEffects { ATTACK, HEAL, SHIELD, BUFF, DEBUFF, STUN, SUMMON };
+public enum SkillEffects { ATTACK, HEAL, SHIELD, BUFF, DEBUFF, STUN, POISON, SUMMON };
 
 [CreateAssetMenu(fileName = "HabilidadesSO", menuName = "Scriptable Objects/HabilidadesSO")]
 public class HabilidadesSO : ScriptableObject
 {
     [SerializeField] private string _skillName, _skillDescription;
     [SerializeField] private int _actionCost, _cooldown, _qtdAlvosAliados, _qtdAlvosInimigos;
-    [SerializeField] private int _dano, _cura, _shield, _forcaBuff, _duracaoBuff, _forcaDebuff, _duracaoDebuff, _roundsStun;
+    [SerializeField] private int _dano, _cura, _shield;
+    [SerializeField] private int _forcaBuff, _duracaoBuff, _forcaDebuff, _duracaoDebuff, _roundsStun, _forcaVeneno, _duracaoVeneno;
     [SerializeField] private int _qtdSummons;
     [SerializeField] private List<PersonagemSO> _summons;
     [SerializeField] private Sprite _skillImage;
@@ -27,12 +28,14 @@ public class HabilidadesSO : ScriptableObject
     public int Debuff => _forcaDebuff;
     public int DebuffTime => _duracaoDebuff;
     public int StunTime => _roundsStun;
+    public int Veneno => _forcaVeneno;
+    public int VenenoTime => _duracaoVeneno;
     public int QtdAlvosAliados => _qtdAlvosAliados;
     public int QtdAlvosInimigos => _qtdAlvosInimigos;
     public int QtdSummons => _qtdSummons;
     public List<PersonagemSO> Summons => _summons;
     public Sprite SkillImage => _skillImage;
-    public List<SkillEffects> Effect => _skillEffect;
+    public List<SkillEffects> Effects => _skillEffect;
 
     public HabilidadesSO Copiar()
     {

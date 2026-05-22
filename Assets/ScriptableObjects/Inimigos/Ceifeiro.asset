@@ -15,6 +15,7 @@ MonoBehaviour:
   _name: Ceifeiro
   _hpMax: 30
   _speed: 0
+  _classe: 2
   _skills:
   - {fileID: 11400000, guid: a5cfd489e740a9849bde74703deabfb4, type: 2}
   - {fileID: 11400000, guid: 160e7de2a1cfe2245b82bd262cd636e6, type: 2}

@@ -15,6 +15,7 @@ MonoBehaviour:
   _name: Guerreiro
   _hpMax: 5
   _speed: 0
+  _classe: 3
   _skills:
   - {fileID: 11400000, guid: af1ae1be4f4e5c94bbe8eaee0c895946, type: 2}
   - {fileID: 11400000, guid: f667c9fe1958b4947a9d32952a5cc5ef, type: 2}

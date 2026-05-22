@@ -16,17 +16,17 @@ MonoBehaviour:
   _skillDescription: 
   _actionCost: 0
   _cooldown: 0
-  _qtdAlvosAliados: 100
-  _qtdAlvosInimigos: 100
+  _qtdAlvosAliados: 0
+  _qtdAlvosInimigos: 2
   _dano: 3
   _cura: 0
   _shield: 0
-  _forcaBuff: 1
-  _duracaoBuff: 1
+  _forcaBuff: 0
+  _duracaoBuff: 0
   _forcaDebuff: 1
   _duracaoDebuff: 1
   _roundsStun: 0
   _qtdSummons: 0
   _summons: []
   _skillImage: {fileID: 0}
-  _skillEffect: 000000000300000004000000
+  _skillEffect: 0000000004000000

@@ -1,0 +1,858 @@
+fileFormatVersion: 2
+guid: a754ab5cc714add4b8d558e697dc0af8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5558916496271125066
+    second: animacao_mordida_0
+  - first:
+      213: -5767578849694425588
+    second: animacao_mordida_1
+  - first:
+      213: -2927679654165917726
+    second: animacao_mordida_2
+  - first:
+      213: 4195077511155310822
+    second: animacao_mordida_3
+  - first:
+      213: -6356061250273087284
+    second: animacao_mordida_4
+  - first:
+      213: -7530436699886551339
+    second: animacao_mordida_5
+  - first:
+      213: -2749679710530634270
+    second: animacao_mordida_6
+  - first:
+      213: 5688408628546658406
+    second: animacao_mordida_7
+  - first:
+      213: 2843246030578102336
+    second: animacao_mordida_8
+  - first:
+      213: 87023375473792930
+    second: animacao_mordida_9
+  - first:
+      213: -3308763107968564608
+    second: animacao_mordida_10
+  - first:
+      213: -2191597249614736035
+    second: animacao_mordida_11
+  - first:
+      213: -7140445005017321334
+    second: animacao_mordida_12
+  - first:
+      213: 3048015575314027818
+    second: animacao_mordida_13
+  - first:
+      213: -3541555869302859494
+    second: animacao_mordida_14
+  - first:
+      213: -2931593548926649392
+    second: animacao_mordida_15
+  - first:
+      213: -2226890391218003096
+    second: animacao_mordida_16
+  - first:
+      213: -7037355838892329208
+    second: animacao_mordida_17
+  - first:
+      213: 1851445811757544084
+    second: animacao_mordida_18
+  - first:
+      213: 646800585530455597
+    second: animacao_mordida_19
+  - first:
+      213: 7466190031330709177
+    second: animacao_mordida_20
+  - first:
+      213: 1267313949719673757
+    second: animacao_mordida_21
+  - first:
+      213: 8860488556822528774
+    second: animacao_mordida_22
+  - first:
+      213: 3494012189349319033
+    second: animacao_mordida_23
+  - first:
+      213: -1464632443642337386
+    second: animacao_mordida_24
+  - first:
+      213: 5237744179120551612
+    second: animacao_mordida_25
+  - first:
+      213: 5106824026517985319
+    second: animacao_mordida_26
+  - first:
+      213: -4797752427225450238
+    second: animacao_mordida_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: animacao_mordida_0
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 379
+        width: 82
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b553b726e2cad2b0800000000000000
+      internalID: -5558916496271125066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_1
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 369
+        width: 72
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0e58e9189175ffa0800000000000000
+      internalID: -5767578849694425588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_2
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 369
+        width: 82
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ef4d45bddace57d0800000000000000
+      internalID: -2927679654165917726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_3
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 379
+        width: 82
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e064a915c8e73a30800000000000000
+      internalID: 4195077511155310822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_4
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 379
+        width: 22
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc0f8def7fbbac7a0800000000000000
+      internalID: -6356061250273087284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_5
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 379
+        width: 72
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5de72bb28b38e7790800000000000000
+      internalID: -7530436699886551339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_6
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 369
+        width: 22
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2edf8b72fdc27d9d0800000000000000
+      internalID: -2749679710530634270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_7
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 379
+        width: 82
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6606ac9528941fe40800000000000000
+      internalID: 5688408628546658406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_8
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 369
+        width: 22
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 040b5ad533d357720800000000000000
+      internalID: 2843246030578102336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_9
+      rect:
+        serializedVersion: 2
+        x: 1439
+        y: 179
+        width: 102
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a755468c4b253100800000000000000
+      internalID: 87023375473792930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_10
+      rect:
+        serializedVersion: 2
+        x: 1549
+        y: 179
+        width: 92
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 082cd9fdb79e412d0800000000000000
+      internalID: -3308763107968564608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_11
+      rect:
+        serializedVersion: 2
+        x: 1659
+        y: 179
+        width: 102
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d559dfdb9e1e591e0800000000000000
+      internalID: -2191597249614736035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_12
+      rect:
+        serializedVersion: 2
+        x: 2089
+        y: 339
+        width: 82
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a80fab1891b08ec90800000000000000
+      internalID: -7140445005017321334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_13
+      rect:
+        serializedVersion: 2
+        x: 2199
+        y: 359
+        width: 72
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a255374440abc4a20800000000000000
+      internalID: 3048015575314027818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_14
+      rect:
+        serializedVersion: 2
+        x: 2309
+        y: 339
+        width: 82
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a19d00a63bdd9dec0800000000000000
+      internalID: -3541555869302859494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_15
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 159
+        width: 82
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0db76621333e057d0800000000000000
+      internalID: -2931593548926649392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_16
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 159
+        width: 72
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86368bddcfe7811e0800000000000000
+      internalID: -2226890391218003096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_17
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 159
+        width: 82
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8073dc8662a465e90800000000000000
+      internalID: -7037355838892329208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_18
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 159
+        width: 82
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49271ba0828a1b910800000000000000
+      internalID: 1851445811757544084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_19
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 239
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d26be05a4b5e9f800800000000000000
+      internalID: 646800585530455597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_20
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 229
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9be8703a64c3d9760800000000000000
+      internalID: 7466190031330709177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_21
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 159
+        width: 72
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9b30ff9257669110800000000000000
+      internalID: 1267313949719673757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_22
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 239
+        width: 22
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60302d5c567c6fa70800000000000000
+      internalID: 8860488556822528774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_23
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 159
+        width: 82
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9711d0bf2993d7030800000000000000
+      internalID: 3494012189349319033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_24
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 239
+        width: 22
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 697af2e6d849cabe0800000000000000
+      internalID: -1464632443642337386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_25
+      rect:
+        serializedVersion: 2
+        x: 2089
+        y: 169
+        width: 82
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb6b9d4849430b840800000000000000
+      internalID: 5237744179120551612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_26
+      rect:
+        serializedVersion: 2
+        x: 2199
+        y: 169
+        width: 72
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 728d80f15651fd640800000000000000
+      internalID: 5106824026517985319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacao_mordida_27
+      rect:
+        serializedVersion: 2
+        x: 2309
+        y: 169
+        width: 82
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20975f64695fa6db0800000000000000
+      internalID: -4797752427225450238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      animacao_mordida_0: -5558916496271125066
+      animacao_mordida_1: -5767578849694425588
+      animacao_mordida_10: -3308763107968564608
+      animacao_mordida_11: -2191597249614736035
+      animacao_mordida_12: -7140445005017321334
+      animacao_mordida_13: 3048015575314027818
+      animacao_mordida_14: -3541555869302859494
+      animacao_mordida_15: -2931593548926649392
+      animacao_mordida_16: -2226890391218003096
+      animacao_mordida_17: -7037355838892329208
+      animacao_mordida_18: 1851445811757544084
+      animacao_mordida_19: 646800585530455597
+      animacao_mordida_2: -2927679654165917726
+      animacao_mordida_20: 7466190031330709177
+      animacao_mordida_21: 1267313949719673757
+      animacao_mordida_22: 8860488556822528774
+      animacao_mordida_23: 3494012189349319033
+      animacao_mordida_24: -1464632443642337386
+      animacao_mordida_25: 5237744179120551612
+      animacao_mordida_26: 5106824026517985319
+      animacao_mordida_27: -4797752427225450238
+      animacao_mordida_3: 4195077511155310822
+      animacao_mordida_4: -6356061250273087284
+      animacao_mordida_5: -7530436699886551339
+      animacao_mordida_6: -2749679710530634270
+      animacao_mordida_7: 5688408628546658406
+      animacao_mordida_8: 2843246030578102336
+      animacao_mordida_9: 87023375473792930
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -8,14 +8,16 @@ public class PersonagemController : MonoBehaviour
     //Status
     protected string _name;
     protected int _hpMax, _hpAtual, _speed;
+    private ClassesInimigos _classe;
 
     //Efeitos
     protected int _roundsStunned, _shield;
-    protected Dictionary<int, int> _buffs, _debuffs;
+    protected Dictionary<int, int> _buffs, _debuffs, _venenos;
 
     protected List<HabilidadesSO> _skills;
 
     public string UnitName => _name;
+    public ClassesInimigos Classe => _classe;
 
     public bool IsStunned => _roundsStunned > 0;
     public List<HabilidadesSO> Skills => _skills;
@@ -30,50 +32,37 @@ public class PersonagemController : MonoBehaviour
         _hpAtual = _hpMax;
         _speed = dados.Speed;
         _skills = dados.Skills;
+        _classe = dados.Classe;
 
         _roundsStunned = 0;
         _shield = 0;
 
         _buffs = new Dictionary<int, int>();
         _debuffs = new Dictionary<int, int>();
+        _venenos = new Dictionary<int, int>();
 
         OnHealthChanged?.Invoke(_hpAtual, _hpMax);
 
         EventosGlobais.FimRodada.AddListener(FimRodada);
     }
 
-    protected void VerificarBuffsDebuffs()
+    protected void VerificarDicionarioValores(Dictionary<int, int> dicionarioEfeito, SkillEffects efeitoRelacionado)
     {
-        foreach (var chave in _buffs.Keys.OrderBy(k => k).ToList())
+        foreach (var chave in dicionarioEfeito.Keys.OrderBy(k => k).ToList())
         {
-            var valor = _buffs[chave];
+            var valor = dicionarioEfeito[chave];
 
             if (chave == 1)
             {
-                _buffs.Remove(chave);
+                dicionarioEfeito.Remove(chave);
                 continue;
             }
 
-            _buffs[chave - 1] = valor;
-            _buffs.Remove(chave);
+            dicionarioEfeito[chave - 1] = valor;
+            dicionarioEfeito.Remove(chave);
         }
-        foreach (var chave in _debuffs.Keys.OrderBy(k => k).ToList())
-        {
-            var valor = _debuffs[chave];
-
-            if (chave == 1)
-            {
-                _debuffs.Remove(chave);
-                continue;
-            }
-
-            _debuffs[chave - 1] = valor;
-            _debuffs.Remove(chave);
-        }
-        if (_buffs.Count == 0)
-            OnEffectsRemoved?.Invoke(SkillEffects.BUFF);
-        if (_debuffs.Count == 0)
-            OnEffectsRemoved?.Invoke(SkillEffects.DEBUFF);
+        if (dicionarioEfeito.Count == 0)
+            OnEffectsRemoved?.Invoke(efeitoRelacionado);
     }
 
     private void FimRodada()
@@ -83,6 +72,9 @@ public class PersonagemController : MonoBehaviour
             _roundsStunned = 0;
         else if (_roundsStunned == 0)
             OnEffectsRemoved?.Invoke(SkillEffects.STUN);
+
+        this.ReceberDano(_venenos.Values.Sum());
+        VerificarDicionarioValores(_venenos, SkillEffects.POISON);
     }
 
     public void ReceberDano(int dano)
@@ -122,7 +114,7 @@ public class PersonagemController : MonoBehaviour
             return;
         }
 
-        foreach (SkillEffects efeito in habilidade.Effect)
+        foreach (SkillEffects efeito in habilidade.Effects)
         {
             switch (efeito)
             {
@@ -131,7 +123,8 @@ public class PersonagemController : MonoBehaviour
                     {
                         inimigo.ReceberDano(habilidade.Dano + _buffs.Values.Sum() + _debuffs.Values.Sum());
                     }
-                    VerificarBuffsDebuffs();
+                    VerificarDicionarioValores(_buffs, SkillEffects.BUFF);
+                    VerificarDicionarioValores(_debuffs, SkillEffects.DEBUFF);
                     break;
 
                 case SkillEffects.HEAL:
@@ -174,8 +167,26 @@ public class PersonagemController : MonoBehaviour
                 case SkillEffects.STUN:
                     foreach (PersonagemController inimigo in inimigosTarget)
                     {
-                        inimigo._roundsStunned += habilidade.StunTime;
-                        inimigo.OnEffectsApplied?.Invoke(SkillEffects.STUN);
+                        bool sucesso = UnityEngine.Random.Range(0f, 1f) <= 
+                                                AtributosPorClasse.S_ValoresPorClasse[inimigo._classe].ChanceStunado;
+
+                        if (sucesso)
+                        {
+                            inimigo._roundsStunned += habilidade.StunTime;
+                            inimigo.OnEffectsApplied?.Invoke(SkillEffects.STUN);
+                        }
+                    }
+                    break;
+
+                case SkillEffects.POISON:
+                    foreach (PersonagemController inimigo in inimigosTarget)
+                    {
+                        if (inimigo._venenos.ContainsKey(habilidade.VenenoTime))
+                            inimigo._venenos[habilidade.VenenoTime] += habilidade.Veneno;
+                        else
+                            inimigo._venenos[habilidade.VenenoTime] = habilidade.Veneno;
+
+                        inimigo.OnEffectsApplied?.Invoke(SkillEffects.POISON);
                     }
                     break;
 

@@ -134,6 +134,7 @@ public class SistemaBatalha : MonoBehaviour
                         foreach (GameObject inimigo in _inimigosSelecionados)
                             alvosInimigos.Add(inimigo.GetComponent<PersonagemController>());
 
+                        DadosParty.s_ReferenciaParty.HabilidadeUsada(_habilidadeAtual);
                         _heroiAtacante.GetComponent<PersonagemController>().UsarHabilidade(_habilidadeAtual, alvosHerois, alvosInimigos);
 
                         _marcacoesEnergia[_energiaAtual].enabled = false;
@@ -165,31 +166,36 @@ public class SistemaBatalha : MonoBehaviour
                 //_inimigos.ToList() cria uma cópia de _inimigos, assim pode-se invocar personagens extras
                 foreach (GameObject inimigo in _inimigos.ToList())
                 {
-                    if (inimigo.GetComponent<PersonagemController>().IsStunned)
-                        continue;
+                    int nroAcoes = AtributosPorClasse.S_ValoresPorClasse[inimigo.GetComponent<PersonagemController>().Classe].QuantidadeAcoes;
 
-                    List<HabilidadesSO> habilidadesInimigo = inimigo.GetComponent<PersonagemController>().Skills;
-                    HabilidadesSO habilidade = habilidadesInimigo[Random.Range(0, habilidadesInimigo.Count)];
-
-                    List<PersonagemController> alvosHerois = new List<PersonagemController>();
-                    List<GameObject> copiaHerois = new List<GameObject>(_herois);
-                    List<PersonagemController> alvosInimigos = new List<PersonagemController>();
-                    List<GameObject> copiaInimigos = new List<GameObject>(_inimigos);
-
-                    for (int i = 0; i < habilidade.QtdAlvosInimigos && i < _herois.Count; i++)
+                    for (int a = 0; a < nroAcoes; a++)
                     {
-                        int pos = Random.Range(0, copiaHerois.Count);
-                        alvosHerois.Add(copiaHerois[pos].GetComponent<PersonagemController>());
-                        copiaHerois.RemoveAt(pos);
-                    }
-                    for (int i = 0; i < habilidade.QtdAlvosAliados && i < _inimigos.Count; i++)
-                    {
-                        int pos = Random.Range(0, copiaInimigos.Count);
-                        alvosInimigos.Add(copiaInimigos[pos].GetComponent<PersonagemController>());
-                        copiaInimigos.RemoveAt(pos);
-                    }
+                        if (inimigo.GetComponent<PersonagemController>().IsStunned)
+                            continue;
 
-                    inimigo.GetComponent<PersonagemController>().UsarHabilidade(habilidade, alvosInimigos, alvosHerois);
+                        List<HabilidadesSO> habilidadesInimigo = inimigo.GetComponent<PersonagemController>().Skills;
+                        HabilidadesSO habilidade = habilidadesInimigo[Random.Range(0, habilidadesInimigo.Count)];
+
+                        List<PersonagemController> alvosHerois = new List<PersonagemController>();
+                        List<GameObject> copiaHerois = new List<GameObject>(_herois);
+                        List<PersonagemController> alvosInimigos = new List<PersonagemController>();
+                        List<GameObject> copiaInimigos = new List<GameObject>(_inimigos);
+
+                        for (int i = 0; i < habilidade.QtdAlvosInimigos && i < _herois.Count; i++)
+                        {
+                            int pos = Random.Range(0, copiaHerois.Count);
+                            alvosHerois.Add(copiaHerois[pos].GetComponent<PersonagemController>());
+                            copiaHerois.RemoveAt(pos);
+                        }
+                        for (int i = 0; i < habilidade.QtdAlvosAliados && i < _inimigos.Count; i++)
+                        {
+                            int pos = Random.Range(0, copiaInimigos.Count);
+                            alvosInimigos.Add(copiaInimigos[pos].GetComponent<PersonagemController>());
+                            copiaInimigos.RemoveAt(pos);
+                        }
+
+                        inimigo.GetComponent<PersonagemController>().UsarHabilidade(habilidade, alvosInimigos, alvosHerois);
+                    }
                 }
 
                 if (_herois.Count == 0)

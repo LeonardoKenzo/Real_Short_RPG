@@ -15,6 +15,7 @@ MonoBehaviour:
   _name: Cruzado
   _hpMax: 6
   _speed: 0
+  _classe: 3
   _skills:
   - {fileID: 11400000, guid: 42f726a13c6b69a4981702e476525f38, type: 2}
   - {fileID: 11400000, guid: 756fbb7a9dea7ab408dc79e4b9132c68, type: 2}

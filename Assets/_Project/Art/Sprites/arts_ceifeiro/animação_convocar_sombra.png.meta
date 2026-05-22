@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: b021826d515098e4cacfb78a557fd1f5
+guid: f0424607a2a89244396104ede9e286ae
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5575908551745617498
-    second: primeira_cena_versao_escura_0
+      213: 270345475784384292
+    second: "anima\xE7\xE3o_convocar_sombra_0"
+  - first:
+      213: 7926838588409493109
+    second: "anima\xE7\xE3o_convocar_sombra_1"
+  - first:
+      213: -8432908624592445312
+    second: "anima\xE7\xE3o_convocar_sombra_2"
+  - first:
+      213: -1423384998240300325
+    second: "anima\xE7\xE3o_convocar_sombra_3"
+  - first:
+      213: -638516426949198479
+    second: "anima\xE7\xE3o_convocar_sombra_4"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +49,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,93 +108,128 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: primeira_cena_versao_escura_0
+      name: "anima\xE7\xE3o_convocar_sombra_0"
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1600
-        height: 1200
+        x: 159
+        y: 159
+        width: 322
+        height: 322
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a5e3cde094b916d40800000000000000
-      internalID: 5575908551745617498
+      spriteID: 42f13c227c570c300800000000000000
+      internalID: 270345475784384292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: primeira_cena_versao_escura_1
+      name: "anima\xE7\xE3o_convocar_sombra_1"
       rect:
         serializedVersion: 2
-        x: 1600
-        y: 0
-        width: 1600
-        height: 1200
+        x: 809
+        y: 169
+        width: 302
+        height: 302
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 691f180a918aecd4c8d7c20bfcce2098
-      internalID: -1267907420
+      spriteID: 576b10ea2b9c10e60800000000000000
+      internalID: 7926838588409493109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: primeira_cena_versao_escura_2
+      name: "anima\xE7\xE3o_convocar_sombra_2"
       rect:
         serializedVersion: 2
-        x: 3200
-        y: 0
-        width: 1600
-        height: 1200
+        x: 1459
+        y: 179
+        width: 282
+        height: 282
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ee756391547ca2b40b72b57ad6ad64d0
-      internalID: -896698186
+      spriteID: 080e6df094a48fa80800000000000000
+      internalID: -8432908624592445312
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: primeira_cena_versao_escura_3
+      name: "anima\xE7\xE3o_convocar_sombra_3"
       rect:
         serializedVersion: 2
-        x: 4800
-        y: 0
-        width: 1600
-        height: 1200
+        x: 2079
+        y: 169
+        width: 322
+        height: 302
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 15f65880f71fbe44faa04fbb00fa8393
-      internalID: -1720211375
+      spriteID: bd25441b2ee1f3ce0800000000000000
+      internalID: -1423384998240300325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "anima\xE7\xE3o_convocar_sombra_4"
+      rect:
+        serializedVersion: 2
+        x: 2719
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17df07451b88327f0800000000000000
+      internalID: -638516426949198479
       vertices: []
       indices: 
       edges: []
@@ -191,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e94de5a5d5e583240b75729b2ef4c914
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -199,14 +246,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":1.0},"gridSpriteSize":{"x":1600.0,"y":1200.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      primeira_cena_versao_escura_0: 5575908551745617498
-      primeira_cena_versao_escura_1: -1267907420
-      primeira_cena_versao_escura_2: -896698186
-      primeira_cena_versao_escura_3: -1720211375
+      "anima\xE7\xE3o_convocar_sombra_0": 270345475784384292
+      "anima\xE7\xE3o_convocar_sombra_1": 7926838588409493109
+      "anima\xE7\xE3o_convocar_sombra_2": -8432908624592445312
+      "anima\xE7\xE3o_convocar_sombra_3": -1423384998240300325
+      "anima\xE7\xE3o_convocar_sombra_4": -638516426949198479
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

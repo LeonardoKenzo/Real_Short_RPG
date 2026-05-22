@@ -819,6 +819,7 @@ GameObject:
   - component: {fileID: 765294472031444127}
   - component: {fileID: 950066633438452444}
   - component: {fileID: 7244367368550268253}
+  - component: {fileID: 1228842433968419552}
   m_Layer: 5
   m_Name: Ceifeiro
   m_TagString: Untagged
@@ -894,7 +895,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7305786205940731812}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b20cc96e0eb90454790a89522aa34e12, type: 3}
+  m_Script: {fileID: 11500000, guid: 49d0a81489cccca4dbfbfdb2465942ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ceifeiro
 --- !u!114 &765294472031444127
@@ -990,6 +991,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1228842433968419552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7305786205940731812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49d0a81489cccca4dbfbfdb2465942ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PersonagemController
 --- !u!1 &7655196160610031114
 GameObject:
   m_ObjectHideFlags: 0

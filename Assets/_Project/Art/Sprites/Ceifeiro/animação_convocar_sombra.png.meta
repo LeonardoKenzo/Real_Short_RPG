@@ -1,25 +1,22 @@
 fileFormatVersion: 2
-guid: d32f07a424293ab43a1e5fa1370b86b5
+guid: af5fd4c6f9b086341a1f1b1bc24fa34e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8425851618338649381
-    second: estrelab_cena1_0
+      213: 270345475784384292
+    second: "anima\xE7\xE3o_convocar_sombra_0"
   - first:
-      213: 7940899812159322382
-    second: estrelab_cena1_1
+      213: 7926838588409493109
+    second: "anima\xE7\xE3o_convocar_sombra_1"
   - first:
-      213: 5600467869988293592
-    second: estrelab_cena1_2
+      213: -8432908624592445312
+    second: "anima\xE7\xE3o_convocar_sombra_2"
   - first:
-      213: 6494308049563226715
-    second: estrelab_cena1_3
+      213: -1423384998240300325
+    second: "anima\xE7\xE3o_convocar_sombra_3"
   - first:
-      213: -7172472623852969367
-    second: estrelab_cena1_4
-  - first:
-      213: 4819006597219970548
-    second: estrelab_cena1_5
+      213: -638516426949198479
+    second: "anima\xE7\xE3o_convocar_sombra_4"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +49,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -66,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -111,137 +108,128 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: estrelab_cena1_0
+      name: "anima\xE7\xE3o_convocar_sombra_0"
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 160
-        height: 160
+        x: 159
+        y: 159
+        width: 322
+        height: 322
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 525b931a763aee470800000000000000
-      internalID: 8425851618338649381
+      spriteID: 42f13c227c570c300800000000000000
+      internalID: 270345475784384292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: estrelab_cena1_1
+      name: "anima\xE7\xE3o_convocar_sombra_1"
       rect:
         serializedVersion: 2
-        x: 160
-        y: 0
-        width: 160
-        height: 160
+        x: 809
+        y: 169
+        width: 302
+        height: 302
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e09f8b47e4eb33e60800000000000000
-      internalID: 7940899812159322382
+      spriteID: 576b10ea2b9c10e60800000000000000
+      internalID: 7926838588409493109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: estrelab_cena1_2
+      name: "anima\xE7\xE3o_convocar_sombra_2"
       rect:
         serializedVersion: 2
-        x: 320
-        y: 0
-        width: 160
-        height: 160
+        x: 1459
+        y: 179
+        width: 282
+        height: 282
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8db04aeeadbd8bd40800000000000000
-      internalID: 5600467869988293592
+      spriteID: 080e6df094a48fa80800000000000000
+      internalID: -8432908624592445312
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: estrelab_cena1_3
+      name: "anima\xE7\xE3o_convocar_sombra_3"
       rect:
         serializedVersion: 2
-        x: 480
-        y: 0
-        width: 160
-        height: 160
+        x: 2079
+        y: 169
+        width: 322
+        height: 302
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b521d2443ca602a50800000000000000
-      internalID: 6494308049563226715
+      spriteID: bd25441b2ee1f3ce0800000000000000
+      internalID: -1423384998240300325
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: estrelab_cena1_4
+      name: "anima\xE7\xE3o_convocar_sombra_4"
       rect:
         serializedVersion: 2
-        x: 640
-        y: 0
-        width: 160
-        height: 160
+        x: 2719
+        y: 159
+        width: 322
+        height: 322
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 962a7066622467c90800000000000000
-      internalID: -7172472623852969367
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: estrelab_cena1_5
-      rect:
-        serializedVersion: 2
-        x: 800
-        y: 0
-        width: 160
-        height: 160
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4fd6f8dc7fc80e240800000000000000
-      internalID: 4819006597219970548
+      spriteID: 17df07451b88327f0800000000000000
+      internalID: -638516426949198479
       vertices: []
       indices: 
       edges: []
@@ -250,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d24dad944ab68a8428ba75ebbf32a451
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -258,16 +246,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":1.0},"gridSpriteSize":{"x":160.0,"y":160.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      estrelab_cena1_0: 8425851618338649381
-      estrelab_cena1_1: 7940899812159322382
-      estrelab_cena1_2: 5600467869988293592
-      estrelab_cena1_3: 6494308049563226715
-      estrelab_cena1_4: -7172472623852969367
-      estrelab_cena1_5: 4819006597219970548
+      "anima\xE7\xE3o_convocar_sombra_0": 270345475784384292
+      "anima\xE7\xE3o_convocar_sombra_1": 7926838588409493109
+      "anima\xE7\xE3o_convocar_sombra_2": -8432908624592445312
+      "anima\xE7\xE3o_convocar_sombra_3": -1423384998240300325
+      "anima\xE7\xE3o_convocar_sombra_4": -638516426949198479
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
