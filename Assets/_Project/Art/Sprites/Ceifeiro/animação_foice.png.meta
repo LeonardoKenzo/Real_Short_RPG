@@ -115,7 +115,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -194,12 +194,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_foice_0"
       rect:
         serializedVersion: 2
-        x: 549
-        y: 309
-        width: 312
-        height: 542
+        x: 0
+        y: 0
+        width: 1280
+        height: 1280
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -216,12 +216,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_foice_1"
       rect:
         serializedVersion: 2
-        x: 1749
-        y: 309
-        width: 342
-        height: 542
+        x: 1280
+        y: 0
+        width: 1280
+        height: 1280
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -238,12 +238,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_foice_2"
       rect:
         serializedVersion: 2
-        x: 2079
-        y: 809
-        width: 62
-        height: 22
+        x: 2560
+        y: 0
+        width: 1280
+        height: 1280
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -260,12 +260,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_foice_3"
       rect:
         serializedVersion: 2
-        x: 2979
-        y: 319
-        width: 362
-        height: 522
+        x: 3840
+        y: 0
+        width: 1280
+        height: 1280
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -282,12 +282,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_foice_4"
       rect:
         serializedVersion: 2
-        x: 3309
-        y: 819
-        width: 72
-        height: 32
+        x: 5120
+        y: 0
+        width: 1280
+        height: 1280
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -304,12 +304,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_foice_5"
       rect:
         serializedVersion: 2
-        x: 4469
-        y: 799
-        width: 182
-        height: 62
+        x: 6400
+        y: 0
+        width: 1280
+        height: 1280
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -326,12 +326,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_foice_6"
       rect:
         serializedVersion: 2
-        x: 5489
-        y: 699
-        width: 142
-        height: 172
+        x: 7680
+        y: 0
+        width: 1280
+        height: 1280
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -348,12 +348,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_foice_7"
       rect:
         serializedVersion: 2
-        x: 6649
-        y: 299
-        width: 662
-        height: 522
+        x: 8960
+        y: 0
+        width: 1280
+        height: 1280
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -366,429 +366,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_foice_8"
-      rect:
-        serializedVersion: 2
-        x: 9729
-        y: 619
-        width: 192
-        height: 242
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fbad0aec5e5bcfba0800000000000000
-      internalID: -6053763800474002753
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_foice_9"
-      rect:
-        serializedVersion: 2
-        x: 2089
-        y: 779
-        width: 62
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ac39556547e2add10800000000000000
-      internalID: 2151082849222366154
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_foice_10"
-      rect:
-        serializedVersion: 2
-        x: 2109
-        y: 739
-        width: 72
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 313fc4bc7e643adc0800000000000000
-      internalID: -3628978913368280301
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_foice_11"
-      rect:
-        serializedVersion: 2
-        x: 3349
-        y: 759
-        width: 72
-        height: 52
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 67530091366282250800000000000000
-      internalID: 5920023917241578870
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_foice_12"
-      rect:
-        serializedVersion: 2
-        x: 4149
-        y: 319
-        width: 382
-        height: 492
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1b8ad7e28d624bc10800000000000000
-      internalID: 2068320838804678833
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_foice_13"
-      rect:
-        serializedVersion: 2
-        x: 4549
-        y: 759
-        width: 72
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 58e8eccf57dfb8030800000000000000
-      internalID: 3498168218777718405
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_foice_14"
-      rect:
-        serializedVersion: 2
-        x: 5619
-        y: 649
-        width: 152
-        height: 132
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 80b66432f8c966f30800000000000000
-      internalID: 4568511010600020744
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_foice_15"
-      rect:
-        serializedVersion: 2
-        x: 7909
-        y: 539
-        width: 422
-        height: 262
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4896183eca5c7f0f0800000000000000
-      internalID: -1083179839017358972
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_foice_16"
-      rect:
-        serializedVersion: 2
-        x: 8159
-        y: 319
-        width: 442
-        height: 482
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9da055cbe36c8f2c0800000000000000
-      internalID: -4397547063377327399
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_foice_17"
-      rect:
-        serializedVersion: 2
-        x: 3359
-        y: 709
-        width: 92
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 46c11ea4c9c7dac80800000000000000
-      internalID: -8309848726715687836
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_foice_18"
-      rect:
-        serializedVersion: 2
-        x: 4579
-        y: 679
-        width: 132
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 113585c3b73ad0c80800000000000000
-      internalID: -8354841984013675759
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_foice_19"
-      rect:
-        serializedVersion: 2
-        x: 8049
-        y: 539
-        width: 302
-        height: 222
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0a93f08db7dc68c50800000000000000
-      internalID: 6667242230158145952
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_foice_20"
-      rect:
-        serializedVersion: 2
-        x: 8129
-        y: 529
-        width: 232
-        height: 192
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 13cae008598c0f680800000000000000
-      internalID: -8723251933792523215
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_foice_21"
-      rect:
-        serializedVersion: 2
-        x: 9529
-        y: 599
-        width: 202
-        height: 122
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6fc3a03dea88990b0800000000000000
-      internalID: -5721391567151153930
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_foice_22"
-      rect:
-        serializedVersion: 2
-        x: 9679
-        y: 659
-        width: 132
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4b33e9508d73a0a50800000000000000
-      internalID: 6488059614127338420
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_foice_23"
-      rect:
-        serializedVersion: 2
-        x: 5379
-        y: 299
-        width: 542
-        height: 302
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9d513843d48c4abc0800000000000000
-      internalID: -3772670353910589991
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_foice_24"
-      rect:
-        serializedVersion: 2
-        x: 5679
-        y: 579
-        width: 162
-        height: 92
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cc4bcfb45c841d1c0800000000000000
-      internalID: -4480720142036323124
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_foice_25"
-      rect:
-        serializedVersion: 2
-        x: 9339
-        y: 319
-        width: 542
-        height: 312
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 152539e65b3e13ad0800000000000000
-      internalID: -2724145931198705071
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_foice_26"
-      rect:
-        serializedVersion: 2
-        x: 9529
-        y: 199
-        width: 162
-        height: 212
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9ceae0417b1517f60800000000000000
-      internalID: 8030289457335676617
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 35ae5d16497ca8840a1d489fe90eba22
     internalID: 0
     vertices: []
     indices: 
@@ -796,35 +378,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":1.0},"gridSpriteSize":{"x":1280.0,"y":1280.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       "anima\xE7\xE3o_foice_0": -1013783978684403141
       "anima\xE7\xE3o_foice_1": -378416401656320566
-      "anima\xE7\xE3o_foice_10": -3628978913368280301
-      "anima\xE7\xE3o_foice_11": 5920023917241578870
-      "anima\xE7\xE3o_foice_12": 2068320838804678833
-      "anima\xE7\xE3o_foice_13": 3498168218777718405
-      "anima\xE7\xE3o_foice_14": 4568511010600020744
-      "anima\xE7\xE3o_foice_15": -1083179839017358972
-      "anima\xE7\xE3o_foice_16": -4397547063377327399
-      "anima\xE7\xE3o_foice_17": -8309848726715687836
-      "anima\xE7\xE3o_foice_18": -8354841984013675759
-      "anima\xE7\xE3o_foice_19": 6667242230158145952
       "anima\xE7\xE3o_foice_2": 7486931542129926612
-      "anima\xE7\xE3o_foice_20": -8723251933792523215
-      "anima\xE7\xE3o_foice_21": -5721391567151153930
-      "anima\xE7\xE3o_foice_22": 6488059614127338420
-      "anima\xE7\xE3o_foice_23": -3772670353910589991
-      "anima\xE7\xE3o_foice_24": -4480720142036323124
-      "anima\xE7\xE3o_foice_25": -2724145931198705071
-      "anima\xE7\xE3o_foice_26": 8030289457335676617
       "anima\xE7\xE3o_foice_3": 1432748045915382777
       "anima\xE7\xE3o_foice_4": -8639279601806065774
       "anima\xE7\xE3o_foice_5": -4539686063471351096
       "anima\xE7\xE3o_foice_6": -3788200654550668903
       "anima\xE7\xE3o_foice_7": 4887308435956190776
-      "anima\xE7\xE3o_foice_8": -6053763800474002753
-      "anima\xE7\xE3o_foice_9": 2151082849222366154
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

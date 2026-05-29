@@ -97,7 +97,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -176,12 +176,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_machado_0"
       rect:
         serializedVersion: 2
-        x: 99
-        y: 439
-        width: 42
-        height: 12
+        x: 0
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -198,12 +198,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_machado_1"
       rect:
         serializedVersion: 2
-        x: 159
-        y: 159
-        width: 162
-        height: 342
+        x: 640
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -220,12 +220,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_machado_2"
       rect:
         serializedVersion: 2
-        x: 899
-        y: 399
-        width: 72
-        height: 52
+        x: 1280
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -242,12 +242,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_machado_3"
       rect:
         serializedVersion: 2
-        x: 1579
-        y: 319
-        width: 122
-        height: 122
+        x: 1920
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -264,12 +264,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_machado_4"
       rect:
         serializedVersion: 2
-        x: 1649
-        y: 329
-        width: 82
-        height: 112
+        x: 2560
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -286,12 +286,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_machado_5"
       rect:
         serializedVersion: 2
-        x: 4049
-        y: 189
-        width: 262
-        height: 312
+        x: 3200
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -308,12 +308,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_machado_6"
       rect:
         serializedVersion: 2
-        x: 99
-        y: 409
-        width: 52
-        height: 12
+        x: 3840
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -326,319 +326,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_machado_7"
-      rect:
-        serializedVersion: 2
-        x: 799
-        y: 159
-        width: 302
-        height: 252
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e5f6f61794d3406c0800000000000000
-      internalID: -4178147168647942306
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_machado_8"
-      rect:
-        serializedVersion: 2
-        x: 879
-        y: 379
-        width: 72
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 23cd969aeb43889b0800000000000000
-      internalID: -5077750586369516494
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_machado_9"
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 379
-        width: 42
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d646ce2b2509e6730800000000000000
-      internalID: 3994288604387763309
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_machado_10"
-      rect:
-        serializedVersion: 2
-        x: 1439
-        y: 149
-        width: 342
-        height: 162
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f9d17e12f0d2d5da0800000000000000
-      internalID: -5954553589297373793
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_machado_11"
-      rect:
-        serializedVersion: 2
-        x: 2109
-        y: 0
-        width: 262
-        height: 311
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6bfd36f25c1eb7840800000000000000
-      internalID: 5223016429886103478
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_machado_12"
-      rect:
-        serializedVersion: 2
-        x: 2329
-        y: 159
-        width: 52
-        height: 132
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6398d1986b5e0f4b0800000000000000
-      internalID: -5408570580324742858
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_machado_13"
-      rect:
-        serializedVersion: 2
-        x: 3359
-        y: 129
-        width: 342
-        height: 162
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 79d02ab77f7949b00800000000000000
-      internalID: 834458920157318551
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_machado_14"
-      rect:
-        serializedVersion: 2
-        x: 4269
-        y: 239
-        width: 82
-        height: 102
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 94609e1e9315dae30800000000000000
-      internalID: 4516355310367606345
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_machado_15"
-      rect:
-        serializedVersion: 2
-        x: 4299
-        y: 279
-        width: 92
-        height: 82
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fb336a6fd62e5b0f0800000000000000
-      internalID: -1101725571904818241
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_machado_16"
-      rect:
-        serializedVersion: 2
-        x: 2359
-        y: 129
-        width: 52
-        height: 132
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a3f176b0ce43eb540800000000000000
-      internalID: 5025512422600286010
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_machado_17"
-      rect:
-        serializedVersion: 2
-        x: 2739
-        y: 0
-        width: 302
-        height: 251
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fea78d7954d0d1a90800000000000000
-      internalID: -7341697224992589073
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_machado_18"
-      rect:
-        serializedVersion: 2
-        x: 3539
-        y: 39
-        width: 32
-        height: 72
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cd008d44af0893460800000000000000
-      internalID: 7221945289850487004
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_machado_19"
-      rect:
-        serializedVersion: 2
-        x: 3579
-        y: 39
-        width: 32
-        height: 82
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ad79693a839baa900800000000000000
-      internalID: 696572745296025562
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_machado_20"
-      rect:
-        serializedVersion: 2
-        x: 3619
-        y: 39
-        width: 32
-        height: 72
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 62ca76a184de52a70800000000000000
-      internalID: 8801701940701932582
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 83cc50ec830a1c24bb45188a1618b424
     internalID: 0
     vertices: []
     indices: 
@@ -646,29 +338,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":7.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       "anima\xE7\xE3o_machado_0": -5978682227138840117
       "anima\xE7\xE3o_machado_1": -6585243415682785675
-      "anima\xE7\xE3o_machado_10": -5954553589297373793
-      "anima\xE7\xE3o_machado_11": 5223016429886103478
-      "anima\xE7\xE3o_machado_12": -5408570580324742858
-      "anima\xE7\xE3o_machado_13": 834458920157318551
-      "anima\xE7\xE3o_machado_14": 4516355310367606345
-      "anima\xE7\xE3o_machado_15": -1101725571904818241
-      "anima\xE7\xE3o_machado_16": 5025512422600286010
-      "anima\xE7\xE3o_machado_17": -7341697224992589073
-      "anima\xE7\xE3o_machado_18": 7221945289850487004
-      "anima\xE7\xE3o_machado_19": 696572745296025562
       "anima\xE7\xE3o_machado_2": 915690800281565585
-      "anima\xE7\xE3o_machado_20": 8801701940701932582
       "anima\xE7\xE3o_machado_3": -6011571164666684037
       "anima\xE7\xE3o_machado_4": 1382921349627470698
       "anima\xE7\xE3o_machado_5": 6176389297846286177
       "anima\xE7\xE3o_machado_6": 1757648464672928305
-      "anima\xE7\xE3o_machado_7": -4178147168647942306
-      "anima\xE7\xE3o_machado_8": -5077750586369516494
-      "anima\xE7\xE3o_machado_9": 3994288604387763309
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

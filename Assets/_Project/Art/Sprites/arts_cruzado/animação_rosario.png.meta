@@ -142,7 +142,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -221,12 +221,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_rosario_0"
       rect:
         serializedVersion: 2
-        x: 209
-        y: 189
-        width: 192
-        height: 262
+        x: 0
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -243,12 +243,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_rosario_1"
       rect:
         serializedVersion: 2
-        x: 849
-        y: 179
-        width: 192
-        height: 262
+        x: 640
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -265,12 +265,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_rosario_2"
       rect:
         serializedVersion: 2
-        x: 1039
-        y: 399
-        width: 62
-        height: 82
+        x: 1280
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -287,12 +287,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_rosario_3"
       rect:
         serializedVersion: 2
-        x: 1449
-        y: 399
-        width: 62
-        height: 82
+        x: 1920
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -309,12 +309,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_rosario_4"
       rect:
         serializedVersion: 2
-        x: 1489
-        y: 179
-        width: 192
-        height: 262
+        x: 2560
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -331,12 +331,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_rosario_5"
       rect:
         serializedVersion: 2
-        x: 1669
-        y: 399
-        width: 82
-        height: 82
+        x: 3200
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -353,12 +353,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_rosario_6"
       rect:
         serializedVersion: 2
-        x: 2079
-        y: 389
-        width: 82
-        height: 92
+        x: 3840
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -375,12 +375,12 @@ TextureImporter:
       name: "anima\xE7\xE3o_rosario_7"
       rect:
         serializedVersion: 2
-        x: 2129
-        y: 169
-        width: 192
-        height: 262
+        x: 4480
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -393,627 +393,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_8"
-      rect:
-        serializedVersion: 2
-        x: 2299
-        y: 369
-        width: 112
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d6045b5cb32d35190800000000000000
-      internalID: -7974799360981122963
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_9"
-      rect:
-        serializedVersion: 2
-        x: 2699
-        y: 389
-        width: 112
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2fdfcd85eebab9280800000000000000
-      internalID: -9035439187207324174
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_10"
-      rect:
-        serializedVersion: 2
-        x: 2769
-        y: 169
-        width: 192
-        height: 262
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 17f0d25d2ce47bb90800000000000000
-      internalID: -7226220478385549455
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_11"
-      rect:
-        serializedVersion: 2
-        x: 2949
-        y: 389
-        width: 82
-        height: 92
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0aefaebd5d79d50a0800000000000000
-      internalID: -6891184910033551712
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_12"
-      rect:
-        serializedVersion: 2
-        x: 3359
-        y: 389
-        width: 82
-        height: 92
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e75245d97fdf01750800000000000000
-      internalID: 6273793520865387902
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_13"
-      rect:
-        serializedVersion: 2
-        x: 3409
-        y: 149
-        width: 282
-        height: 322
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 154a69e2a88180480800000000000000
-      internalID: -8932862879123200943
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_14"
-      rect:
-        serializedVersion: 2
-        x: 4009
-        y: 389
-        width: 62
-        height: 92
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a803cb8319c12bde0800000000000000
-      internalID: -1318960330818441078
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_15"
-      rect:
-        serializedVersion: 2
-        x: 4049
-        y: 179
-        width: 222
-        height: 262
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b0d2890203f010ad0800000000000000
-      internalID: -2737890399084860149
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_16"
-      rect:
-        serializedVersion: 2
-        x: 4689
-        y: 189
-        width: 222
-        height: 262
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 68d2081f7a8410b40800000000000000
-      internalID: 5404680913969753478
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_17"
-      rect:
-        serializedVersion: 2
-        x: 269
-        y: 259
-        width: 142
-        height: 132
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6e92d9679252f73d0800000000000000
-      internalID: -3206803549650605594
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_18"
-      rect:
-        serializedVersion: 2
-        x: 909
-        y: 249
-        width: 142
-        height: 132
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f800c19717fc541c0800000000000000
-      internalID: -4519978564726292337
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_19"
-      rect:
-        serializedVersion: 2
-        x: 1059
-        y: 379
-        width: 12
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e0fdd9191f13a2490800000000000000
-      internalID: -7770343293474447602
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_20"
-      rect:
-        serializedVersion: 2
-        x: 1549
-        y: 249
-        width: 142
-        height: 132
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: afa0580686b208e60800000000000000
-      internalID: 7962411868486961914
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_21"
-      rect:
-        serializedVersion: 2
-        x: 1699
-        y: 379
-        width: 22
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3377ba9df0ded6910800000000000000
-      internalID: 1832381275741845299
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_22"
-      rect:
-        serializedVersion: 2
-        x: 2189
-        y: 239
-        width: 142
-        height: 132
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 579f20ffb104b41d0800000000000000
-      internalID: -3365525807542634123
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_23"
-      rect:
-        serializedVersion: 2
-        x: 2319
-        y: 179
-        width: 62
-        height: 82
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: aeeeae1ccc366b3f0800000000000000
-      internalID: -885410545653846294
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_24"
-      rect:
-        serializedVersion: 2
-        x: 2829
-        y: 239
-        width: 142
-        height: 132
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9b204321fa30662d0800000000000000
-      internalID: -3285934827660639559
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_25"
-      rect:
-        serializedVersion: 2
-        x: 2949
-        y: 169
-        width: 82
-        height: 92
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: daeb2dc14523c2680800000000000000
-      internalID: -8778586236809724243
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_26"
-      rect:
-        serializedVersion: 2
-        x: 4219
-        y: 169
-        width: 92
-        height: 92
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 67ecfc46e3effff30800000000000000
-      internalID: 4611684087383445110
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_27"
-      rect:
-        serializedVersion: 2
-        x: 4889
-        y: 159
-        width: 62
-        height: 92
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: df8436c11e3f84ac0800000000000000
-      internalID: -3870575731555481347
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_28"
-      rect:
-        serializedVersion: 2
-        x: 179
-        y: 159
-        width: 42
-        height: 52
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 961c56d818bf7d970800000000000000
-      internalID: 8779762532423680361
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_29"
-      rect:
-        serializedVersion: 2
-        x: 829
-        y: 169
-        width: 42
-        height: 52
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9a03fba029838b870800000000000000
-      internalID: 8698764880162795689
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_30"
-      rect:
-        serializedVersion: 2
-        x: 1479
-        y: 159
-        width: 42
-        height: 52
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ffe88b89ff55a4500800000000000000
-      internalID: 381211674733481727
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_31"
-      rect:
-        serializedVersion: 2
-        x: 2129
-        y: 149
-        width: 42
-        height: 52
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8bbb22b88507e3aa0800000000000000
-      internalID: -6179378113111999560
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_32"
-      rect:
-        serializedVersion: 2
-        x: 2759
-        y: 159
-        width: 42
-        height: 52
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b6e01cb4b45b8dcc0800000000000000
-      internalID: -3685996960004632981
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_33"
-      rect:
-        serializedVersion: 2
-        x: 3389
-        y: 169
-        width: 42
-        height: 52
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f9532fb0fe2a32d20800000000000000
-      internalID: 3252622503472936351
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_34"
-      rect:
-        serializedVersion: 2
-        x: 4019
-        y: 169
-        width: 42
-        height: 52
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e6dfff8367f7d3750800000000000000
-      internalID: 6286320800618249582
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "anima\xE7\xE3o_rosario_35"
-      rect:
-        serializedVersion: 2
-        x: 4659
-        y: 149
-        width: 42
-        height: 52
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 29fa1f7612a9ee630800000000000000
-      internalID: 3958270590773735314
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6c54261af1ef64a429369f8e6cd77da5
     internalID: 0
     vertices: []
     indices: 
@@ -1021,44 +405,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":1.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       "anima\xE7\xE3o_rosario_0": -2004245674265995138
       "anima\xE7\xE3o_rosario_1": -1454568732383429435
-      "anima\xE7\xE3o_rosario_10": -7226220478385549455
-      "anima\xE7\xE3o_rosario_11": -6891184910033551712
-      "anima\xE7\xE3o_rosario_12": 6273793520865387902
-      "anima\xE7\xE3o_rosario_13": -8932862879123200943
-      "anima\xE7\xE3o_rosario_14": -1318960330818441078
-      "anima\xE7\xE3o_rosario_15": -2737890399084860149
-      "anima\xE7\xE3o_rosario_16": 5404680913969753478
-      "anima\xE7\xE3o_rosario_17": -3206803549650605594
-      "anima\xE7\xE3o_rosario_18": -4519978564726292337
-      "anima\xE7\xE3o_rosario_19": -7770343293474447602
       "anima\xE7\xE3o_rosario_2": 4684901046798440537
-      "anima\xE7\xE3o_rosario_20": 7962411868486961914
-      "anima\xE7\xE3o_rosario_21": 1832381275741845299
-      "anima\xE7\xE3o_rosario_22": -3365525807542634123
-      "anima\xE7\xE3o_rosario_23": -885410545653846294
-      "anima\xE7\xE3o_rosario_24": -3285934827660639559
-      "anima\xE7\xE3o_rosario_25": -8778586236809724243
-      "anima\xE7\xE3o_rosario_26": 4611684087383445110
-      "anima\xE7\xE3o_rosario_27": -3870575731555481347
-      "anima\xE7\xE3o_rosario_28": 8779762532423680361
-      "anima\xE7\xE3o_rosario_29": 8698764880162795689
       "anima\xE7\xE3o_rosario_3": 2288472685463243716
-      "anima\xE7\xE3o_rosario_30": 381211674733481727
-      "anima\xE7\xE3o_rosario_31": -6179378113111999560
-      "anima\xE7\xE3o_rosario_32": -3685996960004632981
-      "anima\xE7\xE3o_rosario_33": 3252622503472936351
-      "anima\xE7\xE3o_rosario_34": 6286320800618249582
-      "anima\xE7\xE3o_rosario_35": 3958270590773735314
       "anima\xE7\xE3o_rosario_4": 1793286126083177135
       "anima\xE7\xE3o_rosario_5": -434047511026399606
       "anima\xE7\xE3o_rosario_6": 8664787446054377081
       "anima\xE7\xE3o_rosario_7": -2354520942573883520
-      "anima\xE7\xE3o_rosario_8": -7974799360981122963
-      "anima\xE7\xE3o_rosario_9": -9035439187207324174
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
