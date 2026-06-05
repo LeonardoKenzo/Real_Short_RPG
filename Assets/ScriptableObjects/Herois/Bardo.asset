@@ -15,9 +15,9 @@ MonoBehaviour:
   _name: Bardo
   _hpMax: 4
   _speed: 0
-  _classe: 3
+  _classe: 4
   _skills:
   - {fileID: 11400000, guid: 26a995485e0b3a8408a9e4119dda2300, type: 2}
-  - {fileID: 11400000, guid: 44b29b85c32a85644878c82bc402e0d3, type: 2}
   - {fileID: 11400000, guid: 85d32dbef4f62794bbc9d529f250c2b2, type: 2}
+  - {fileID: 11400000, guid: 44b29b85c32a85644878c82bc402e0d3, type: 2}
   _Prefab: {fileID: 7305786205940731812, guid: 3140c8d0d79508642a655a0e158911aa, type: 3}

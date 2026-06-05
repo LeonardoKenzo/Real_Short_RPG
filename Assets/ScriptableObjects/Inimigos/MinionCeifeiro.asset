@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: MinionCeifeiro
   m_EditorClassIdentifier: Assembly-CSharp::PersonagemSO
   _name: Minion Ceifeiro
-  _hpMax: 5
+  _hpMax: 4
   _speed: 0
+  _classe: 0
   _skills:
   - {fileID: 11400000, guid: 8b11a3919c2a65049808ca6335e4b72b, type: 2}
   _Prefab: {fileID: 7305786205940731812, guid: 26b8481bc6cc15a40a8065d33f9fb347, type: 3}

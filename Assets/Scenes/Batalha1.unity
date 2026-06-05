@@ -1054,7 +1054,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -350, y: 0}
+  m_AnchoredPosition: {x: -550, y: -75}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &335746383
@@ -1758,7 +1758,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -600, y: 200}
+  m_AnchoredPosition: {x: -750, y: 200}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &801655215
@@ -2371,7 +2371,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -600, y: -200}
+  m_AnchoredPosition: {x: -750, y: -350}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1158621970
@@ -4507,6 +4507,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DadosParty
       objectReference: {fileID: 0}
+    - target: {fileID: 2164996482731532313, guid: ffd1146342eb5954298cff8f9a8da402, type: 3}
+      propertyPath: '_herois.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: d2664117a5286bd4ca224293f59df890, type: 2}
+    - target: {fileID: 2164996482731532313, guid: ffd1146342eb5954298cff8f9a8da402, type: 3}
+      propertyPath: '_herois.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: fa9159ecd8349af43af6814d50221a6c, type: 2}
+    - target: {fileID: 2164996482731532313, guid: ffd1146342eb5954298cff8f9a8da402, type: 3}
+      propertyPath: '_herois.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0801e4d8773de4748afc3e6b9e1aa13e, type: 2}
     - target: {fileID: 2610916458595606404, guid: ffd1146342eb5954298cff8f9a8da402, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

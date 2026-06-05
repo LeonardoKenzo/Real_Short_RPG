@@ -14,15 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HabilidadesSO
   _skillName: Violino
   _skillDescription: 
-  _actionCost: 1
+  _actionCost: 2
   _cooldown: 0
   _qtdAlvosAliados: 1
   _qtdAlvosInimigos: 0
   _dano: 0
-  _cura: 3
+  _cura: 5
   _shield: 0
   _forcaBuff: 0
-  _roundsBuff: 0
+  _duracaoBuff: 0
+  _forcaDebuff: 0
+  _duracaoDebuff: 0
   _roundsStun: 0
+  _forcaVeneno: 0
+  _duracaoVeneno: 0
+  _qtdSummons: 0
+  _summons: []
   _skillImage: {fileID: 199979282412007142, guid: a2775bfed91a2294c8dc0f855a0f060e, type: 3}
   _skillEffect: 01000000

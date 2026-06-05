@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HabilidadesSO
   _skillName: Flauta
   _skillDescription: 
-  _actionCost: 2
+  _actionCost: 1
   _cooldown: 0
   _qtdAlvosAliados: 0
   _qtdAlvosInimigos: 1
@@ -22,9 +22,13 @@ MonoBehaviour:
   _cura: 0
   _shield: 0
   _forcaBuff: 0
-  _roundsBuff: 0
+  _duracaoBuff: 0
   _forcaDebuff: 0
-  _roundsDebuff: 0
+  _duracaoDebuff: 0
   _roundsStun: 2
+  _forcaVeneno: 0
+  _duracaoVeneno: 0
+  _qtdSummons: 0
+  _summons: []
   _skillImage: {fileID: 610015561781798372, guid: a4adcf0d4b0fac346af274a298a814cf, type: 3}
   _skillEffect: 05000000

@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a71fabd21c2349041909c0acc5b2d05d, type: 3}
   m_Name: Luz
   m_EditorClassIdentifier: Assembly-CSharp::PersonagemSO
-  _name: Ceifeiro
-  _hpMax: 50
+  _name: Luz
+  _hpMax: 20
   _speed: 0
-  _classe: 3
-  _skills: []
+  _classe: 4
+  _skills:
+  - {fileID: 11400000, guid: f667c9fe1958b4947a9d32952a5cc5ef, type: 2}
+  - {fileID: 11400000, guid: 85d32dbef4f62794bbc9d529f250c2b2, type: 2}
+  - {fileID: 11400000, guid: 694a769eebd92aa4f87353ca1f276388, type: 2}
   _Prefab: {fileID: 7305786205940731812, guid: 1eb7297ec03cd6d4ba4b658f99ea4047, type: 3}

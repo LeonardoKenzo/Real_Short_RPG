@@ -18,7 +18,7 @@ MonoBehaviour:
   _cooldown: 0
   _qtdAlvosAliados: 0
   _qtdAlvosInimigos: 100
-  _dano: 2
+  _dano: 4
   _cura: 0
   _shield: 0
   _forcaBuff: 0
@@ -26,6 +26,8 @@ MonoBehaviour:
   _forcaDebuff: 0
   _duracaoDebuff: 0
   _roundsStun: 0
+  _forcaVeneno: 0
+  _duracaoVeneno: 0
   _qtdSummons: 0
   _summons: []
   _skillImage: {fileID: 4589780200335697043, guid: 551619f795afed741ae2ddf0ba091201, type: 3}

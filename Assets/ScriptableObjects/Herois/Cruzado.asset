@@ -15,9 +15,9 @@ MonoBehaviour:
   _name: Cruzado
   _hpMax: 6
   _speed: 0
-  _classe: 3
+  _classe: 4
   _skills:
   - {fileID: 11400000, guid: 42f726a13c6b69a4981702e476525f38, type: 2}
-  - {fileID: 11400000, guid: 756fbb7a9dea7ab408dc79e4b9132c68, type: 2}
   - {fileID: 11400000, guid: f6a5994a8dcdc94498e690d9272f5f29, type: 2}
+  - {fileID: 11400000, guid: 756fbb7a9dea7ab408dc79e4b9132c68, type: 2}
   _Prefab: {fileID: 7305786205940731812, guid: 0c4a9d756158fd64d9f88b436e28110a, type: 3}

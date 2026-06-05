@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Escuridao
   m_EditorClassIdentifier: Assembly-CSharp::PersonagemSO
   _name: Ceifeiro
-  _hpMax: 50
+  _hpMax: 40
   _speed: 0
   _classe: 2
   _skills:

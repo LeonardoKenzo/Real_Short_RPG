@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ceifeiro
   m_EditorClassIdentifier: Assembly-CSharp::PersonagemSO
   _name: Ceifeiro
-  _hpMax: 30
+  _hpMax: 25
   _speed: 0
   _classe: 2
   _skills:
