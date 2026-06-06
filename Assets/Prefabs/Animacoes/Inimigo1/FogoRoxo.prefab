@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1385347920817726197}
   - component: {fileID: 3015978543781803385}
   - component: {fileID: 5063125242117712546}
+  - component: {fileID: 2647137456195588306}
   m_Layer: 5
   m_Name: FogoRoxo
   m_TagString: Untagged
@@ -98,3 +99,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2647137456195588306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2328640049518909570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c1faa13ef038264bb5b2a01f83c7240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimacaoHabilidade

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e201a3e0356b874ea3707969960468c, type: 3}
   m_Name: CeifeiroInvocar
   m_EditorClassIdentifier: Assembly-CSharp::HabilidadesSO
-  _skillName: Foice
+  _skillName: Ceifeiro Invocar
   _skillDescription: 
   _actionCost: 0
   _cooldown: 0
@@ -33,3 +33,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0e433f2d6dba9ee438236bf0c76ed831, type: 2}
   _skillImage: {fileID: 0}
   _skillEffect: 0100000007000000
+  _prefabAnimacao: {fileID: 138272565164924425, guid: 105e581b64c302b4b8f2a36512d46545, type: 3}

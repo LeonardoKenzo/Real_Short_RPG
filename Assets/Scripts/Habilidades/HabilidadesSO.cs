@@ -14,6 +14,7 @@ public class HabilidadesSO : ScriptableObject
     [SerializeField] private List<PersonagemSO> _summons;
     [SerializeField] private Sprite _skillImage;
     [SerializeField] private List<SkillEffects> _skillEffect;
+    [SerializeField] private GameObject _prefabAnimacao;
 
     // Getters ------------------------------------
     public string SkillName => _skillName;
@@ -36,6 +37,7 @@ public class HabilidadesSO : ScriptableObject
     public List<PersonagemSO> Summons => _summons;
     public Sprite SkillImage => _skillImage;
     public List<SkillEffects> Effects => _skillEffect;
+    public GameObject PrefabAnimacao => _prefabAnimacao;
 
     public HabilidadesSO Copiar()
     {
@@ -68,6 +70,8 @@ public class HabilidadesSO : ScriptableObject
 
         copia._summons = new List<PersonagemSO>(_summons);
         copia._skillEffect = new List<SkillEffects>(_skillEffect);
+
+        copia._prefabAnimacao = _prefabAnimacao;
 
         return copia;
     }

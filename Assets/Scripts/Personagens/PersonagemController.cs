@@ -15,12 +15,15 @@ public class PersonagemController : MonoBehaviour
     protected Dictionary<int, int> _buffs, _debuffs, _venenos;
 
     protected List<HabilidadesSO> _skills;
+    protected List<GameObject> _animacoesAtivas;
 
     public string UnitName => _name;
     public ClassesInimigos Classe => _classe;
 
     public bool IsStunned => _roundsStunned > 0;
     public List<HabilidadesSO> Skills => _skills;
+
+    public bool IsAnimating => _animacoesAtivas.Count > 0;
 
     public Action<int, int> OnHealthChanged;
     public Action<SkillEffects> OnEffectsApplied, OnEffectsRemoved;
@@ -40,6 +43,8 @@ public class PersonagemController : MonoBehaviour
         _buffs = new Dictionary<int, int>();
         _debuffs = new Dictionary<int, int>();
         _venenos = new Dictionary<int, int>();
+
+        _animacoesAtivas = new List<GameObject>();
 
         OnHealthChanged?.Invoke(_hpAtual, _hpMax);
 
@@ -65,7 +70,7 @@ public class PersonagemController : MonoBehaviour
             OnEffectsRemoved?.Invoke(efeitoRelacionado);
     }
 
-    private void FimRodada()
+    protected void FimRodada()
     {
         _roundsStunned--;
         if(_roundsStunned < 0)
@@ -75,6 +80,17 @@ public class PersonagemController : MonoBehaviour
 
         this.ReceberDano(_venenos.Values.Sum());
         VerificarDicionarioValores(_venenos, SkillEffects.POISON);
+    }
+
+    protected void AnimarHabilidade(HabilidadesSO habilidade, Vector3 posicao)
+    {
+        GameObject animacao = Instantiate(habilidade.PrefabAnimacao, posicao, Quaternion.identity, ReferenciaAnimacoes.s_ReferenciaAnimacoes);
+        
+        _animacoesAtivas.Add(animacao);
+        animacao.GetComponent<AnimacaoHabilidade>().AnimacaoDestruida += obj =>
+        {
+            _animacoesAtivas.Remove(obj);
+        };
     }
 
     public void ReceberDano(int dano)
@@ -193,11 +209,18 @@ public class PersonagemController : MonoBehaviour
                 case SkillEffects.SUMMON:
                     for (int i = 0; i < habilidade.QtdSummons; i++)
                     {
-                        EventosGlobais.PersonagemInvocando.Invoke(this.gameObject, 
+                        Vector3? posicao = SistemaBatalha.s_SistemaBatalha.TentarInvocarPersonagem(this.gameObject, 
                                                     habilidade.Summons[UnityEngine.Random.Range(0, habilidade.Summons.Count)]);
+                        if (posicao != null)
+                            AnimarHabilidade(habilidade, posicao.Value);
                     }
                     break;
             }
+        }
+
+        if (!habilidade.Effects.Contains(SkillEffects.SUMMON))
+        {
+            AnimarHabilidade(habilidade, Vector3.zero);
         }
     }
 }

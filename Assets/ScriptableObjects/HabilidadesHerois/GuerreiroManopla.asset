@@ -26,5 +26,10 @@ MonoBehaviour:
   _forcaDebuff: 0
   _duracaoDebuff: 0
   _roundsStun: 0
+  _forcaVeneno: 0
+  _duracaoVeneno: 0
+  _qtdSummons: 0
+  _summons: []
   _skillImage: {fileID: -100366484525144096, guid: 1c39c35bba655734dbb2f3e8516383e9, type: 3}
   _skillEffect: 03000000
+  _prefabAnimacao: {fileID: 8403822633727115923, guid: 17043343fdba88d43badc648276d7426, type: 3}

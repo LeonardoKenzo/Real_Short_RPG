@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 827427201199891239}
   - component: {fileID: 6589580471770733134}
   - component: {fileID: 8212301390935440216}
+  - component: {fileID: 4390834697136204624}
   m_Layer: 5
   m_Name: Tambor
   m_TagString: Untagged
@@ -98,3 +99,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4390834697136204624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3857459240770166839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c1faa13ef038264bb5b2a01f83c7240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimacaoHabilidade

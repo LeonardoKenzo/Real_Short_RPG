@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2433546537050714197}
   - component: {fileID: 6689413789749628250}
   - component: {fileID: 6441500420986144096}
+  - component: {fileID: 5310561312033484104}
   m_Layer: 5
   m_Name: Garras
   m_TagString: Untagged
@@ -98,3 +99,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5310561312033484104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4074283373748307693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c1faa13ef038264bb5b2a01f83c7240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimacaoHabilidade

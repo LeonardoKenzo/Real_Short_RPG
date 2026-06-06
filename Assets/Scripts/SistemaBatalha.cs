@@ -6,25 +6,38 @@ using UnityEngine.UI;
 
 public class SistemaBatalha : MonoBehaviour
 {
+    public static SistemaBatalha s_SistemaBatalha;
+
     [SerializeField] private List<GameObject> _spawnsHerois, _spawnsInimigos;
     [SerializeField] private List<Image> _marcacoesEnergia;
     [SerializeField] private GameObject _vitoriaUI, _derrotaUI;
 
-    private List<GameObject> _herois, _inimigos, _heroisSelecionados, _inimigosSelecionados;
+    private List<GameObject> _herois, _inimigos, _heroisSelecionados, _inimigosSelecionados, _inimigosComecoAtaque, _objetosHoverDuranteAnim;
     private List<Vector3> _posicoesLivresHerois, _posicoesLivresInimigos;
     private GameObject _heroiAtacante;
     private GameObject _cartaAtual;
     private HabilidadesSO _habilidadeAtual;
 
-    private int _energiaMaxima = 5, _energiaAtual;
+    private int _energiaMaxima = 5, _energiaAtual, _inimigoAtual, _acaoInimigoAtual;
 
     //WAIT -> os personagens são criados no Start(), isso faz com que o Start() deles ocorra no próximo frame
     //Isso cria uma condição de corrida com o Update(), então o WAIT serve pra forçar à esperar
-    private enum EstadoBatalha { WAIT, START, PLAYER_TURN, ENEMY_TURN, WIN, LOSE }
+    private enum EstadoBatalha { WAIT, START, PLAYER_TURN, PLAYER_ANIM, ENEMY_TURN, ENEMY_ANIM, ENEMY_END, WIN, LOSE }
     private enum EstadoAcaojogador { CHOOSE_SKILL, CHOOSE_TARGET, EXECUTE_ACTION }
 
     private EstadoBatalha _estado;
     private EstadoAcaojogador _estadoJogador;
+
+    void Awake()
+    {
+        if (s_SistemaBatalha != null)
+        {
+            Debug.LogError("DUPLICATA DO SISTEMA DE BATALHA!!!!");
+            return;
+        }
+
+        s_SistemaBatalha = this;
+    }
 
     void Start()
     {
@@ -32,6 +45,7 @@ public class SistemaBatalha : MonoBehaviour
         _inimigos = new List<GameObject>();
         _heroisSelecionados = new List<GameObject>();
         _inimigosSelecionados = new List<GameObject>();
+        _objetosHoverDuranteAnim = new List<GameObject>();
 
         _posicoesLivresHerois = new List<Vector3>();
         _posicoesLivresInimigos = new List<Vector3>();
@@ -49,7 +63,6 @@ public class SistemaBatalha : MonoBehaviour
         EventosGlobais.CartaSelecionada.AddListener(CartaSelecionada);
 
         EventosGlobais.PersonagemMorreu.AddListener(PersonagemMorreu);
-        EventosGlobais.PersonagemInvocando.AddListener(TentarInvocarPersonagem);
 
         CriarPersonagens();
         foreach (Image marcadorEnergia in _marcacoesEnergia)
@@ -109,6 +122,8 @@ public class SistemaBatalha : MonoBehaviour
                     TrocarCartas();
                     _estado = EstadoBatalha.PLAYER_TURN;
                     _estadoJogador = EstadoAcaojogador.CHOOSE_SKILL;
+
+                    HoverPosAnimacao();
                 }
 
                 break;
@@ -141,72 +156,132 @@ public class SistemaBatalha : MonoBehaviour
                         _energiaAtual -= _habilidadeAtual.ActionCost;
                         _marcacoesEnergia[_energiaAtual].enabled = true;
 
-                        DesselecionarTodos();
-                        _heroiAtacante.GetComponent<PersonagemSelect>().CancelarSelecao(TiposSelecao.Todos);
-                        _heroiAtacante.GetComponent<PersonagemSelect>().CancelarHover(TiposSelecao.Todos);
-
-                        if (_herois.Count == 0)
-                            _estado = EstadoBatalha.LOSE;
-                        else if (_inimigos.Count == 0)
-                            _estado = EstadoBatalha.WIN;
-                        else if (_energiaAtual == 0)
-                            _estado = EstadoBatalha.ENEMY_TURN;
-                        else
-                        {
-                            _heroiAtacante.GetComponent<PersonagemSelect>().ConfirmarHover(TiposSelecao.Select);
-                            _heroiAtacante.GetComponent<PersonagemSelect>().ConfirmarSelecao(TiposSelecao.Select);
-                            _estadoJogador = EstadoAcaojogador.CHOOSE_SKILL;
-                        }
+                        _estado = EstadoBatalha.PLAYER_ANIM;
                     }
                 }
                 break;
             }
-            case EstadoBatalha.ENEMY_TURN:
+            case EstadoBatalha.PLAYER_ANIM:
             {
-                //_inimigos.ToList() cria uma cópia de _inimigos, assim pode-se invocar personagens extras
-                foreach (GameObject inimigo in _inimigos.ToList())
-                {
-                    int nroAcoes = AtributosPorClasse.S_ValoresPorClasse[inimigo.GetComponent<PersonagemController>().Classe].QuantidadeAcoes;
+                if (_heroiAtacante.GetComponent<PersonagemController>().IsAnimating)
+                    break;
 
-                    for (int a = 0; a < nroAcoes; a++)
-                    {
-                        if (inimigo.GetComponent<PersonagemController>().IsStunned)
-                            continue;
-
-                        List<HabilidadesSO> habilidadesInimigo = inimigo.GetComponent<PersonagemController>().Skills;
-                        HabilidadesSO habilidade = habilidadesInimigo[Random.Range(0, habilidadesInimigo.Count)];
-
-                        List<PersonagemController> alvosHerois = new List<PersonagemController>();
-                        List<GameObject> copiaHerois = new List<GameObject>(_herois);
-                        List<PersonagemController> alvosInimigos = new List<PersonagemController>();
-                        List<GameObject> copiaInimigos = new List<GameObject>(_inimigos);
-
-                        for (int i = 0; i < habilidade.QtdAlvosInimigos && i < _herois.Count; i++)
-                        {
-                            int pos = Random.Range(0, copiaHerois.Count);
-                            alvosHerois.Add(copiaHerois[pos].GetComponent<PersonagemController>());
-                            copiaHerois.RemoveAt(pos);
-                        }
-                        for (int i = 0; i < habilidade.QtdAlvosAliados && i < _inimigos.Count; i++)
-                        {
-                            int pos = Random.Range(0, copiaInimigos.Count);
-                            alvosInimigos.Add(copiaInimigos[pos].GetComponent<PersonagemController>());
-                            copiaInimigos.RemoveAt(pos);
-                        }
-
-                        inimigo.GetComponent<PersonagemController>().UsarHabilidade(habilidade, alvosInimigos, alvosHerois);
-                    }
-                }
+                DesselecionarTodos();
+                _heroiAtacante.GetComponent<PersonagemSelect>().CancelarSelecao(TiposSelecao.Todos);
+                _heroiAtacante.GetComponent<PersonagemSelect>().CancelarHover(TiposSelecao.Todos);
 
                 if (_herois.Count == 0)
                     _estado = EstadoBatalha.LOSE;
                 else if (_inimigos.Count == 0)
                     _estado = EstadoBatalha.WIN;
+                else if (_energiaAtual == 0)
+                {
+                    _inimigoAtual = 0;
+                    _acaoInimigoAtual = 0;
+                    _inimigosComecoAtaque = new List<GameObject>(_inimigos);
+                    _estado = EstadoBatalha.ENEMY_TURN;
+                }
                 else
-                    _estado = EstadoBatalha.START;
+                {
+                    _heroiAtacante.GetComponent<PersonagemSelect>().ConfirmarHover(TiposSelecao.Select);
+                    _heroiAtacante.GetComponent<PersonagemSelect>().ConfirmarSelecao(TiposSelecao.Select);
+                    _estado = EstadoBatalha.PLAYER_TURN;
+                    _estadoJogador = EstadoAcaojogador.CHOOSE_SKILL;
 
+                    HoverPosAnimacao();
+                }
+
+                break;
+            }
+            case EstadoBatalha.ENEMY_TURN:
+            {
+                while (_inimigosComecoAtaque[_inimigoAtual].GetComponent<PersonagemController>().IsStunned)
+                {
+                    _inimigoAtual++;
+
+                    if (_inimigoAtual == _inimigosComecoAtaque.Count)
+                    {
+                        break;
+                    }
+                }
+
+                if (_inimigoAtual == _inimigosComecoAtaque.Count)
+                {
+                    _estado = EstadoBatalha.ENEMY_END;
+                    break;
+                }
+
+                GameObject inimigo = _inimigosComecoAtaque[_inimigoAtual];
+                inimigo.GetComponent<PersonagemSelect>().ConfirmarHover(TiposSelecao.Select);
+                inimigo.GetComponent<PersonagemSelect>().ConfirmarSelecao(TiposSelecao.Select);
+
+                List<HabilidadesSO> habilidadesInimigo = inimigo.GetComponent<PersonagemController>().Skills;
+
+                HabilidadesSO habilidade;
+                do
+                {
+                    habilidade = habilidadesInimigo[Random.Range(0, habilidadesInimigo.Count)];
+                }
+                //Enquanto ele tentar invocar um oponente sem ter espaço para invocar, aleatoriza novamente
+                while (habilidade.Effects.Contains(SkillEffects.SUMMON) && _posicoesLivresInimigos.Count == 0);
+
+                List<PersonagemController> alvosHerois = new List<PersonagemController>();
+                List<GameObject> copiaHerois = new List<GameObject>(_herois);
+                List<PersonagemController> alvosInimigos = new List<PersonagemController>();
+                List<GameObject> copiaInimigos = new List<GameObject>(_inimigos);
+
+                for (int i = 0; i < habilidade.QtdAlvosInimigos && i < _herois.Count; i++)
+                {
+                    int pos = Random.Range(0, copiaHerois.Count);
+                    alvosHerois.Add(copiaHerois[pos].GetComponent<PersonagemController>());
+
+                    copiaHerois[pos].GetComponent<PersonagemSelect>().ConfirmarHover(TiposSelecao.SelectAlvo);
+                    copiaHerois[pos].GetComponent<PersonagemSelect>().ConfirmarSelecao(TiposSelecao.SelectAlvo);
+                    copiaHerois.RemoveAt(pos);
+                }
+                for (int i = 0; i < habilidade.QtdAlvosAliados && i < _inimigos.Count; i++)
+                {
+                    int pos = Random.Range(0, copiaInimigos.Count);
+                    alvosInimigos.Add(copiaInimigos[pos].GetComponent<PersonagemController>());
+                    copiaInimigos.RemoveAt(pos);
+                }
+
+                inimigo.GetComponent<PersonagemController>().UsarHabilidade(habilidade, alvosInimigos, alvosHerois);
+
+                _acaoInimigoAtual++;
+                _estado = EstadoBatalha.ENEMY_ANIM;
+                break;
+            }
+            case EstadoBatalha.ENEMY_ANIM:
+            {
+                GameObject inimigo = _inimigosComecoAtaque[_inimigoAtual];
+                if (inimigo.GetComponent<PersonagemController>().IsAnimating)
+                    break;
+
+                if (_herois.Count == 0)
+                    _estado = EstadoBatalha.LOSE;
+                else if (_inimigos.Count == 0)
+                    _estado = EstadoBatalha.WIN;
+                else if (_acaoInimigoAtual >= 
+                            AtributosPorClasse.S_ValoresPorClasse[inimigo.GetComponent<PersonagemController>().Classe].QuantidadeAcoes)
+                {
+                    _acaoInimigoAtual = 0;
+                    _inimigoAtual++;
+                }
+
+                DesselecionarTodos();
+
+                if (_inimigoAtual == _inimigosComecoAtaque.Count)
+                    _estado = EstadoBatalha.ENEMY_END;
+                else
+                    _estado = EstadoBatalha.ENEMY_TURN;
+
+                break;
+            }
+            case EstadoBatalha.ENEMY_END:
+            {
+                _estado = EstadoBatalha.START;
                 EventosGlobais.FimRodada.Invoke();
-
                 break;
             }
             case EstadoBatalha.WIN:
@@ -228,6 +303,11 @@ public class SistemaBatalha : MonoBehaviour
 
     private void PersonagemHoverEnter(GameObject personagem)
     {
+        if (_estado == EstadoBatalha.PLAYER_ANIM || _estado == EstadoBatalha.ENEMY_ANIM)
+        {
+            _objetosHoverDuranteAnim.Add(personagem);
+        }
+
         if (_estado != EstadoBatalha.PLAYER_TURN)
             return;
 
@@ -253,6 +333,11 @@ public class SistemaBatalha : MonoBehaviour
 
     private void PersonagemHoverExit(GameObject personagem)
     {
+        if (_estado == EstadoBatalha.PLAYER_ANIM || _estado == EstadoBatalha.ENEMY_ANIM)
+        {
+            _objetosHoverDuranteAnim.Remove(personagem);
+        }
+
         switch (_estadoJogador)
         {
             case EstadoAcaojogador.CHOOSE_SKILL:
@@ -345,6 +430,11 @@ public class SistemaBatalha : MonoBehaviour
 
     private void CartaHoverEnter(GameObject carta)
     {
+        if (_estado == EstadoBatalha.PLAYER_ANIM || _estado == EstadoBatalha.ENEMY_ANIM)
+        {
+            _objetosHoverDuranteAnim.Add(carta);
+        }
+
         if (_estado != EstadoBatalha.PLAYER_TURN || _estadoJogador == EstadoAcaojogador.EXECUTE_ACTION)
             return;
 
@@ -353,6 +443,11 @@ public class SistemaBatalha : MonoBehaviour
 
     private void CartaHoverExit(GameObject carta)
     {
+        if (_estado == EstadoBatalha.PLAYER_ANIM || _estado == EstadoBatalha.ENEMY_ANIM)
+        {
+            _objetosHoverDuranteAnim.Remove(carta);
+        }
+
         carta.GetComponent<HabilidadesSelect>().CancelarHover();
     }
 
@@ -404,52 +499,85 @@ public class SistemaBatalha : MonoBehaviour
         {
             _herois.Remove(personagem);
             _posicoesLivresHerois.Add(personagem.transform.position);
+
+            if(_heroisSelecionados.Contains(personagem))
+                _heroisSelecionados.Remove(personagem);
         }
         else
         {
             _inimigos.Remove(personagem);
             _posicoesLivresInimigos.Add(personagem.transform.position);
+
+            if(_inimigosSelecionados.Contains(personagem))
+                _inimigosSelecionados.Remove(personagem);
         }
+
 
         Destroy(personagem);
     }
 
-    private void InstanciarPersonagem(PersonagemSO personagem, Transform parente, 
-                                        List<GameObject> listaPersonagens, List<Vector3> listaPosicoes)
+    private Vector3 InstanciarPersonagem(PersonagemSO personagem, Transform parente, 
+                                        List<GameObject> listaPersonagens, List<Vector3> listaPosicoes, bool colocarNoFundo)
     {
         //Como listaPosicoes vai remover a posição ocupada, sempre posiciona o personagem na primeira posição
-        GameObject instancia = Instantiate(personagem.Prefab, listaPosicoes[0], Quaternion.identity, parente);
+        Vector3 posicao = listaPosicoes[0];
+
+        GameObject instancia = Instantiate(personagem.Prefab, posicao, Quaternion.identity, parente);
         instancia.GetComponent<PersonagemController>().InicializarPersonagem(personagem);
         listaPersonagens.Add(instancia);
 
+        if (colocarNoFundo)
+            instancia.transform.SetAsFirstSibling();
+
         //Como está ocupado, não pode ser mais usado
         listaPosicoes.RemoveAt(0);
+
+        return posicao;
     }
 
-    private void TentarInvocarPersonagem(GameObject invocador, PersonagemSO invocado)
+    //Vector3? == pode retornar nulo
+    public Vector3? TentarInvocarPersonagem(GameObject invocador, PersonagemSO invocado)
     {
         if (_herois.Contains(invocador))
         {
             if (_posicoesLivresHerois.Count > 0)
-                InstanciarPersonagem(invocado, this.transform, _herois, _posicoesLivresHerois);
+                //true -> invocados ficam no fundo da tela, para não sobreporem o invocador
+                return InstanciarPersonagem(invocado, this.transform, _herois, _posicoesLivresHerois, true);
         }
         else if (_inimigos.Contains(invocador))
         {
             if (_posicoesLivresInimigos.Count > 0)
-                InstanciarPersonagem(invocado, this.transform, _inimigos, _posicoesLivresInimigos);
+                //true -> invocados ficam no fundo da tela, para não sobreporem o invocador
+                return InstanciarPersonagem(invocado, this.transform, _inimigos, _posicoesLivresInimigos, true);
         }
+
+        return null;
     }
 
     private void CriarPersonagens()
     {
         foreach (PersonagemSO heroi in DadosParty.s_ReferenciaParty.Herois)
         {
-            InstanciarPersonagem(heroi, this.transform, _herois, _posicoesLivresHerois);
+            //false -> crie conforme a ordem pré-definida
+            InstanciarPersonagem(heroi, this.transform, _herois, _posicoesLivresHerois, false);
         }
         foreach (PersonagemSO inimigo in DadosInimigos.s_ReferenciaInimigos.Inimigos)
         {
-            InstanciarPersonagem(inimigo, this.transform, _inimigos, _posicoesLivresInimigos);
+            //false -> crie conforme a ordem pré-definida
+            InstanciarPersonagem(inimigo, this.transform, _inimigos, _posicoesLivresInimigos, false);
         }
+    }
+
+    private void HoverPosAnimacao()
+    {
+        foreach (GameObject objHover in _objetosHoverDuranteAnim)
+        {
+            if (_herois.Contains(objHover))
+                PersonagemHoverEnter(objHover);
+            else if (!_inimigos.Contains(objHover))
+                CartaHoverEnter(objHover);
+        }
+        _objetosHoverDuranteAnim.Clear();
     }
 
     private void TrocarCartas()
@@ -462,12 +590,12 @@ public class SistemaBatalha : MonoBehaviour
 
     private void DesselecionarTodos()
     {
-        foreach (GameObject heroi in _heroisSelecionados)
+        foreach (GameObject heroi in _herois)
         {
             heroi.GetComponent<PersonagemSelect>().CancelarSelecao(TiposSelecao.Todos);
             heroi.GetComponent<PersonagemSelect>().CancelarHover(TiposSelecao.Todos);
         }
-        foreach (GameObject inimigo in _inimigosSelecionados)
+        foreach (GameObject inimigo in _inimigos)
         {
             inimigo.GetComponent<PersonagemSelect>().CancelarSelecao(TiposSelecao.Todos);
             inimigo.GetComponent<PersonagemSelect>().CancelarHover(TiposSelecao.Todos);
@@ -476,9 +604,12 @@ public class SistemaBatalha : MonoBehaviour
         _heroisSelecionados.Clear();
         _inimigosSelecionados.Clear();
 
-        _cartaAtual.GetComponent<HabilidadesSelect>().CancelarSelecao();
-        _cartaAtual.GetComponent<HabilidadesSelect>().CancelarHover();
-        _cartaAtual = null;
-        _habilidadeAtual = null;
+        if (_cartaAtual != null)
+        {
+            _cartaAtual.GetComponent<HabilidadesSelect>().CancelarSelecao();
+            _cartaAtual.GetComponent<HabilidadesSelect>().CancelarHover();
+            _cartaAtual = null;
+            _habilidadeAtual = null;
+        }
     }
 }
