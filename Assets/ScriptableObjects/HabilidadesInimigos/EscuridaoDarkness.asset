@@ -32,3 +32,4 @@ MonoBehaviour:
   _summons: []
   _skillImage: {fileID: 0}
   _skillEffect: 06000000
+  _prefabAnimacao: {fileID: 5435505794688099801, guid: daa22e181f18d2742b87c4d163c4e769, type: 3}

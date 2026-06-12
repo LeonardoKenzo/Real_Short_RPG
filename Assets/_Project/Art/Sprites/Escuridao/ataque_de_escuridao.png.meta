@@ -1,0 +1,353 @@
+fileFormatVersion: 2
+guid: d584666db111ba9469f482013a306a35
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 809372112629660942
+    second: ataque_de_escuridao_0
+  - first:
+      213: -7642107633299979186
+    second: ataque_de_escuridao_1
+  - first:
+      213: 8340820016656399211
+    second: ataque_de_escuridao_2
+  - first:
+      213: 5320472372514832773
+    second: ataque_de_escuridao_3
+  - first:
+      213: 5088151748952996377
+    second: ataque_de_escuridao_4
+  - first:
+      213: 3055906921840030877
+    second: ataque_de_escuridao_5
+  - first:
+      213: 8535801313862366854
+    second: ataque_de_escuridao_6
+  - first:
+      213: 6459166783484193986
+    second: ataque_de_escuridao_7
+  - first:
+      213: -346415964569574271
+    second: ataque_de_escuridao_8
+  - first:
+      213: 2222384188207904905
+    second: ataque_de_escuridao_9
+  - first:
+      213: -4216990107830812140
+    second: ataque_de_escuridao_10
+  - first:
+      213: -8559820328888306253
+    second: ataque_de_escuridao_11
+  - first:
+      213: -7763665848910070444
+    second: ataque_de_escuridao_12
+  - first:
+      213: 2644516225920259778
+    second: ataque_de_escuridao_13
+  - first:
+      213: -1480485153821503275
+    second: ataque_de_escuridao_14
+  - first:
+      213: -5532248541192325402
+    second: ataque_de_escuridao_15
+  - first:
+      213: -3091372871952105301
+    second: ataque_de_escuridao_16
+  - first:
+      213: 3127700827516582754
+    second: ataque_de_escuridao_17
+  - first:
+      213: 8155167124174324766
+    second: ataque_de_escuridao_18
+  - first:
+      213: -6796601171125799345
+    second: ataque_de_escuridao_19
+  - first:
+      213: 1989939900968224883
+    second: ataque_de_escuridao_20
+  - first:
+      213: -6016961166542094460
+    second: ataque_de_escuridao_21
+  - first:
+      213: -7057887247146885349
+    second: ataque_de_escuridao_22
+  - first:
+      213: -4379705772003862866
+    second: ataque_de_escuridao_23
+  - first:
+      213: -3759716401322086738
+    second: ataque_de_escuridao_24
+  - first:
+      213: -2119954262317092397
+    second: ataque_de_escuridao_25
+  - first:
+      213: 7709708405021305839
+    second: ataque_de_escuridao_26
+  - first:
+      213: -5072058848468093962
+    second: ataque_de_escuridao_27
+  - first:
+      213: -8120667419823748014
+    second: ataque_de_escuridao_28
+  - first:
+      213: -6614790231319561082
+    second: ataque_de_escuridao_29
+  - first:
+      213: 2607486839688466503
+    second: ataque_de_escuridao_30
+  - first:
+      213: -7056828165304464184
+    second: ataque_de_escuridao_31
+  - first:
+      213: -824114214879904287
+    second: ataque_de_escuridao_32
+  - first:
+      213: -6975107250912272843
+    second: ataque_de_escuridao_33
+  - first:
+      213: -6595426960954615399
+    second: ataque_de_escuridao_34
+  - first:
+      213: 4986205578345649973
+    second: ataque_de_escuridao_35
+  - first:
+      213: 3606946466331359655
+    second: ataque_de_escuridao_36
+  - first:
+      213: -8557731301210447803
+    second: ataque_de_escuridao_37
+  - first:
+      213: 8795357215117774302
+    second: ataque_de_escuridao_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ataque_de_escuridao_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1800
+        height: 900
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ed6edf8a96ceff4fa3a4501153891eb
+      internalID: 809372112629660942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ataque_de_escuridao_1
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 0
+        width: 1800
+        height: 900
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45f407cc662136c4ba694348c90f6cc9
+      internalID: -7642107633299979186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ataque_de_escuridao_2
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 0
+        width: 1800
+        height: 900
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 694f55deb2e7344439499b9e4e9ea6eb
+      internalID: 8340820016656399211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ataque_de_escuridao_3
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 0
+        width: 1800
+        height: 900
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50e96a9d90774de48bd3cc6d7b5d9204
+      internalID: 5320472372514832773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ataque_de_escuridao_4
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 0
+        width: 1800
+        height: 900
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee958e354ad0ea647967f54cf6d572cb
+      internalID: 5088151748952996377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0455f0565eb1e894eaba3f86dc5ee8e2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceOnImport
+        value: True
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":true,"gridCellCount":{"x":5.0,"y":1.0},"gridSpriteSize":{"x":1800.0,"y":900.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      ataque_de_escuridao_0: 809372112629660942
+      ataque_de_escuridao_1: -7642107633299979186
+      ataque_de_escuridao_2: 8340820016656399211
+      ataque_de_escuridao_3: 5320472372514832773
+      ataque_de_escuridao_4: 5088151748952996377
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -33,3 +33,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a30cfcb3c58438a498559a20e5f42434, type: 2}
   _skillImage: {fileID: 0}
   _skillEffect: 0100000007000000
+  _prefabAnimacao: {fileID: 138272565164924425, guid: 105e581b64c302b4b8f2a36512d46545, type: 3}

@@ -18,7 +18,7 @@ MonoBehaviour:
   _cooldown: 0
   _qtdAlvosAliados: 0
   _qtdAlvosInimigos: 1
-  _dano: 6
+  _dano: 5
   _cura: 0
   _shield: 0
   _forcaBuff: 0
@@ -33,3 +33,4 @@ MonoBehaviour:
   _skillImage: {fileID: -2951968395899575411, guid: 8666fcae088b8ae4fa89cda5a20c4fb6, type: 3}
   _skillEffect: 00000000
   _prefabAnimacao: {fileID: 6705718893601860582, guid: b6bbe55214cb8b44a83c41f3e2c59928, type: 3}
+  _prefabAnimacaoSecundaria: {fileID: 0}

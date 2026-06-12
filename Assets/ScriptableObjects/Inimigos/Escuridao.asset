@@ -15,10 +15,12 @@ MonoBehaviour:
   _name: Ceifeiro
   _hpMax: 40
   _speed: 0
-  _classe: 2
+  _classe: 3
   _skills:
+  - {fileID: 11400000, guid: 63c6998b082f6604b95e4984439926ec, type: 2}
   - {fileID: 11400000, guid: f6164be45c4ae4241b77a29165ef3269, type: 2}
-  - {fileID: 11400000, guid: 05d1270a26b5d524ebf7dbd72706cd6d, type: 2}
-  - {fileID: 11400000, guid: 63c6998b082f6604b95e4984439926ec, type: 2}
-  - {fileID: 11400000, guid: 63c6998b082f6604b95e4984439926ec, type: 2}
+  - {fileID: 11400000, guid: f6164be45c4ae4241b77a29165ef3269, type: 2}
+  - {fileID: 11400000, guid: f6164be45c4ae4241b77a29165ef3269, type: 2}
+  - {fileID: 11400000, guid: f6164be45c4ae4241b77a29165ef3269, type: 2}
+  - {fileID: 11400000, guid: f6164be45c4ae4241b77a29165ef3269, type: 2}
   _Prefab: {fileID: 7305786205940731812, guid: 660f16d4cb9433042a4687ca6658f55e, type: 3}

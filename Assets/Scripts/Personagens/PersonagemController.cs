@@ -21,6 +21,7 @@ public class PersonagemController : MonoBehaviour
     public ClassesInimigos Classe => _classe;
 
     public bool IsStunned => _roundsStunned > 0;
+    public bool Alive => _hpAtual > 0;
     public List<HabilidadesSO> Skills => _skills;
 
     public bool IsAnimating => _animacoesAtivas.Count > 0;
@@ -49,6 +50,24 @@ public class PersonagemController : MonoBehaviour
         OnHealthChanged?.Invoke(_hpAtual, _hpMax);
 
         EventosGlobais.FimRodada.AddListener(FimRodada);
+    }
+
+    void OnEnable()
+    {
+        GetComponent<PersonagemUI>().HealthUpdateEnded += ValidarMorte;
+    }
+
+    void OnDisable()
+    {
+        GetComponent<PersonagemUI>().HealthUpdateEnded -= ValidarMorte;
+    }
+
+    protected void ValidarMorte()
+    {
+        if (!Alive)
+        {
+            EventosGlobais.PersonagemMorreu.Invoke(this.gameObject);
+        }
     }
 
     protected void VerificarDicionarioValores(Dictionary<int, int> dicionarioEfeito, SkillEffects efeitoRelacionado)
@@ -82,9 +101,9 @@ public class PersonagemController : MonoBehaviour
         VerificarDicionarioValores(_venenos, SkillEffects.POISON);
     }
 
-    protected void AnimarHabilidade(HabilidadesSO habilidade, Vector3 posicao)
+    protected void AnimarHabilidade(GameObject prefabAnimacao, Vector3 posicao)
     {
-        GameObject animacao = Instantiate(habilidade.PrefabAnimacao, posicao, Quaternion.identity, ReferenciaAnimacoes.s_ReferenciaAnimacoes);
+        GameObject animacao = Instantiate(prefabAnimacao, posicao, Quaternion.identity, ReferenciaAnimacoes.s_ReferenciaAnimacoes);
         
         _animacoesAtivas.Add(animacao);
         animacao.GetComponent<AnimacaoHabilidade>().AnimacaoDestruida += obj =>
@@ -103,7 +122,6 @@ public class PersonagemController : MonoBehaviour
         _hpAtual -= overdamage;
         if (_hpAtual <= 0)
         {
-            EventosGlobais.PersonagemMorreu.Invoke(this.gameObject);
             _hpAtual = 0;
         }
 
@@ -191,6 +209,10 @@ public class PersonagemController : MonoBehaviour
                             inimigo._roundsStunned += habilidade.StunTime;
                             inimigo.OnEffectsApplied?.Invoke(SkillEffects.STUN);
                         }
+                        else
+                        {
+                            AnimarHabilidade(habilidade.PrefabAnimacaoSecundaria, inimigo.gameObject.transform.position);
+                        }
                     }
                     break;
 
@@ -212,7 +234,7 @@ public class PersonagemController : MonoBehaviour
                         Vector3? posicao = SistemaBatalha.s_SistemaBatalha.TentarInvocarPersonagem(this.gameObject, 
                                                     habilidade.Summons[UnityEngine.Random.Range(0, habilidade.Summons.Count)]);
                         if (posicao != null)
-                            AnimarHabilidade(habilidade, posicao.Value);
+                            AnimarHabilidade(habilidade.PrefabAnimacao, posicao.Value);
                     }
                     break;
             }
@@ -220,7 +242,7 @@ public class PersonagemController : MonoBehaviour
 
         if (!habilidade.Effects.Contains(SkillEffects.SUMMON))
         {
-            AnimarHabilidade(habilidade, Vector3.zero);
+            AnimarHabilidade(habilidade.PrefabAnimacao, Vector3.zero);
         }
     }
 }

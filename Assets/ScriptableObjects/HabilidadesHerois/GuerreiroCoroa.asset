@@ -30,6 +30,6 @@ MonoBehaviour:
   _duracaoVeneno: 0
   _qtdSummons: 0
   _summons: []
-  _skillImage: {fileID: -4242283198230383139, guid: aabbff9ab6ff21b4db09524422fba638, type: 3}
+  _skillImage: {fileID: 21300000, guid: aabbff9ab6ff21b4db09524422fba638, type: 3}
   _skillEffect: 0100000002000000
   _prefabAnimacao: {fileID: 5668315032811958287, guid: bb51ed7844ae9824cbdcfe58ec0c6d6f, type: 3}

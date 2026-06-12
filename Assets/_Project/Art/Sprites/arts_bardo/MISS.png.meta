@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: aabbff9ab6ff21b4db09524422fba638
+guid: 2ad577640fda3cb428d9e3773c294c16
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4242283198230383139
-    second: carta_coroa_0
+      213: -6039598564263806729
+    second: MISS_0
+  - first:
+      213: 2970312753893566536
+    second: MISS_1
+  - first:
+      213: 6253718919692203762
+    second: MISS_2
+  - first:
+      213: -1387941793673668976
+    second: MISS_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: carta_coroa_0
+      name: MISS_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 320
-        height: 640
+        x: 110
+        y: 300
+        width: 990
+        height: 320
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dd5bed468e16025c0800000000000000
-      internalID: -4242283198230383139
+      spriteID: 7f8b81fda190f2ca0800000000000000
+      internalID: -6039598564263806729
       vertices: []
       indices: 
       edges: []
@@ -125,7 +134,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9bd10f76601e4b241acf28b3c8423988
+    spriteID: a33c6c5f9d4f2e147ab02a54d2e9c768
     internalID: 0
     vertices: []
     indices: 
@@ -135,9 +144,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":990.0,"y":320.0},"gridSpriteOffset":{"x":110.0,"y":660.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      carta_coroa_0: -4242283198230383139
+      MISS_0: -6039598564263806729
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

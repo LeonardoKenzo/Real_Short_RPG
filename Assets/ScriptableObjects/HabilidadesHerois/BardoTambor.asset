@@ -18,7 +18,7 @@ MonoBehaviour:
   _cooldown: 0
   _qtdAlvosAliados: 0
   _qtdAlvosInimigos: 100
-  _dano: 4
+  _dano: 3
   _cura: 0
   _shield: 0
   _forcaBuff: 0
@@ -30,6 +30,6 @@ MonoBehaviour:
   _duracaoVeneno: 0
   _qtdSummons: 0
   _summons: []
-  _skillImage: {fileID: 4589780200335697043, guid: 551619f795afed741ae2ddf0ba091201, type: 3}
+  _skillImage: {fileID: 21300000, guid: 551619f795afed741ae2ddf0ba091201, type: 3}
   _skillEffect: 00000000
   _prefabAnimacao: {fileID: 3857459240770166839, guid: f10b2450af3af3a428a51cd8669a27dd, type: 3}

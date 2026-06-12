@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,27 +7,42 @@ public class PersonagemUI : MonoBehaviour
 {
     [Header("HP Bar")]
     [SerializeField] private Image _hpBar;
-    [SerializeField] private float _lerpSpeed = 5f; // Animacao da barra de vida
-    private float _targetFill;
-    private float _currentFill;
+    private float _lerpSpeed = 5f, _lerpMin = 0.005f; // Animacao da barra de vida
+    private float _targetFill, _currentFill;
+    private bool _lancouAcaoFimUpdateVida;
 
     [Header("Effects")]
-    [SerializeField] private Image _stunImage, _buffImage, _debuffImage, _shieldImage;
+    [SerializeField] private Image _stunImage, _buffImage, _debuffImage, _shieldImage, _poisonImage;
 
     private PersonagemController _unit;
+
+    public Action HealthUpdateEnded;
 
     private void Awake()
     {
         _unit = GetComponent<PersonagemController>();
+
+        _lancouAcaoFimUpdateVida = true;
     }
 
     private void Update()
     {
         // Atualiza a barra de vida lentamente
-        if (Mathf.Abs(_currentFill - _targetFill) > 0.001f)
+        //2*_lerpMin -> garante que a iteração não vai ultrapassar para o oposto da comparação
+        //Ex: objetivo de 0.4, pular de 0.42 para 0.37 (_lerpMin == 0.05), com comparação de > 0.02
+        if (Mathf.Abs(_currentFill - _targetFill) > 2*_lerpMin)
         {
-            _currentFill = Mathf.Lerp(_currentFill, _targetFill, Time.deltaTime * _lerpSpeed);
+            float variacao = Mathf.Lerp(0, _targetFill-_currentFill, Time.deltaTime * _lerpSpeed);
+            if (variacao > 0)
+                _currentFill += Mathf.Max(variacao, _lerpMin);
+            else
+                _currentFill += Mathf.Min(variacao, -_lerpMin);
             _hpBar.fillAmount = _currentFill;
+        }
+        else if (!_lancouAcaoFimUpdateVida)
+        {
+            _lancouAcaoFimUpdateVida = true;
+            HealthUpdateEnded?.Invoke();
         }
     }
 
@@ -35,6 +51,7 @@ public class PersonagemUI : MonoBehaviour
     private void UpdateHealth(int current, int max)
     {
         _targetFill = Mathf.Clamp01((float)current / max);
+        _lancouAcaoFimUpdateVida = false;
     }
 
     private void EffectUIApply(SkillEffects effects)
@@ -52,6 +69,9 @@ public class PersonagemUI : MonoBehaviour
                 break;
             case SkillEffects.STUN:
                 _stunImage.enabled = true;
+                break;
+            case SkillEffects.POISON:
+                _poisonImage.enabled = true;
                 break;
         }
     }
@@ -71,6 +91,9 @@ public class PersonagemUI : MonoBehaviour
                 break;
             case SkillEffects.STUN:
                 _stunImage.enabled = false;
+                break;
+            case SkillEffects.POISON:
+                _poisonImage.enabled = false;
                 break;
         }
     }

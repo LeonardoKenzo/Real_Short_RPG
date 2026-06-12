@@ -280,8 +280,15 @@ public class SistemaBatalha : MonoBehaviour
             }
             case EstadoBatalha.ENEMY_END:
             {
-                _estado = EstadoBatalha.START;
                 EventosGlobais.FimRodada.Invoke();
+
+                if (_herois.Count == 0)
+                    _estado = EstadoBatalha.LOSE;
+                else if (_inimigos.Count == 0)
+                    _estado = EstadoBatalha.WIN;
+                else
+                    _estado = EstadoBatalha.START;
+
                 break;
             }
             case EstadoBatalha.WIN:
@@ -303,11 +310,13 @@ public class SistemaBatalha : MonoBehaviour
 
     private void PersonagemHoverEnter(GameObject personagem)
     {
-        if (_estado == EstadoBatalha.PLAYER_ANIM || _estado == EstadoBatalha.ENEMY_ANIM)
-        {
-            _objetosHoverDuranteAnim.Add(personagem);
-        }
+        _objetosHoverDuranteAnim.Add(personagem);
 
+        ValidarPersonagemHoverEnter(personagem);
+    }
+
+    private void ValidarPersonagemHoverEnter(GameObject personagem)
+    {
         if (_estado != EstadoBatalha.PLAYER_TURN)
             return;
 
@@ -333,10 +342,7 @@ public class SistemaBatalha : MonoBehaviour
 
     private void PersonagemHoverExit(GameObject personagem)
     {
-        if (_estado == EstadoBatalha.PLAYER_ANIM || _estado == EstadoBatalha.ENEMY_ANIM)
-        {
-            _objetosHoverDuranteAnim.Remove(personagem);
-        }
+        _objetosHoverDuranteAnim.Remove(personagem);
 
         switch (_estadoJogador)
         {
@@ -430,11 +436,13 @@ public class SistemaBatalha : MonoBehaviour
 
     private void CartaHoverEnter(GameObject carta)
     {
-        if (_estado == EstadoBatalha.PLAYER_ANIM || _estado == EstadoBatalha.ENEMY_ANIM)
-        {
-            _objetosHoverDuranteAnim.Add(carta);
-        }
+        _objetosHoverDuranteAnim.Add(carta);
 
+        ValidarCartaHoverEnter(carta);
+    }
+
+    private void ValidarCartaHoverEnter(GameObject carta)
+    {
         if (_estado != EstadoBatalha.PLAYER_TURN || _estadoJogador == EstadoAcaojogador.EXECUTE_ACTION)
             return;
 
@@ -443,10 +451,7 @@ public class SistemaBatalha : MonoBehaviour
 
     private void CartaHoverExit(GameObject carta)
     {
-        if (_estado == EstadoBatalha.PLAYER_ANIM || _estado == EstadoBatalha.ENEMY_ANIM)
-        {
-            _objetosHoverDuranteAnim.Remove(carta);
-        }
+        _objetosHoverDuranteAnim.Remove(carta);
 
         carta.GetComponent<HabilidadesSelect>().CancelarHover();
     }
@@ -474,20 +479,28 @@ public class SistemaBatalha : MonoBehaviour
             {
                 if (carta == _cartaAtual)
                 {
-                    //Como o DesselecionarTodos cancela o Hover, precisa chamar aqui pra neutralizar
-                    DesselecionarTodos();
-                    carta.GetComponent<HabilidadesSelect>().ConfirmarHover();
-
                     _estadoJogador = EstadoAcaojogador.CHOOSE_SKILL;
+
+                    DesselecionarTodos();
+
+                    //Como o DesselecionarTodos cancela o Hover, precisa chamar aqui pra neutralizar
+                    _heroiAtacante.GetComponent<PersonagemSelect>().ConfirmarHover(TiposSelecao.Select);
+                    _heroiAtacante.GetComponent<PersonagemSelect>().ConfirmarSelecao(TiposSelecao.Select);
                 }
                 else
                 {
                     DesselecionarTodos();
 
+                    //Como o DesselecionarTodos cancela o Hover, precisa chamar aqui pra neutralizar
+                    _heroiAtacante.GetComponent<PersonagemSelect>().ConfirmarHover(TiposSelecao.Select);
+                    _heroiAtacante.GetComponent<PersonagemSelect>().ConfirmarSelecao(TiposSelecao.Select);
+
                     _cartaAtual = carta;
                     _habilidadeAtual = HabilidadesController.s_ReferenciaControladorHabilidades.GetHabilidadeCarta(_cartaAtual);
-                    carta.GetComponent<HabilidadesSelect>().ConfirmarSelecao();
+                    _cartaAtual.GetComponent<HabilidadesSelect>().ConfirmarHover();
+                    _cartaAtual.GetComponent<HabilidadesSelect>().ConfirmarSelecao();
                 }
+                
                 break;
             }
         }
@@ -495,6 +508,8 @@ public class SistemaBatalha : MonoBehaviour
 
     private void PersonagemMorreu(GameObject personagem)
     {
+        _objetosHoverDuranteAnim.Remove(personagem);
+
         if (_herois.Contains(personagem))
         {
             _herois.Remove(personagem);
@@ -512,8 +527,15 @@ public class SistemaBatalha : MonoBehaviour
                 _inimigosSelecionados.Remove(personagem);
         }
 
-
         Destroy(personagem);
+
+        if (_estado != EstadoBatalha.PLAYER_ANIM && _estado != EstadoBatalha.ENEMY_ANIM)
+        {
+            if (_herois.Count == 0)
+                _estado = EstadoBatalha.LOSE;
+            else if (_inimigos.Count == 0)
+                _estado = EstadoBatalha.WIN;
+        }
     }
 
     private Vector3 InstanciarPersonagem(PersonagemSO personagem, Transform parente, 
@@ -573,9 +595,9 @@ public class SistemaBatalha : MonoBehaviour
         foreach (GameObject objHover in _objetosHoverDuranteAnim)
         {
             if (_herois.Contains(objHover))
-                PersonagemHoverEnter(objHover);
+                ValidarPersonagemHoverEnter(objHover);
             else if (!_inimigos.Contains(objHover))
-                CartaHoverEnter(objHover);
+                ValidarCartaHoverEnter(objHover);
         }
         _objetosHoverDuranteAnim.Clear();
     }
