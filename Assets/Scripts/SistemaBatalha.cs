@@ -486,6 +486,7 @@ public class SistemaBatalha : MonoBehaviour
                     //Como o DesselecionarTodos cancela o Hover, precisa chamar aqui pra neutralizar
                     _heroiAtacante.GetComponent<PersonagemSelect>().ConfirmarHover(TiposSelecao.Select);
                     _heroiAtacante.GetComponent<PersonagemSelect>().ConfirmarSelecao(TiposSelecao.Select);
+                    carta.GetComponent<HabilidadesSelect>().ConfirmarHover();
                 }
                 else
                 {

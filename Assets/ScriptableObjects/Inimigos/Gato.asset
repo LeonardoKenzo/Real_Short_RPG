@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a71fabd21c2349041909c0acc5b2d05d, type: 3}
-  m_Name: Inimigo1
+  m_Name: Gato
   m_EditorClassIdentifier: Assembly-CSharp::PersonagemSO
-  _name: Inimigo 1
+  _name: Gato
   _hpMax: 5
   _speed: 0
   _classe: 1
   _skills:
   - {fileID: 11400000, guid: 8b11a3919c2a65049808ca6335e4b72b, type: 2}
-  _Prefab: {fileID: 7305786205940731812, guid: 182dca09fcd64334dbbaab72e6f35787, type: 3}
+  _Prefab: {fileID: 7305786205940731812, guid: a8bb0666a8b3b0b4dad9d9cbbdc023e1, type: 3}

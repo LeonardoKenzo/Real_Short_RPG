@@ -102,7 +102,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!1 &4047810671064733756
+--- !u!1 &3061754195619288195
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,10 +110,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4308427406027209931}
-  - component: {fileID: 5299837807272949714}
-  - component: {fileID: 201206409949252063}
-  - component: {fileID: 4674346907705703569}
+  - component: {fileID: 1988616914932327406}
+  - component: {fileID: 1021639283765763534}
+  - component: {fileID: 6436133635218662695}
+  - component: {fileID: 888861488612470201}
   m_Layer: 5
   m_Name: PoisonEffect
   m_TagString: Untagged
@@ -121,13 +121,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &4308427406027209931
+--- !u!224 &1988616914932327406
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4047810671064733756}
+  m_GameObject: {fileID: 3061754195619288195}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -140,21 +140,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!222 &5299837807272949714
+--- !u!222 &1021639283765763534
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4047810671064733756}
+  m_GameObject: {fileID: 3061754195619288195}
   m_CullTransparentMesh: 1
---- !u!114 &201206409949252063
+--- !u!114 &6436133635218662695
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4047810671064733756}
+  m_GameObject: {fileID: 3061754195619288195}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -178,13 +178,13 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4674346907705703569
+--- !u!114 &888861488612470201
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4047810671064733756}
+  m_GameObject: {fileID: 3061754195619288195}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
@@ -403,7 +403,7 @@ RectTransform:
   - {fileID: 8889840709265249174}
   - {fileID: 3835419543639833390}
   - {fileID: 6308609991838542802}
-  - {fileID: 4308427406027209931}
+  - {fileID: 1988616914932327406}
   m_Father: {fileID: 4976063281098951800}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -633,7 +633,7 @@ GameObject:
   - component: {fileID: 950066633438452444}
   - component: {fileID: 7244367368550268253}
   m_Layer: 5
-  m_Name: MinionCeifeiro
+  m_Name: Foguinho
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -648,7 +648,7 @@ RectTransform:
   m_GameObject: {fileID: 7305786205940731812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6269530134957859864}
@@ -688,7 +688,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bb0ceb6def76d574485d582a0115069e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1203bfec7f08bb04ba43e867650cf133, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -727,7 +727,7 @@ MonoBehaviour:
   _buffImage: {fileID: 5104388203644323369}
   _debuffImage: {fileID: 5675972238802992912}
   _shieldImage: {fileID: 633406637991166711}
-  _poisonImage: {fileID: 201206409949252063}
+  _poisonImage: {fileID: 6436133635218662695}
 --- !u!114 &950066633438452444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1088,14 +1088,14 @@ RectTransform:
   m_GameObject: {fileID: 9138809196104157126}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8333333, y: 0.8333333, z: 0.8333333}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3679501070445924816}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 82}
+  m_AnchoredPosition: {x: 0, y: 60}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &959409194124821839
@@ -1186,14 +1186,14 @@ RectTransform:
   m_GameObject: {fileID: 9170265169886873330}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8333333, y: 0.8333333, z: 0.8333333}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3679501070445924816}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 82}
+  m_AnchoredPosition: {x: 0, y: 60}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &5990592408589748622

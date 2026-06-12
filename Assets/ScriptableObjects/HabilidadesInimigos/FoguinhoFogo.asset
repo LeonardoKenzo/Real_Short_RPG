@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e201a3e0356b874ea3707969960468c, type: 3}
-  m_Name: EscuridaoInvocar
+  m_Name: FoguinhoFogo
   m_EditorClassIdentifier: Assembly-CSharp::HabilidadesSO
-  _skillName: Coroa Negra
+  _skillName: Fogo
   _skillDescription: 
   _actionCost: 0
   _cooldown: 0
-  _qtdAlvosAliados: 100
-  _qtdAlvosInimigos: 0
-  _dano: 0
-  _cura: 2
+  _qtdAlvosAliados: 0
+  _qtdAlvosInimigos: 1
+  _dano: 3
+  _cura: 0
   _shield: 0
   _forcaBuff: 0
   _duracaoBuff: 0
@@ -28,10 +28,9 @@ MonoBehaviour:
   _roundsStun: 0
   _forcaVeneno: 0
   _duracaoVeneno: 0
-  _qtdSummons: 1
-  _summons:
-  - {fileID: 11400000, guid: a30cfcb3c58438a498559a20e5f42434, type: 2}
+  _qtdSummons: 0
+  _summons: []
   _skillImage: {fileID: 0}
-  _skillEffect: 0100000007000000
-  _prefabAnimacao: {fileID: 138272565164924425, guid: 105e581b64c302b4b8f2a36512d46545, type: 3}
+  _skillEffect: 00000000
+  _prefabAnimacao: {fileID: 2328640049518909570, guid: a91328fa4d5b80840b601c87bebdec32, type: 3}
   _prefabAnimacaoSecundaria: {fileID: 0}

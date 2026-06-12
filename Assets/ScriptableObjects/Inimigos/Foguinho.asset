@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a71fabd21c2349041909c0acc5b2d05d, type: 3}
-  m_Name: Ceifeiro
+  m_Name: Foguinho
   m_EditorClassIdentifier: Assembly-CSharp::PersonagemSO
-  _name: Ceifeiro
-  _hpMax: 25
+  _name: Foguinho
+  _hpMax: 5
   _speed: 0
-  _classe: 2
+  _classe: 1
   _skills:
-  - {fileID: 11400000, guid: 160e7de2a1cfe2245b82bd262cd636e6, type: 2}
-  - {fileID: 11400000, guid: a5cfd489e740a9849bde74703deabfb4, type: 2}
-  _Prefab: {fileID: 7305786205940731812, guid: ca879e1091ee7e34783d72a49f5301ea, type: 3}
+  - {fileID: 11400000, guid: a44a0ffdf7ad8f649bfe62876a766b1e, type: 2}
+  _Prefab: {fileID: 7305786205940731812, guid: 182dca09fcd64334dbbaab72e6f35787, type: 3}
